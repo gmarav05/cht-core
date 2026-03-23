@@ -23,6 +23,10 @@ const DOC_TYPES = {
 // HTTP Headers
 const HTTP_HEADERS = {
   REQUEST_ID: 'X-Request-Id',
+  MEDIC_SERVICE: 'X-Medic-Service',
+  MEDIC_USER: 'X-Medic-User',
+  OPENROSA_VERSION: 'X-OpenRosa-Version',
+  CONTENT_TYPE_OPTIONS: 'X-Content-Type-Options',
 };
 
 // Sentinel Metadata
