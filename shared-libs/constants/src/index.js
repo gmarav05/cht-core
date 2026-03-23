@@ -9,6 +9,10 @@ const DOC_IDS = {
   PRIVACY_POLICIES: 'privacy-policies',
   PARTNERS: 'partners',
   BRANDING: 'branding',
+  TARGET_AGGREGATES: 'target-aggregates',
+  MIGRATION_LOG: 'migration-log',
+  EXTENSION_LIBS: 'extension-libs',
+  ZSCORE_CHARTS: 'zscore-charts',
 };
 
 // Contact Types
