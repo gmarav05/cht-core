@@ -7,6 +7,7 @@ import { ContactsService } from '@mm-services/contacts.service';
 import { ContactTypesService } from '@mm-services/contact-types.service';
 import { SettingsService } from '@mm-services/settings.service';
 import { DbService } from '@mm-services/db.service';
+import { CONTACT_TYPES } from '@medic/constants';
 
 describe('PlaceHierarchy Service', () => {
   let service:PlaceHierarchyService;
@@ -20,7 +21,7 @@ describe('PlaceHierarchy Service', () => {
     const placeTypes = [
       { id: 'district_hospital' },
       { id: 'health_center', parents: [ 'district_hospital' ] },
-      { id: 'clinic', parents: [ 'health_center' ] }
+      { id: CONTACT_TYPES.CLINIC, parents: [ 'health_center' ] }
     ];
     contactTypesService = { getPlaceTypes: sinon.stub().resolves(placeTypes) };
     settingsService =  { get: sinon.stub().resolves({}) };
@@ -135,7 +136,7 @@ describe('PlaceHierarchy Service', () => {
 
   it('supports hoisting restricted hierarchies', () => {
     // Use case: a CHW with only access to their own clinic
-    const clinic = { _id: 'clinic', parent: {_id: 'health_center', parent: {_id: 'district_hospital'}}};
+    const clinic = { _id: CONTACT_TYPES.CLINIC, parent: {_id: 'health_center', parent: {_id: 'district_hospital'}}};
     contactService.get.resolves([clinic]);
     return service.get().then(actual => {
       expect(actual).to.deep.equal([{
@@ -146,7 +147,7 @@ describe('PlaceHierarchy Service', () => {
   });
 
   it('only hoists when there is one stub child', () => {
-    const clinic1 = { _id: 'clinic', parent: {_id: 'health_center', parent: {_id: 'district_hospital'}}};
+    const clinic1 = { _id: CONTACT_TYPES.CLINIC, parent: {_id: 'health_center', parent: {_id: 'district_hospital'}}};
     const clinic2 = { _id: 'clinic2', parent: {_id: 'health_center2', parent: {_id: 'district_hospital'}}};
     const health_center = {_id: 'health_center', parent: {_id: 'district_hospital'}};
 

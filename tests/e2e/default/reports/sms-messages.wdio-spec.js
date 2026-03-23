@@ -9,7 +9,7 @@ const { CONTACT_TYPES } = require('@medic/constants');
 
 describe('Reports tab messages', () => {
   const places = placeFactory.generateHierarchy();
-  const clinic = places.get('clinic');
+  const clinic = places.get(CONTACT_TYPES.CLINIC);
   const healthCenter = places.get(CONTACT_TYPES.HEALTH_CENTER);
 
   const contact = personFactory.build({ phone: '+12068881234', parent: healthCenter });
@@ -34,7 +34,7 @@ describe('Reports tab messages', () => {
             type: 'ANC Reminders LMP',
             translation_key: 'instance.upgrade.version',
             message_key: 'messages.c.report_accepted',
-            recipient: 'clinic',
+            recipient: CONTACT_TYPES.CLINIC,
             state_history: [{
               state: 'scheduled',
               timestamp: '2024-02-26T10:42:41.080Z'

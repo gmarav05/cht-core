@@ -24,7 +24,7 @@ const contacts = [
     reported_date: new Date().getTime()
   },
   {
-    _id: 'clinic',
+    _id: CONTACT_TYPES.CLINIC,
     name: 'Clinic',
     type: 'contact',
     contact_type: 'clinic',
@@ -33,7 +33,7 @@ const contacts = [
     contact: {
       _id: 'person',
       parent: {
-        _id: 'clinic',
+        _id: CONTACT_TYPES.CLINIC,
         parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } }
       }
     },
@@ -45,7 +45,8 @@ const contacts = [
     type: 'contact',
     contact_type: 'person',
     patient_id: 'patient',
-    parent: { _id: 'clinic', parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } },
+    parent: { _id: CONTACT_TYPES.CLINIC, 
+      parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } },
     phone: '+444999',
     reported_date: new Date().getTime()
   },
@@ -215,7 +216,8 @@ describe('schedules alternative start_from', () => {
       reported_date: moment().valueOf(),
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
+        parent: { _id: CONTACT_TYPES.CLINIC, 
+          parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       }
     };
 

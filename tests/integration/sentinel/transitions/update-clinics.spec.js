@@ -2,7 +2,7 @@ const utils = require('@utils');
 const sentinelUtils = require('@utils/sentinel');
 const uuid = require('uuid').v4;
 const { expect } = require('chai');
-const { DOC_TYPES } = require('@medic/constants');
+const { CONTACT_TYPES, DOC_TYPES } = require('@medic/constants');
 
 describe('update_clinics', () => {
   after(() => utils.revertDb([], true));
@@ -218,8 +218,8 @@ describe('update_clinics', () => {
         reported_date: new Date().getTime(),
       },
       {
-        _id: 'clinic',
-        type: 'clinic',
+        _id: CONTACT_TYPES.CLINIC,
+        type: CONTACT_TYPES.CLINIC,
         rc_code: 'sms_clinic',
         contact: { _id: 'person' },
         reported_date: new Date().getTime(),

@@ -1,6 +1,7 @@
 import { assert } from 'chai';
 import sinon from 'sinon';
 import { FormatProvider } from '@mm-providers/format.provider';
+import { CONTACT_TYPES } from '@medic/constants';
 
 let translate;
 let format;
@@ -27,7 +28,7 @@ describe('lineage', () => {
     });
 
     it('returns list items for each given string', () => {
-      const given = ['clinic', 'district'];
+      const given = [CONTACT_TYPES.CLINIC, 'district'];
       const actual = format.lineage(given);
       assert.equal(actual, '<ol class="horizontal lineage"><li>clinic</li><li>district</li></ol>');
     });

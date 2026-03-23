@@ -9,6 +9,7 @@ import logger from '@medic/logger';
 import { InvalidArgumentError, ResourceNotFoundError } from '../libs/error';
 import { assertFieldsUnchanged, getReportedDateTimestamp, validateCursor } from './libs/core';
 import * as Input from '../input';
+import { CONTACT_TYPES } from '@medic/constants';
 import {
   assertHasValidParentType,
   assertSameParentLineage,
@@ -27,7 +28,7 @@ const DEFAULT_PLACE_TYPES_DICT: Record<string, { id: string, parents?: string[],
     parents: ['district_hospital'],
   },
   clinic: {
-    id: 'clinic',
+    id: CONTACT_TYPES.CLINIC,
     parents: ['health_center'],
   },
 };

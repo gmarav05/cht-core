@@ -78,7 +78,7 @@ describe('Muting transition', () => {
     });
 
     it('should return false for valid docs but not valid submissions', () => {
-      config.get.withArgs('contact_types').returns([{ id: 'person' }, { id: 'clinic' } ]);
+      config.get.withArgs('contact_types').returns([{ id: 'person' }, { id: CONTACT_TYPES.CLINIC } ]);
       config.get.withArgs('muting').returns({ mute_forms: ['formA', 'formB'], unmute_forms: ['formC', 'formD'] });
       transitionUtils.hasRun.returns(false);
       sinon.stub(utils, 'isValidSubmission').returns(false);
@@ -99,14 +99,15 @@ describe('Muting transition', () => {
     });
 
     it('should return false for invalid contacts', () => {
-      config.getAll.returns({ contact_types: [{ id: 'person' }, { id: 'clinic' } ] });
+      config.getAll.returns({ contact_types: [{ id: 'person' }, { id: CONTACT_TYPES.CLINIC } ] });
       mutingUtils.isMutedInLineage.returns(false);
       chai.expect(transition.filter({ doc: { muted: false }, info: {} })).to.equal(false); // not a contact
       chai.expect(transition.filter({ doc: { muted: false, type: 'something' }, info: {} }))
         .to.equal(false); // not a contact
       chai.expect(transition.filter({ doc: { muted: false, type: 'person'}, info: { initial_replication_date: 1 } }))
         .to.equal(false);
-      chai.expect(transition.filter({ doc: { muted: false, type: 'clinic'}, info: { initial_replication_date: 2 } }))
+      chai.expect(transition.filter({ doc: { muted: false, 
+        type: CONTACT_TYPES.CLINIC}, info: { initial_replication_date: 2 } }))
         .to.equal(false);
       chai.expect(transition.filter({
         doc: { muted: false, type: 'thing', contact_type: 'other thing'},
@@ -119,7 +120,7 @@ describe('Muting transition', () => {
       chai.expect(mutingUtils.isMutedInLineage.callCount).to.equal(2);
       chai.expect(mutingUtils.isMutedInLineage.args).to.deep.equal([
         [{ muted: false, type: 'person' }, 1],
-        [{ muted: false, type: 'clinic' }, 2]
+        [{ muted: false, type: CONTACT_TYPES.CLINIC }, 2]
       ]);
     });
 
@@ -127,7 +128,7 @@ describe('Muting transition', () => {
       config.getAll.returns({
         contact_types: [
           { id: 'person' },
-          { id: 'clinic' },
+          { id: CONTACT_TYPES.CLINIC },
           { id: CONTACT_TYPES.HEALTH_CENTER },
           { id: 'district_hospital' }
         ]
@@ -135,7 +136,8 @@ describe('Muting transition', () => {
       mutingUtils.isMutedInLineage.returns(true);
       chai.expect(transition.filter({ doc: { muted: false, type: 'person' }, info: { initial_replication_date: 1 } }))
         .to.equal(true);
-      chai.expect(transition.filter({ doc: { muted: false, type: 'clinic' }, info: { initial_replication_date: 2 }}))
+      chai.expect(transition.filter({ doc: { muted: false, 
+        type: CONTACT_TYPES.CLINIC }, info: { initial_replication_date: 2 }}))
         .to.equal(true);
       chai.expect(transition.filter({
         doc: { muted: false, type: 'district_hospital' },
@@ -146,17 +148,17 @@ describe('Muting transition', () => {
         info: { initial_replication_date: 4 }
       })).to.equal(true);
       chai.expect(transition.filter({
-        doc: { muted: false, type: 'clinic', contact_type: 'm' },
+        doc: { muted: false, type: CONTACT_TYPES.CLINIC, contact_type: 'm' },
         info: { initial_replication_date: 7 }
       })).to.equal(true);
 
       chai.expect(mutingUtils.isMutedInLineage.callCount).to.equal(5);
       chai.expect(mutingUtils.isMutedInLineage.args).to.deep.equal([
         [{ muted: false, type: 'person' }, 1],
-        [{ muted: false, type: 'clinic' }, 2],
+        [{ muted: false, type: CONTACT_TYPES.CLINIC }, 2],
         [{ muted: false, type: 'district_hospital' }, 3],
         [{ muted: false, type: CONTACT_TYPES.HEALTH_CENTER }, 4],
-        [{ muted: false, type: 'clinic', contact_type: 'm' }, 7]
+        [{ muted: false, type: CONTACT_TYPES.CLINIC, contact_type: 'm' }, 7]
       ]);
     });
 
@@ -164,7 +166,7 @@ describe('Muting transition', () => {
       config.getAll.returns({
         contact_types: [
           { id: 'person' },
-          { id: 'clinic' },
+          { id: CONTACT_TYPES.CLINIC },
           { id: CONTACT_TYPES.HEALTH_CENTER },
           { id: 'district_hospital' }
         ]

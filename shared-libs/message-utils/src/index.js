@@ -34,7 +34,7 @@ const getLinkedDoc = (doc, tag) => {
 };
 
 const getClinic = function(doc) {
-  return doc && getParent(doc, 'clinic');
+  return doc && getParent(doc, CONTACT_TYPES.CLINIC);
 };
 
 const getHealthCenter = function(doc) {
@@ -175,8 +175,8 @@ const resolveRecipient = function(context, recipient) {
       resolve: () => resolveAncestor(context, 3),
     },
     {
-      name: 'clinic',
-      match: r => r === 'clinic',
+      name: CONTACT_TYPES.CLINIC,
+      match: r => r === CONTACT_TYPES.CLINIC,
       resolve: () => getClinicPhone(context.patient) ||
         getClinicPhone(context.place) ||
         getClinicPhone(context) ||
@@ -351,7 +351,7 @@ const truncateMessage = function(parts, max) {
  * @param {Object} content An object with one of `translationKey` or a `messages`
  *        array for translation, or an already prepared `message` string.
  * @param {String|String[]} recipient A recipient definition. This can be a string or an array of recipients.
- *        String or String value can be one of: 'reporting_unit', 'clinic', 'parent', 'grandparent',
+ *        String or String value can be one of: 'reporting_unit', CONTACT_TYPES.CLINIC, 'parent', 'grandparent',
  *        the name of a property in `fields` or on the doc, a valid phone number directly, a path to a
  *        property on the doc.
  *        If an array is provided, each entry is tried in order and the first successfully resolved phone number 

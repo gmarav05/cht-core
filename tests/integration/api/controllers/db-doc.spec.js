@@ -77,14 +77,14 @@ const clinics = [
   {
     _id: 'fixture:offline:clinic',
     name: 'offline clinic',
-    type: 'clinic',
+    type: CONTACT_TYPES.CLINIC,
     parent: { _id: 'fixture:offline', parent: { _id: 'PARENT_PLACE' } },
     reported_date: 1
   },
   {
     _id: 'fixture:online:clinic',
     name: 'online clinic',
-    type: 'clinic',
+    type: CONTACT_TYPES.CLINIC,
     parent: { _id: 'fixture:online', parent: { _id: 'PARENT_PLACE' } },
     reported_date: 1
   },
@@ -235,14 +235,14 @@ describe('db-doc handler', () => {
 
     it('PUT', () => {
       return utils
-        .saveDoc({ _id: 'db_doc_put', type: 'clinic', name: 'my clinic' })
+        .saveDoc({ _id: 'db_doc_put', type: CONTACT_TYPES.CLINIC, name: 'my clinic' })
         .then(result => {
           Object.assign(onlineRequestOptions, {
             method: 'PUT',
             path: '/db_doc_put',
             body: {
               _id: 'db_doc_put',
-              type: 'clinic',
+              type: CONTACT_TYPES.CLINIC,
               name: 'my updated clinic',
               _rev: result.rev,
             },
@@ -257,7 +257,7 @@ describe('db-doc handler', () => {
         .then(result => {
           chai.expect(result).to.include({
             _id: 'db_doc_put',
-            type: 'clinic',
+            type: CONTACT_TYPES.CLINIC,
             name: 'my updated clinic',
           });
         });
@@ -265,7 +265,7 @@ describe('db-doc handler', () => {
 
     it('DELETE', () => {
       return utils
-        .saveDoc({ _id: 'db_doc_delete', type: 'clinic', name: 'my clinic' })
+        .saveDoc({ _id: 'db_doc_delete', type: CONTACT_TYPES.CLINIC, name: 'my clinic' })
         .then(result => {
           Object.assign(onlineRequestOptions, {
             method: 'DELETE',
@@ -517,7 +517,7 @@ describe('db-doc handler', () => {
       const docs = [
         {
           _id: 'existing_clinic', // depth 1
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           parent: { _id: 'fixture:offline', parent: { _id: 'PARENT_PLACE' } },
           contact: { _id: 'existing_person' }
         },
@@ -555,7 +555,7 @@ describe('db-doc handler', () => {
         },
         {
           _id: 'existing_clinic2', // depth 1
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           parent: { _id: 'fixture:offline', parent: { _id: 'PARENT_PLACE' } },
           contact: { _id: 'existing_person2' }
         },
@@ -985,19 +985,19 @@ describe('db-doc handler', () => {
       const docs = [
         {
           _id: 'a1_revs',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           parent: { _id: 'fixture:offline' },
           name: 'Allowed Contact 1',
         },
         {
           _id: 'd1_revs',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           parent: { _id: 'fixture:online' },
           name: 'Denied Contact 1',
         },
         {
           _id: 'd2_revs',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           parent: { _id: 'fixture:online' },
           name: 'Denied Contact 2',
         },
@@ -1074,13 +1074,13 @@ describe('db-doc handler', () => {
         .saveDocs([
           {
             _id: 'allowed_attach',
-            type: 'clinic',
+            type: CONTACT_TYPES.CLINIC,
             parent: { _id: 'fixture:offline' },
             name: 'allowed attach',
           },
           {
             _id: 'denied_attach',
-            type: 'clinic',
+            type: CONTACT_TYPES.CLINIC,
             parent: { _id: 'fixture:online' },
             name: 'denied attach',
           },
@@ -1391,13 +1391,13 @@ describe('db-doc handler', () => {
 
       const allowedDoc = {
         _id: 'allowed_doc_post',
-        type: 'clinic',
+        type: CONTACT_TYPES.CLINIC,
         parent: { _id: 'fixture:offline' },
         name: 'allowed',
       };
       const deniedDoc = {
         _id: 'denied_doc_post',
-        type: 'clinic',
+        type: CONTACT_TYPES.CLINIC,
         parent: { _id: 'fixture:online' },
         name: 'denied',
       };
@@ -1608,25 +1608,25 @@ describe('db-doc handler', () => {
       const docs = [
         {
           _id: 'a_put_1',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           parent: { _id: 'fixture:offline' },
           name: 'a1',
         },
         {
           _id: 'a_put_2',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           parent: { _id: 'fixture:offline' },
           name: 'a2',
         },
         {
           _id: 'd_put_1',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           parent: { _id: 'fixture:online' },
           name: 'd1',
         },
         {
           _id: 'd_put_2',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           parent: { _id: 'fixture:online' },
           name: 'd2',
         },
@@ -1638,13 +1638,13 @@ describe('db-doc handler', () => {
           const updates = [
             {
               _id: 'n_put_1',
-              type: 'clinic',
+              type: CONTACT_TYPES.CLINIC,
               parent: { _id: 'fixture:offline' },
               name: 'n1',
             }, // new allowed
             {
               _id: 'n_put_2',
-              type: 'clinic',
+              type: CONTACT_TYPES.CLINIC,
               parent: { _id: 'fixture:online' },
               name: 'n2',
             }, // new denied
@@ -1687,25 +1687,25 @@ describe('db-doc handler', () => {
       const docs = [
         {
           _id: 'a_put_del_1',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           parent: { _id: 'fixture:offline' },
           name: 'a1',
         },
         {
           _id: 'a_put_del_2',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           parent: { _id: 'fixture:offline' },
           name: 'a2',
         },
         {
           _id: 'd_put_del_1',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           parent: { _id: 'fixture:online' },
           name: 'd1',
         },
         {
           _id: 'd_put_del_2',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           parent: { _id: 'fixture:online' },
           name: 'd2',
         },
@@ -1952,13 +1952,13 @@ describe('db-doc handler', () => {
         .saveDocs([
           {
             _id: 'allowed_del',
-            type: 'clinic',
+            type: CONTACT_TYPES.CLINIC,
             parent: { _id: 'fixture:offline' },
             name: 'allowed',
           },
           {
             _id: 'denied_del',
-            type: 'clinic',
+            type: CONTACT_TYPES.CLINIC,
             parent: { _id: 'fixture:online' },
             name: 'denied',
           },
@@ -1983,7 +1983,7 @@ describe('db-doc handler', () => {
           });
           chai.expect(results[1]).to.deep.include({
             _id: 'denied_del',
-            type: 'clinic',
+            type: CONTACT_TYPES.CLINIC,
             parent: { _id: 'fixture:online' },
             name: 'denied',
           });
@@ -2001,13 +2001,13 @@ describe('db-doc handler', () => {
         .saveDocs([
           {
             _id: 'allowed_attach',
-            type: 'clinic',
+            type: CONTACT_TYPES.CLINIC,
             parent: { _id: 'fixture:offline' },
             name: 'allowed attach',
           },
           {
             _id: 'denied_attach',
-            type: 'clinic',
+            type: CONTACT_TYPES.CLINIC,
             parent: { _id: 'fixture:online' },
             name: 'denied attach',
           },
@@ -2131,13 +2131,13 @@ describe('db-doc handler', () => {
         .saveDocs([
           {
             _id: 'allowed_attach_1',
-            type: 'clinic',
+            type: CONTACT_TYPES.CLINIC,
             parent: { _id: 'fixture:offline' },
             name: 'allowed attach',
           },
           {
             _id: 'denied_attach_1',
-            type: 'clinic',
+            type: CONTACT_TYPES.CLINIC,
             parent: { _id: 'fixture:online' },
             name: 'denied attach',
           },
@@ -2234,13 +2234,13 @@ describe('db-doc handler', () => {
         .saveDocs([
           {
             _id: 'a_with_attachments',
-            type: 'clinic',
+            type: CONTACT_TYPES.CLINIC,
             parent: { _id: 'fixture:offline' },
             name: 'allowed attach',
           },
           {
             _id: 'd_with_attachments',
-            type: 'clinic',
+            type: CONTACT_TYPES.CLINIC,
             parent: { _id: 'fixture:online' },
             name: 'denied attach',
           },
@@ -2301,25 +2301,25 @@ describe('db-doc handler', () => {
       const docs = [
         {
           _id: 'a_put_1',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           parent: { _id: 'fixture:offline' },
           name: 'a1',
         },
         {
           _id: 'a_put_2',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           parent: { _id: 'fixture:offline' },
           name: 'a2',
         },
         {
           _id: 'd_put_1',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           parent: { _id: 'fixture:online' },
           name: 'd1',
         },
         {
           _id: 'd_put_2',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           parent: { _id: 'fixture:online' },
           name: 'd2',
         },
@@ -2329,8 +2329,10 @@ describe('db-doc handler', () => {
         .saveDocsRevs(docs)
         .then(() => {
           const updates = [
-            { _id: 'n_put_1', type: 'clinic', parent: { _id: 'fixture:offline' }, name: 'n1' }, // new allowed
-            { _id: 'n_put_2', type: 'clinic', parent: { _id: 'fixture:online' }, name: 'n2' }, // new denied
+            { _id: 'n_put_1', 
+              type: CONTACT_TYPES.CLINIC, parent: { _id: 'fixture:offline' }, name: 'n1' }, // new allowed
+            { _id: 'n_put_2', 
+              type: CONTACT_TYPES.CLINIC, parent: { _id: 'fixture:online' }, name: 'n2' }, // new denied
             _.defaults({ name: 'a1 updated' }, docs[0]), // stored allowed, new allowed
             _.defaults({ name: 'a2 updated', parent: { _id: 'fixture:online' } }, docs[1]), // stored ok, new denied
             _.defaults({ name: 'd1 updated' }, docs[2]), // stored denied, new denied
