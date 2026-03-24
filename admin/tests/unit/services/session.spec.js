@@ -1,3 +1,5 @@
+const { USER_ROLES } = require('@medic/constants');
+
 describe('Session service', function() {
 
   'use strict';
@@ -149,7 +151,7 @@ describe('Session service', function() {
     });
 
     it('returns true for _admin', function(done) {
-      ipCookie.returns({ roles: [ '_admin' ] });
+      ipCookie.returns({ roles: [USER_ROLES.COUCHDB_ADMIN] });
       const actual = service.isAdmin();
       chai.expect(actual).to.equal(true);
       done();

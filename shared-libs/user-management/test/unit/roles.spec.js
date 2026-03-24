@@ -36,9 +36,9 @@ describe('roles', () => {
 
     it('should return true when online role is found', () => {
       const scenarios = [
-        ['_admin'],
-        ['_admin', 'other_role'],
-        ['chw', '_admin'],
+        [USER_ROLES.COUCHDB_ADMIN],
+        [USER_ROLES.COUCHDB_ADMIN, 'other_role'],
+        ['chw', USER_ROLES.COUCHDB_ADMIN],
         [USER_ROLES.ONLINE],
         [USER_ROLES.ONLINE, 'other'],
         ['not-mm-online', USER_ROLES.ONLINE],
@@ -53,10 +53,10 @@ describe('roles', () => {
   describe('isOnlineOnly', () => {
 
     it('checks for "admin" role', () => {
-      chai.expect(roles.isOnlineOnly({ roles: ['_admin'] })).to.equal(true);
-      chai.expect(roles.isOnlineOnly({ roles: ['_admin', 'some_role'] })).to.equal(true);
-      chai.expect(roles.isOnlineOnly({ roles: ['admin'] })).to.equal(true);
-      chai.expect(roles.isOnlineOnly({ roles: ['admin', 'some_role'] })).to.equal(true);
+      chai.expect(roles.isOnlineOnly({ roles: [USER_ROLES.COUCHDB_ADMIN] })).to.equal(true);
+      chai.expect(roles.isOnlineOnly({ roles: [USER_ROLES.COUCHDB_ADMIN, 'some_role'] })).to.equal(true);
+      chai.expect(roles.isOnlineOnly({ roles: [USER_ROLES.ADMIN] })).to.equal(true);
+      chai.expect(roles.isOnlineOnly({ roles: [USER_ROLES.ADMIN, 'some_role'] })).to.equal(true);
     });
 
     it('checks "national_admin" role', () => {
@@ -116,8 +116,8 @@ describe('roles', () => {
 
     it('should return false for db admins', () => {
       config.get.withArgs('roles').returns({ roleA: { offline: true }, roleB: { offline: false }});
-      chai.expect(roles.isOffline(['_admin'])).to.equal(false);
-      chai.expect(roles.isOffline(['admin'])).to.equal(false);
+      chai.expect(roles.isOffline([USER_ROLES.COUCHDB_ADMIN])).to.equal(false);
+      chai.expect(roles.isOffline([USER_ROLES.ADMIN])).to.equal(false);
     });
 
     it('should return false for mm-online role', () => {
@@ -133,8 +133,8 @@ describe('roles', () => {
 
   describe('hasAllPermissions', () => {
     it('should return true for db admin', () => {
-      chai.expect(roles.hasAllPermissions(['_admin'], 'permission')).to.equal(true);
-      chai.expect(roles.hasAllPermissions(['admin'], 'permission')).to.equal(true);
+      chai.expect(roles.hasAllPermissions([USER_ROLES.COUCHDB_ADMIN], 'permission')).to.equal(true);
+      chai.expect(roles.hasAllPermissions([USER_ROLES.ADMIN], 'permission')).to.equal(true);
     });
 
     it('should return false for no permissions', () => {
