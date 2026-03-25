@@ -31,7 +31,7 @@ const SENTINEL_METADATA = {
   BACKGROUND_SEQ: '_local/background-seq',
   PURGE_LOG: '_local/purge_log',
   PURGE_DB_INFO: '_local/info',
-  META_DATA: '_local/sentinel-meta-data',
+  LEGACY_META_DATA: '_local/sentinel-meta-data',
 };
 
 // User Roles

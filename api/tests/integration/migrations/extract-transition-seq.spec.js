@@ -5,7 +5,7 @@ const utils = require('./utils');
 const db = require('../../../src/db');
 const TRANSITION_SEQ_DOCUMENT = SENTINEL_METADATA.TRANSITIONS_SEQ;
 const BACKGROUND_CLEANUP_SEQ_DOCUMENT = SENTINEL_METADATA.BACKGROUND_SEQ;
-const METADATA_DOCUMENT = SENTINEL_METADATA.META_DATA;
+const { LEGACY_META_DATA: METADATA_DOCUMENT } = SENTINEL_METADATA;
 const OLD_METADATA_DOCUMENT = 'sentinel-meta-data';
 const MIGRATION = 'extract-transition-seq';
 
