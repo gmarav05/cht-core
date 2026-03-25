@@ -153,7 +153,8 @@ describe('replications', () => {
         assert.deepEqual(db.close.args, [[source], [source], [source], [target]]);
 
         assert.equal(source.get.callCount, 3);
-        assert.deepEqual(source.get.args, [[SENTINEL_METADATA.PURGE_LOG], [SENTINEL_METADATA.PURGE_LOG], [SENTINEL_METADATA.PURGE_LOG]]);
+        assert.deepEqual(source.get.args, 
+          [[SENTINEL_METADATA.PURGE_LOG], [SENTINEL_METADATA.PURGE_LOG], [SENTINEL_METADATA.PURGE_LOG]]);
       });
     });
 

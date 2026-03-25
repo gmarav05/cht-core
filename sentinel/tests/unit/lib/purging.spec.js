@@ -167,7 +167,9 @@ describe('ServerSidePurge', () => {
         chai.expect(purgedb.put.callCount).to.equal(3);
         chai.expect(purgedb.put.calledWith({ _id: SENTINEL_METADATA.PURGE_DB_INFO, roles: ['1'] })).to.equal(true);
         chai.expect(purgedb.put.calledWith({ _id: SENTINEL_METADATA.PURGE_DB_INFO, roles: ['2', '3'] })).to.equal(true);
-        chai.expect(purgedb.put.calledWith({ _id: SENTINEL_METADATA.PURGE_DB_INFO, roles: ['4', '5', '6'] })).to.equal(true);
+        chai.expect(
+          purgedb.put.calledWith({ _id: SENTINEL_METADATA.PURGE_DB_INFO, roles: ['4', '5', '6'] })
+        ).to.equal(true);
       });
     });
 
