@@ -4,7 +4,7 @@ import { expect } from 'chai';
 import { HttpClient } from '@angular/common/http';
 import { of, throwError } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
-import { USER_ROLES } from '@medic/constants';
+import { USER_ROLES } from '../../../../../shared-libs/constants';
 
 import { SessionService } from '@mm-services/session.service';
 import { LocationService } from '@mm-services/location.service';

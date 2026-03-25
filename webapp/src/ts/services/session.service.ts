@@ -5,7 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { DOCUMENT } from '@angular/common';
 
 import { LocationService } from '@mm-services/location.service';
-import { USER_ROLES } from '@medic/constants';
+import { USER_ROLES } from '../../../../shared-libs/constants';
 
 const COOKIE_NAME = 'userCtx';
 const ONLINE_ROLE = USER_ROLES.ONLINE;

@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import sinon from 'sinon';
 import { expect } from 'chai';
 import { of } from 'rxjs';
-import { USER_ROLES } from '@medic/constants';
+import { USER_ROLES } from '../../../../../shared-libs/constants';
 
 import { HttpClient } from '@angular/common/http';
 import { SessionService } from '@mm-services/session.service';
