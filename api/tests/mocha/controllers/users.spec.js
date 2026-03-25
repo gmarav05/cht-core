@@ -10,7 +10,7 @@ const db = require('../../../src/db');
 const dataContext = require('../../../src/services/data-context');
 const { roles, users } = require('@medic/user-management')(config, db, dataContext);
 const replicationLimitLog = require('../../../src/services/replication-limit-log');
-const { USER_ROLES } = require('@medic/constants');
+const { USER_ROLES: { COUCHDB_ADMIN, ADMIN } } = require('@medic/constants');
 
 let req;
 let userCtx;
@@ -195,7 +195,7 @@ describe('Users Controller', () => {
 
     beforeEach(() => {
       userList = [
-        { id: 'org.couchdb.user:admin', roles: [USER_ROLES.COUCHDB_ADMIN] },
+        { id: 'org.couchdb.user:admin', roles: [COUCHDB_ADMIN] },
         {
           id: 'org.couchdb.user:chw',
           roles: ['chw', 'district-admin'],
@@ -251,7 +251,7 @@ describe('Users Controller', () => {
         const result = res.json.args[0][0];
         chai.expect(result[0].id).to.equal('org.couchdb.user:admin');
         chai.expect(result[0].type).to.be.undefined;
-        chai.expect(result[0].roles).to.deep.equal([USER_ROLES.COUCHDB_ADMIN]);
+        chai.expect(result[0].roles).to.deep.equal([COUCHDB_ADMIN]);
         chai.expect(result[1].id).to.equal('org.couchdb.user:chw');
         chai.expect(result[1].type).to.be.undefined;
         chai.expect(result[1].roles).to.deep.equal([ 'chw', 'district-admin' ]);
@@ -319,7 +319,7 @@ describe('Users Controller', () => {
 
   describe('info', () => {
     beforeEach(() => {
-      userCtx = { name: 'user', roles: [USER_ROLES.ADMIN] };
+      userCtx = { name: 'user', roles: [ADMIN] };
       req = { query: {}, userCtx };
       res = { json: sinon.stub() };
     });

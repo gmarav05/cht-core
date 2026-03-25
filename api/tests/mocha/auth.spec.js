@@ -6,7 +6,7 @@ const auth = require('../../src/auth');
 const config = require('../../src/config');
 const environment = require('@medic/environment');
 const { PermissionError } = require('../../src/errors');
-const { USER_ROLES } = require('@medic/constants');
+const { USER_ROLES: { COUCHDB_ADMIN } } = require('@medic/constants');
 
 let req;
 
@@ -80,7 +80,7 @@ describe('Auth', () => {
     });
 
     it('returns username for admin', () => {
-      const userCtx = { userCtx: { name: 'steve', roles: [USER_ROLES.COUCHDB_ADMIN] } };
+      const userCtx = { userCtx: { name: 'steve', roles: [COUCHDB_ADMIN] } };
       const get = sinon.stub(request, 'get').resolves(userCtx);
       return auth.check({headers: []}, 'can_edit').then(ctx => {
         chai.expect(get.callCount).to.equal(1);
@@ -273,7 +273,7 @@ describe('Auth', () => {
     });
 
     it('succeeds for admin user regardless of permissions', async () => {
-      userCtx.roles.push(USER_ROLES.COUCHDB_ADMIN);
+      userCtx.roles.push(COUCHDB_ADMIN);
       config.get.returns({
         can_edit: ['other_role'],
       });

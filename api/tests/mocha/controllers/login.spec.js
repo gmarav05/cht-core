@@ -4,7 +4,7 @@ const fs = require('fs');
 const chai = require('chai');
 const sinon = require('sinon');
 const request = require('@medic/couch-request');
-const { USER_ROLES } = require('@medic/constants');
+const { USER_ROLES: { COUCHDB_ADMIN } } = require('@medic/constants');
 
 const environment = require('@medic/environment');
 const auth = require('../../../src/auth');
@@ -1014,7 +1014,7 @@ describe('login controller', () => {
       sinon.stub(res, 'send');
       sinon.stub(res, 'status').returns(res);
       sinon.stub(users, 'createAdmin').resolves();
-      const userCtx = { name: 'shazza', roles: [USER_ROLES.COUCHDB_ADMIN] };
+      const userCtx = { name: 'shazza', roles: [COUCHDB_ADMIN] };
       sinon.stub(users, 'getUserDoc').resolves({});
       sinon.stub(auth, 'getUserCtx').resolves(userCtx);
       roles.isOnlineOnly.returns(true);
@@ -1047,7 +1047,7 @@ describe('login controller', () => {
       sinon.stub(res, 'status').returns(res);
       sinon.stub(res, 'json').returns(res);
       sinon.stub(users, 'createAdmin').resolves();
-      const userCtx = { name: 'shazza', roles: [USER_ROLES.COUCHDB_ADMIN] };
+      const userCtx = { name: 'shazza', roles: [COUCHDB_ADMIN] };
       sinon.stub(users, 'getUserDoc').resolves({ oidc_username: 'true' });
       sinon.stub(auth, 'getUserCtx').resolves(userCtx);
       roles.isOnlineOnly.returns(true);
