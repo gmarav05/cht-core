@@ -36,4 +36,3 @@ angular.module('inboxFilters').filter('partnerImage',
       return $sce.trustAsHtml(ResourceIcons.getImg(name, DOC_IDS.PARTNERS));
     };
   });
-  
