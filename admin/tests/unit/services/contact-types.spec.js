@@ -9,7 +9,7 @@ describe('ContactTypes service', () => {
     'district_hospital',
     CONTACT_TYPES.HEALTH_CENTER,
     'clinic',
-    'person'
+    CONTACT_TYPES.PERSON
   ];
 
   beforeEach(() => {
@@ -200,7 +200,7 @@ describe('ContactTypes service', () => {
 
   describe('getTypeId', () => {
     it('should return the type id of the provided contact', () => {
-      chai.expect(service.getTypeId({ type: 'person' })).to.equal('person');
+      chai.expect(service.getTypeId({ type: CONTACT_TYPES.PERSON })).to.equal(CONTACT_TYPES.PERSON);
       chai.expect(service.getTypeId({ type: 'clinic' })).to.equal('clinic');
       chai.expect(service.getTypeId({ type: 'contact', contact_type: 'something' })).to.equal('something');
     });
@@ -214,7 +214,7 @@ describe('ContactTypes service', () => {
 
   describe('isPersonType', () => {
     it('should return true when provided a person type', () => {
-      chai.expect(service.isPersonType({ id: 'person' })).to.equal(true);
+      chai.expect(service.isPersonType({ id: CONTACT_TYPES.PERSON })).to.equal(true);
       chai.expect(service.isPersonType({ id: 'other', person: true })).to.equal(true);
     });
 
