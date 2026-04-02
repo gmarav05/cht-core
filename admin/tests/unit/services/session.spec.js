@@ -1,9 +1,8 @@
-const { USER_ROLES: { COUCHDB_ADMIN } } = require('@medic/constants');
-
 describe('Session service', function() {
-  
+
   'use strict';
-  
+  const { USER_ROLES: { COUCHDB_ADMIN } } = require('@medic/constants');
+
   let service;
   let ipCookie;
   let ipCookieRemove;
@@ -11,6 +10,7 @@ describe('Session service', function() {
   let pushStateStub;
   let $httpBackend;
   let Location;
+
   beforeEach(function () {
     module('adminApp');
     ipCookie = sinon.stub();
@@ -37,9 +37,11 @@ describe('Session service', function() {
       $httpBackend = _$httpBackend_;
     });
   });
+
   afterEach(function() {
     KarmaUtils.restore(ipCookie, ipCookieRemove);
   });
+
   it('gets the user context', function(done) {
     const expected = { name: 'bryan' };
     ipCookie.returns(expected);
@@ -48,6 +50,7 @@ describe('Session service', function() {
     chai.expect(ipCookie.args[0][0]).to.equal('userCtx');
     done();
   });
+
   it('logs out', function(done) {
     const expected = { name: 'adam' };
     ipCookie.returns(expected);
@@ -64,6 +67,7 @@ describe('Session service', function() {
     chai.expect(pushStateStub.args[0]).to.have.members([ null, null, '/' ]);
     done();
   });
+
   it('logs out if no user context', function(done) {
     ipCookie.returns({});
     location.href = 'CURRENT_URL';
@@ -79,6 +83,7 @@ describe('Session service', function() {
     chai.expect(pushStateStub.args[0]).to.have.members([ null, null, '/' ]);
     done();
   });
+
   it('cookie gets deleted when session expires', function(done) {
     ipCookie.returns({ name: 'bryan' });
     Location.dbName = 'DB_NAME';
@@ -90,6 +95,7 @@ describe('Session service', function() {
     chai.expect(ipCookieRemove.args[0][0]).to.equal('userCtx');
     done();
   });
+
   it('does not log out if server not found', function(done) {
     ipCookie.returns({ name: 'bryan' });
     $httpBackend
@@ -101,6 +107,7 @@ describe('Session service', function() {
     chai.expect(pushStateStub.notCalled).to.be.true;
     done();
   });
+
   it('logs out if remote userCtx inconsistent', function(done) {
     const expected = { name: 'adam' };
     ipCookie.returns(expected);
@@ -120,6 +127,7 @@ describe('Session service', function() {
     chai.expect(pushStateStub.args[0]).to.have.members([ null, null, '/' ]);
     done();
   });
+
   it('does not log out if remote userCtx consistent', function(done) {
     ipCookie.returns({ name: 'bryan' });
     $httpBackend
@@ -131,30 +139,36 @@ describe('Session service', function() {
     chai.expect(pushStateStub.notCalled).to.be.true;
     done();
   });
+
   describe('isAdmin function', function() {
+
     it('returns false if not logged in', function(done) {
       ipCookie.returns({});
       const actual = service.isAdmin();
       chai.expect(actual).to.equal(false);
       done();
     });
+
     it('returns true for _admin', function(done) {
       ipCookie.returns({ roles: [COUCHDB_ADMIN] });
       const actual = service.isAdmin();
       chai.expect(actual).to.equal(true);
       done();
     });
+
     it('returns false for national_admin', function(done) {
       ipCookie.returns({ roles: [ 'national_admin', 'some_other_role' ] });
       const actual = service.isAdmin();
       chai.expect(actual).to.equal(false);
       done();
     });
+
     it('returns false for everyone else', function(done) {
       ipCookie.returns({ roles: [ 'district_admin', 'some_other_role' ] });
       const actual = service.isAdmin();
       chai.expect(actual).to.equal(false);
       done();
     });
+
   });
 });
