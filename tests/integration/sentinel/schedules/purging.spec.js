@@ -2,6 +2,7 @@ const utils = require('@utils');
 const sentinelUtils = require('@utils/sentinel');
 const chai = require('chai');
 const moment = require('moment');
+const { CONTACT_TYPES } = require('@medic/constants');
 
 const password = 'SuperS3creT';
 const docs = [
@@ -14,7 +15,7 @@ const docs = [
   },
   {
     _id: 'contact1',
-    type: 'person',
+    type: CONTACT_TYPES.PERSON,
     patient_id: 'patient1',
     parent: { _id: 'clinic1' },
     reported_date: 100,

@@ -34,7 +34,7 @@ const contacts = [
   {
     _id: 'person',
     name: 'Person',
-    type: 'person',
+    type: CONTACT_TYPES.PERSON,
     patient_id: '99999',
     parent: { _id: 'clinic', parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } },
     phone: '+444999',
@@ -58,7 +58,7 @@ const extraContacts = [
   {
     _id: 'person2',
     name: 'Person',
-    type: 'person',
+    type: CONTACT_TYPES.PERSON,
     parent: { _id: 'clinic2', parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } },
     phone: '+444777',
     reported_date: new Date().getTime()
@@ -66,7 +66,7 @@ const extraContacts = [
   {
     _id: 'person3',
     name: 'Person',
-    type: 'person',
+    type: CONTACT_TYPES.PERSON,
     patient_id: '888888',
     parent: { _id: 'clinic', parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } },
     phone: '+444888',
@@ -318,7 +318,7 @@ describe('muting', () => {
       type: 'data_record',
       form: 'mute',
       fields: {
-        patient_id: 'person'
+        patient_id: CONTACT_TYPES.PERSON
       },
       reported_date: new Date().getTime(),
       contact: {
@@ -332,7 +332,7 @@ describe('muting', () => {
       type: 'data_record',
       form: 'mute',
       fields: {
-        patient_id: 'person'
+        patient_id: CONTACT_TYPES.PERSON
       },
       reported_date: new Date().getTime(),
       contact: {
@@ -346,7 +346,7 @@ describe('muting', () => {
       type: 'data_record',
       form: 'unmute',
       fields: {
-        patient_id: 'person'
+        patient_id: CONTACT_TYPES.PERSON
       },
       reported_date: new Date().getTime(),
       contact: {
@@ -360,7 +360,7 @@ describe('muting', () => {
       type: 'data_record',
       form: 'unmute',
       fields: {
-        patient_id: 'person'
+        patient_id: CONTACT_TYPES.PERSON
       },
       reported_date: new Date().getTime(),
       contact: {
@@ -621,7 +621,7 @@ describe('muting', () => {
       type: 'data_record',
       form: 'mute',
       fields: {
-        patient_id: 'person',
+        patient_id: CONTACT_TYPES.PERSON,
       },
       reported_date: new Date().getTime(),
       contact: {
@@ -886,7 +886,7 @@ describe('muting', () => {
     const person = {
       _id: 'person3',
       name: 'Person',
-      type: 'person',
+      type: CONTACT_TYPES.PERSON,
       parent: { _id: 'clinic', parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } },
       phone: '+444999'
     };
@@ -894,7 +894,7 @@ describe('muting', () => {
     const personWithContactType = {
       _id: 'person4',
       name: 'Person',
-      type: 'person',
+      type: CONTACT_TYPES.PERSON,
       contact_type: 'not a person',
       parent: { _id: 'clinic', parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } },
       phone: '+444999'
@@ -946,7 +946,7 @@ describe('muting', () => {
         content_type: 'xml',
         form: 'test_form',
         fields: {
-          patient_id: 'person'
+          patient_id: CONTACT_TYPES.PERSON
         },
         scheduled_tasks: [
           { group: 1, state: 'pending', translation_key: 'beta', recipient: 'clinic', },
@@ -959,7 +959,7 @@ describe('muting', () => {
         type: 'data_record',
         form: 'xml_form',
         fields: {
-          patient_id: 'person'
+          patient_id: CONTACT_TYPES.PERSON
         },
         scheduled_tasks: [
           { group: 1, state: 'scheduled', translation_key: 'beta', recipient: 'clinic' },
@@ -972,7 +972,7 @@ describe('muting', () => {
         type: 'data_record',
         form: 'sms_form_2',
         fields: {
-          patient_id: 'person'
+          patient_id: CONTACT_TYPES.PERSON
         },
         scheduled_tasks: [
           { group: 1, state: 'pending', translation_key: 'beta', recipient: 'clinic' },
@@ -986,7 +986,7 @@ describe('muting', () => {
         content_type: 'xml',
         form: 'xml_form',
         fields: {
-          patient_id: 'person'
+          patient_id: CONTACT_TYPES.PERSON
         },
         scheduled_tasks: [
           { group: 1, state: 'pending', translation_key: 'beta', recipient: 'clinic',
@@ -1001,7 +1001,7 @@ describe('muting', () => {
         type: 'data_record',
         form: 'sms_form_1',
         fields: {
-          patient_id: 'person'
+          patient_id: CONTACT_TYPES.PERSON
         },
         contact: { _id: 'person' },
         scheduled_tasks: [
@@ -1210,7 +1210,7 @@ describe('muting', () => {
     it('should add infodoc muting history for contacts muted client_side and silence registrations', () => {
       const contact = {
         _id: uuid(),
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         name: 'jane',
         muted: 12345,
         patient_id: 'the_person',
@@ -1299,7 +1299,7 @@ describe('muting', () => {
     it('should add infodoc muting history for contacts unmuted client-side and schedule registrations', () => {
       const contact = {
         _id: uuid(),
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         name: 'jane',
         patient_id: 'the_person',
         muting_history: {
@@ -1428,7 +1428,7 @@ describe('muting', () => {
 
       const person = {
         _id: 'new_person',
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         name: 'new_person',
         patient_id: 'the_new_person',
         parent: {
@@ -1450,7 +1450,7 @@ describe('muting', () => {
 
       const newPerson = {
         _id: 'newnew_person',
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         name: 'newnew_person',
         patient_id: 'the_newnew_person',
         parent: {
@@ -1655,7 +1655,7 @@ describe('muting', () => {
 
       const person = {
         _id: 'new_person',
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         name: 'new_person',
         patient_id: 'the_new_person',
         parent: {
@@ -1677,7 +1677,7 @@ describe('muting', () => {
 
       const newPerson = {
         _id: 'newnew_person',
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         name: 'newnew_person',
         patient_id: 'the_newnew_person',
         parent: {
@@ -1879,7 +1879,7 @@ describe('muting', () => {
 
       const person = {
         _id: 'new_person',
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         name: 'new_person',
         patient_id: 'the_new_person',
         parent: {

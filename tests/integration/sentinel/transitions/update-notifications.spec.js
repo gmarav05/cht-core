@@ -32,7 +32,7 @@ const contacts = [
   {
     _id: 'person',
     name: 'Person',
-    type: 'person',
+    type: CONTACT_TYPES.PERSON,
     patient_id: '99999',
     parent: { _id: 'clinic', parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } },
     phone: '+444999',
@@ -272,7 +272,7 @@ describe('update_notifications', () => {
       .updateSettings(settings, { ignoreReload: 'sentinel' })
       .then(() => utils.saveDoc(mute1))
       .then(() => sentinelUtils.waitForSentinel(mute1._id))
-      .then(() => sentinelUtils.getInfoDocs([mute1._id, 'person', 'clinic']))
+      .then(() => sentinelUtils.getInfoDocs([mute1._id, CONTACT_TYPES.PERSON, 'clinic']))
       .then(infos => {
         expect(infos[0].transitions).to.not.be.undefined;
         expect(infos[0].transitions.update_notifications).to.not.be.undefined;
@@ -286,7 +286,7 @@ describe('update_notifications', () => {
 
         expect(infos[2].muting_history).to.be.undefined;
       })
-      .then(() => utils.getDocs([mute1._id, 'person', 'clinic']))
+      .then(() => utils.getDocs([mute1._id, CONTACT_TYPES.PERSON, 'clinic']))
       .then(updated => {
         expect(updated[0].tasks).to.not.be.undefined;
         expect(updated[0].tasks).to.have.lengthOf(1);
@@ -299,7 +299,7 @@ describe('update_notifications', () => {
       })
       .then(() => utils.saveDoc(mute2))
       .then(() => sentinelUtils.waitForSentinel(mute2._id))
-      .then(() => sentinelUtils.getInfoDocs([mute2._id, 'person', 'clinic']))
+      .then(() => sentinelUtils.getInfoDocs([mute2._id, CONTACT_TYPES.PERSON, 'clinic']))
       .then(infos => {
         expect(infos[0].transitions).to.not.be.undefined;
         expect(infos[0].transitions.update_notifications).to.not.be.undefined;
@@ -311,7 +311,7 @@ describe('update_notifications', () => {
 
         expect(infos[2].muting_history).to.be.undefined;
       })
-      .then(() => utils.getDocs([mute2._id, 'person', 'clinic']))
+      .then(() => utils.getDocs([mute2._id, CONTACT_TYPES.PERSON, 'clinic']))
       .then(updated => {
         expect(updated[0].tasks).to.not.be.undefined;
         expect(updated[0].tasks).to.have.lengthOf(1);
@@ -324,7 +324,7 @@ describe('update_notifications', () => {
       })
       .then(() => utils.saveDoc(unmute1))
       .then(() => sentinelUtils.waitForSentinel(unmute1._id))
-      .then(() => sentinelUtils.getInfoDocs([unmute1._id, 'person']))
+      .then(() => sentinelUtils.getInfoDocs([unmute1._id, CONTACT_TYPES.PERSON]))
       .then(infos => {
         expect(infos[0].transitions).to.not.be.undefined;
         expect(infos[0].transitions.update_notifications).to.not.be.undefined;
@@ -336,7 +336,7 @@ describe('update_notifications', () => {
         expect(infos[1].muting_history[1].report_id).to.equal(unmute1._id);
         unmuteTime = infos[1].muting_history[1].date;
       })
-      .then(() => utils.getDocs([unmute1._id, 'person']))
+      .then(() => utils.getDocs([unmute1._id, CONTACT_TYPES.PERSON]))
       .then(updated => {
         expect(updated[0].tasks).to.not.be.undefined;
         expect(updated[0].tasks).to.have.lengthOf(1);
@@ -347,7 +347,7 @@ describe('update_notifications', () => {
       })
       .then(() => utils.saveDoc(unmute2))
       .then(() => sentinelUtils.waitForSentinel(unmute2._id))
-      .then(() => sentinelUtils.getInfoDocs([unmute2._id, 'person']))
+      .then(() => sentinelUtils.getInfoDocs([unmute2._id, CONTACT_TYPES.PERSON]))
       .then(infos => {
         expect(infos[0].transitions).to.not.be.undefined;
         expect(infos[0].transitions.update_notifications).to.not.be.undefined;
@@ -357,7 +357,7 @@ describe('update_notifications', () => {
         expect(infos[1].muting_history).to.have.lengthOf(2);
         expect(infos[1].muting_history[1].date).to.equal(unmuteTime);
       })
-      .then(() => utils.getDocs([unmute2._id, 'person']))
+      .then(() => utils.getDocs([unmute2._id, CONTACT_TYPES.PERSON]))
       .then(updated => {
         expect(updated[0].tasks).to.not.be.undefined;
         expect(updated[0].tasks).to.have.lengthOf(1);

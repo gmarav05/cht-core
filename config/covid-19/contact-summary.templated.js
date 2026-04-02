@@ -1,13 +1,14 @@
 // contact, reports, lineage are globally available for contact-summary
 const thisContact = contact;
 const thisLineage = lineage;
+const { CONTACT_TYPES } = require('@medic/constants');
 
 const fields = [
-  { appliesToType: 'person', label: 'patient_id', value: thisContact.patient_id, width: 4 },
-  { appliesToType: 'person', label: 'contact.age', value: thisContact.date_of_birth, filter: 'age', width: 4 },
-  { appliesToType: 'person', label: 'contact.sex', value: 'contact.sex.' + thisContact.sex, translate: true, width: 4 },
-  { appliesToType: 'person', label: 'person.field.phone', value: thisContact.phone, width: 4 },
-  { appliesToType: 'person', label: 'person.field.alternate_phone', value: thisContact.phone_alternate, width: 4 },
+  { appliesToType: CONTACT_TYPES.PERSON, label: 'patient_id', value: thisContact.patient_id, width: 4 },
+  { appliesToType: CONTACT_TYPES.PERSON, label: 'contact.age', value: thisContact.date_of_birth, filter: 'age', width: 4 },
+  { appliesToType: CONTACT_TYPES.PERSON, label: 'contact.sex', value: 'contact.sex.' + thisContact.sex, translate: true, width: 4 },
+  { appliesToType: CONTACT_TYPES.PERSON, label: 'person.field.phone', value: thisContact.phone, width: 4 },
+  { appliesToType: CONTACT_TYPES.PERSON, label: 'person.field.alternate_phone', value: thisContact.phone_alternate, width: 4 },
   { appliesToType: '!person', label: 'contact', value: thisContact.contact && thisContact.contact.name, width: 4 },
   { appliesToType: '!person', label: 'contact.phone', value: thisContact.contact && thisContact.contact.phone, width: 4 },
   { label: 'External ID', value: thisContact.external_id, width: 4 },

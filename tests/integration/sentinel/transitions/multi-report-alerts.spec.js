@@ -2,10 +2,11 @@ const utils = require('@utils');
 const sentinelUtils = require('@utils/sentinel');
 const uuid = require('uuid').v4;
 const { expect } = require('chai');
+const { CONTACT_TYPES: { PERSON } } = require('@medic/constants');
 
 const contact = {
   _id: 'person',
-  type: 'person',
+  type: PERSON,
   phone: 'phone',
   reported_date: new Date().getTime()
 };
@@ -139,12 +140,12 @@ describe('multi_report_alerts', () => {
 
     const contacts = [{
       _id: 'contact1',
-      type: 'person',
+      type: PERSON,
       phone: '+251 11 551 1211',
       reported_date: new Date().getTime()
     }, {
       _id: 'contact2',
-      type: 'person',
+      type: PERSON,
       phone: '+256 41 9867538',
       reported_date: new Date().getTime()
     }];
@@ -353,13 +354,13 @@ describe('multi_report_alerts', () => {
     const contacts = [{
       _id: 'chw',
       phone: '+251 11 551 1222',
-      type: 'person',
+      type: PERSON,
       parent: { _id: 'district' },
       reported_date: new Date().getTime() - 10000
     }, {
       _id: 'chw2',
       phone: '+251 11 551 2133',
-      type: 'person',
+      type: PERSON,
       parent: { _id: 'district' },
       reported_date: new Date().getTime() - 9000
     }];
@@ -469,13 +470,13 @@ describe('multi_report_alerts', () => {
     const contacts = [{
       _id: 'chw',
       phone: '+251 11 551 1222',
-      type: 'person',
+      type: PERSON,
       parent: { _id: 'district' },
       reported_date: new Date().getTime() - 10000
     }, {
       _id: 'chw2',
       phone: '+251 11 551 2133',
-      type: 'person',
+      type: PERSON,
       parent: { _id: 'district' },
       reported_date: new Date().getTime() - 9000
     }];

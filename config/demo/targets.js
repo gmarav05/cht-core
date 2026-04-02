@@ -1,4 +1,5 @@
 const extras = require('./nools-extras');
+const { CONTACT_TYPES } = require('@medic/constants');
 const {
   isAlive,
   getSubsequentPregnancyFollowUps,
@@ -18,7 +19,7 @@ module.exports = [
     translation_key: 'targets.death_reporting.deaths.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'contacts',
-    appliesToType: ['person'],
+    appliesToType: [CONTACT_TYPES.PERSON],
     appliesIf: function (contact) {
       return !isAlive(contact);
     },
@@ -51,7 +52,7 @@ module.exports = [
     translation_key: 'targets.births.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'contacts',
-    appliesToType: ['person'],
+    appliesToType: [CONTACT_TYPES.PERSON],
     appliesIf: function (contact) {
       return contact && contact.contact && contact.contact.date_of_birth;
     },

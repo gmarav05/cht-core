@@ -7,6 +7,7 @@ describe('GetSummaries service', () => {
   let allDocs;
   let includes;
   let isOnlineOnly;
+  const { CONTACT_TYPES } = require('@medic/constants');
 
   beforeEach(() => {
     query = sinon.stub();
@@ -161,7 +162,7 @@ describe('GetSummaries service', () => {
         { doc: {
           _id: 'a',
           _rev: '1',
-          type: 'person',
+          type: CONTACT_TYPES.PERSON,
           name: 'james',
           phone: '+456',
           contact: {
@@ -201,7 +202,7 @@ describe('GetSummaries service', () => {
             _rev: '1',
             name: 'james',
             phone: '+456',
-            type: 'person',
+            type: CONTACT_TYPES.PERSON,
             contact_type: undefined,
             contact: 'c',
             lineage: [],

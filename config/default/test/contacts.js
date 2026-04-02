@@ -1,3 +1,5 @@
+const { CONTACT_TYPES } = require('@medic/constants');
+
 module.exports = {
   newbornBaby: {
     '_id': 'baby-1',
@@ -23,7 +25,7 @@ module.exports = {
       'blue_skin': 'no'
     },
 
-    'type': 'person',
+    'type': CONTACT_TYPES.PERSON,
     'created_by_doc': 'fake_delivery_report_uuid',
     'reported_date': 957128198000
   },
@@ -53,7 +55,7 @@ module.exports = {
       'blue_skin': 'no'
     },
 
-    'type': 'person',
+    'type': CONTACT_TYPES.PERSON,
     'reported_date': 957128198000
   },
   babyDeceasedAtAgeJustUnder5Years: {
@@ -81,7 +83,7 @@ module.exports = {
       'blue_skin': 'no'
     },
 
-    'type': 'person',
+    'type': CONTACT_TYPES.PERSON,
     'reported_date': 957128198000
   },
 
@@ -110,7 +112,7 @@ module.exports = {
       'blue_skin': 'no'
     },
 
-    'type': 'person',
+    'type': CONTACT_TYPES.PERSON,
     'reported_date': 957128198000
   }
 

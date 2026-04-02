@@ -22,6 +22,9 @@ import { DuplicatesFoundError, FormService } from '@mm-services/form.service';
 import { GlobalActions } from '@mm-actions/global';
 import { TelemetryService } from '@mm-services/telemetry.service';
 import { Contact, Qualifier } from '@medic/cht-datasource';
+import { CONTACT_TYPES } from '@medic/constants';
+
+const { PERSON } = CONTACT_TYPES;
 
 
 describe('ContactsEdit component', () => {
@@ -393,7 +396,7 @@ describe('ContactsEdit component', () => {
       });
 
       it('should fail when no form', async () => {
-        routeSnapshot.params = { type: 'person' };
+        routeSnapshot.params = { type: PERSON };
         contactTypesService.getChildren.resolves([{ id: 'person' }]);
         contactTypesService.get.resolves({
           create_form: 'person_create_form_id',
@@ -737,7 +740,7 @@ describe('ContactsEdit component', () => {
 
     describe('for new contact', () => {
       it('does not load attachments when creating new contact', fakeAsync(async () => {
-        routeSnapshot.params = { type: 'person' };
+        routeSnapshot.params = { type: PERSON };
         contactTypesService.getChildren.resolves([{ id: 'person' }]);
         contactTypesService.get.resolves({
           create_form: 'person_create_form',
@@ -758,7 +761,7 @@ describe('ContactsEdit component', () => {
         routeSnapshot.params = { id: 'the_person' };
         const doc = {
           _id: 'the_person',
-          type: 'person',
+          type: PERSON,
           _attachments: {
             [`user-file-${imageAttachmentName}`]: { content_type: 'image/png' }
           }
@@ -800,7 +803,7 @@ describe('ContactsEdit component', () => {
         routeSnapshot.params = { id: 'the_person' };
         const doc = {
           _id: 'the_person',
-          type: 'person',
+          type: PERSON,
           _attachments: {
             [`user-file-${imageAttachmentName}`]: { content_type: 'video/mp4' }
           }
@@ -833,7 +836,7 @@ describe('ContactsEdit component', () => {
         routeSnapshot.params = { id: 'the_person' };
         const doc = {
           _id: 'the_person',
-          type: 'person',
+          type: PERSON,
           _attachments: {
             [`user-file-${imageAttachmentName}`]: { content_type: 'image/png' }
           }
@@ -991,7 +994,7 @@ describe('ContactsEdit component', () => {
       lineageModelGeneratorService.contact.resolves({
         doc: {
           _id: 'the_person',
-          type: 'person',
+          type: PERSON,
         }
       });
       contactTypesService.get.resolves({
@@ -1017,7 +1020,7 @@ describe('ContactsEdit component', () => {
       expect(setEnketoError.callCount).to.equal(1);
       expect(formService.saveContact.callCount).to.equal(1);
       expect(formService.saveContact.args[0]).to.deep.equal([
-        { docId: 'the_person', type: 'person',  },
+        { docId: 'the_person', type: PERSON,  },
         { form, xmlVersion: undefined, duplicateCheck: undefined }, 
         false
       ]);

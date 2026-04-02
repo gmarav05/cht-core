@@ -2,7 +2,7 @@ const cards = [];
 const context = {};
 let fields = [];
 // eslint-disable-next-line no-undef
-if (contact.type === 'person') {
+if (contact.type === CONTACT_TYPES.PERSON) {
   // eslint-disable-next-line no-undef
   fields = [{ label: 'test.pid', value: contact.patient_id, width: 3 }];
 }
@@ -10,7 +10,7 @@ if (contact.type === 'person') {
 const targetDocs = cht.v1.analytics.getTargetDocs();
 if (targetDocs) {
   // eslint-disable-next-line no-undef
-  const targetIdx = contact.type === 'person' ? 0 : 1;
+  const targetIdx = contact.type === CONTACT_TYPES.PERSON ? 0 : 1;
   const targetDoc = targetDocs[targetIdx];
   const card = {
     label: 'Activity this month',

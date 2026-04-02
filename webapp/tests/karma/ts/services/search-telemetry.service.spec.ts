@@ -4,6 +4,9 @@ import { TestBed } from '@angular/core/testing';
 
 import { SearchTelemetryService } from '@mm-services/search-telemetry.service';
 import { TelemetryService } from '@mm-services/telemetry.service';
+import { CONTACT_TYPES } from '@medic/constants';
+
+const { PERSON } = CONTACT_TYPES;
 
 describe('SearchTelemetryService', () => {
   let service: SearchTelemetryService;
@@ -29,7 +32,7 @@ describe('SearchTelemetryService', () => {
       _id: 'john_id',
       name: 'john',
       patient_id: '12345',
-      type: 'person',
+      type: PERSON,
       field: 'value',
       custom_field: 'johanna',
     };
@@ -66,7 +69,7 @@ describe('SearchTelemetryService', () => {
       _id: 'john_id',
       name: 'john',
       patient_id: '12345',
-      type: 'person',
+      type: PERSON,
       field: 'value',
       custom_field: 'johanna',
     };

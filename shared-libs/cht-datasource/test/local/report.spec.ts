@@ -12,6 +12,9 @@ import * as Lineage from '../../src/local/libs/lineage';
 import * as LocalCore from '../../src/local/libs/core';
 import * as LocalContact from '../../src/local/contact';
 import { InvalidArgumentError, ResourceNotFoundError } from '../../src';
+import { CONTACT_TYPES } from '@medic/constants';
+
+const { PERSON } = CONTACT_TYPES;
 
 describe('local report', () => {
   let localContext: LocalDataContext.LocalDataContext;
@@ -345,7 +348,7 @@ describe('local report', () => {
       const contact = {
         ...minifiedContact,
         _rev: '1',
-        type: 'person',
+        type: PERSON,
       } as const;
       const reportDoc = { _id: 'report-1', type: 'data_record', form: 'test-form' } as const;
       const supportedForms = ['test-form', 'other-form'];
@@ -514,7 +517,7 @@ describe('local report', () => {
         },
         fields: { hello: 'world' }
       } as const;
-      const contactDoc = { _id: 'contact-1', type: 'person' } as const;
+      const contactDoc = { _id: 'contact-1', type: PERSON } as const;
       const newContactMinified = {
         _id: 'contact-2',
         parent: {
@@ -524,7 +527,7 @@ describe('local report', () => {
       const newContact = {
         ...newContactMinified,
         _rev: '1',
-        type: 'person'
+        type: PERSON
       };
       const supportedForms = ['test-form', 'other-form', 'new-form'];
 

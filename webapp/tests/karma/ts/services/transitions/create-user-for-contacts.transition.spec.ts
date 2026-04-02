@@ -8,6 +8,9 @@ import { expect } from 'chai';
 import { UserContactService } from '@mm-services/user-contact.service';
 import { ExtractLineageService } from '@mm-services/extract-lineage.service';
 import { CHTDatasourceService } from '@mm-services/cht-datasource.service';
+import { CONTACT_TYPES } from '@medic/constants';
+
+const { PERSON } = CONTACT_TYPES;
 
 const deepFreeze = obj => {
   Object
@@ -153,7 +156,7 @@ describe('Create User for Contacts Transition', () => {
 
     [
       [{ type: 'data_record' }],
-      [{ type: 'person' }, { type: 'user-settings' }, { type: 'data_record' }],
+      [{ type: PERSON }, { type: 'user-settings' }, { type: 'data_record' }],
     ].forEach(docs => {
       it('returns true when given a report', () => {
         expect(transition.filter(docs)).to.be.true;
@@ -170,7 +173,7 @@ describe('Create User for Contacts Transition', () => {
 
     it('returns false when given documents that are not data records', () => {
       const docs = [
-        { type: 'person' },
+        { type: PERSON },
         { type: 'user-settings' },
         { type: 'something_else' },
       ];

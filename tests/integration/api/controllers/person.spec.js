@@ -47,7 +47,7 @@ describe('Person API', () => {
     roles: ['chw']
   }));
   const allDocItems = [contact0, contact1, contact2, place0, place1, place2, patient];
-  const personType = 'person';
+  const personType = CONTACT_TYPES.PERSON;
   const e2eTestUser = {
     '_id': 'e2e_contact_test_id',
     'type': personType,
@@ -257,7 +257,7 @@ describe('Person API', () => {
     it(`creates a person`, async () => {
       const personInput = {
         name: 'apoorva',
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         parent: place0._id,
         date_of_birth: '1996-06-09',
         phone: '+1234567890',
@@ -272,7 +272,7 @@ describe('Person API', () => {
       expect(personDoc).excluding([ '_rev', '_id' ]).to.deep.equal({
         ...personInput,
         type: 'contact',
-        contact_type: 'person',
+        contact_type: CONTACT_TYPES.PERSON,
         parent: { _id: place0._id, parent: place0.parent }
       });
     });
@@ -280,7 +280,7 @@ describe('Person API', () => {
     it(`creates a person with minimum data`, async () => {
       const personInput = {
         name: 'apoorva',
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         parent: place2._id
       };
 
@@ -289,7 +289,7 @@ describe('Person API', () => {
       expect(personDoc).excluding([ '_rev', 'reported_date', '_id' ]).to.deep.equal({
         ...personInput,
         type: 'contact',
-        contact_type: 'person',
+        contact_type: CONTACT_TYPES.PERSON,
         parent: { _id: place2._id }
       });
       expect(personDoc.reported_date).to.be.a('number');
@@ -312,7 +312,7 @@ describe('Person API', () => {
     it(`throws error for non-existent parent`, async () => {
       const personInput = {
         name: 'apoorva',
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         parent: 'invalid-id'
       };
       const expectedError = `400 - ${JSON.stringify({
@@ -326,7 +326,7 @@ describe('Person API', () => {
     it(`throws error for parent type not among allowed parents in settings.contact_types`, async () => {
       const personInput = {
         name: 'apoorva',
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         parent: contact0._id
       };
       const expectedError = `400 - ${JSON.stringify({
@@ -344,7 +344,7 @@ describe('Person API', () => {
       it(`throws error when user ${test}`, async () => {
         const personInput = {
           name: 'apoorva',
-          type: 'person',
+          type: CONTACT_TYPES.PERSON,
           parent: place2._id
         };
         const opts = {

@@ -58,7 +58,7 @@ describe('cht-datasource Person', () => {
   }));
   const allDocItems = [contact0, contact1, contact2, place0, place1, place2, patient];
   const dataContext = getRemoteDataContext(utils.getOrigin());
-  const personType = 'person';
+  const personType = CONTACT_TYPES.PERSON;
   const e2eTestUser = {
     '_id': 'e2e_contact_test_id',
     'type': personType,
@@ -227,7 +227,7 @@ describe('cht-datasource Person', () => {
       it(`creates a person`, async () => {
         const personInput = {
           name: 'apoorva',
-          type: 'person',
+          type: CONTACT_TYPES.PERSON,
           parent: place0._id,
           date_of_birth: '1996-06-09',
           phone: '+1234567890',
@@ -242,7 +242,7 @@ describe('cht-datasource Person', () => {
         expect(person).excluding([ '_rev', '_id' ]).to.deep.equal({
           ...personInput,
           type: 'contact',
-          contact_type: 'person',
+          contact_type: CONTACT_TYPES.PERSON,
           parent: { _id: place0._id, parent: place0.parent }
         });
       });
@@ -250,7 +250,7 @@ describe('cht-datasource Person', () => {
       it(`creates a person with minimum data`, async () => {
         const personInput = {
           name: 'apoorva',
-          type: 'person',
+          type: CONTACT_TYPES.PERSON,
           parent: place2._id
         };
 
@@ -259,7 +259,7 @@ describe('cht-datasource Person', () => {
         expect(person).excluding([ '_rev', 'reported_date', '_id' ]).to.deep.equal({
           ...personInput,
           type: 'contact',
-          contact_type: 'person',
+          contact_type: CONTACT_TYPES.PERSON,
           parent: { _id: place2._id }
         });
         expect(person.reported_date).to.be.a('number');
@@ -281,7 +281,7 @@ describe('cht-datasource Person', () => {
       it(`throws error for non-existent parent`, async () => {
         const personInput = {
           name: 'apoorva',
-          type: 'person',
+          type: CONTACT_TYPES.PERSON,
           parent: 'invalid-id'
         };
 
@@ -294,7 +294,7 @@ describe('cht-datasource Person', () => {
       it(`throws error for parent type not among allowed parents in settings.contact_types`, async () => {
         const personInput = {
           name: 'apoorva',
-          type: 'person',
+          type: CONTACT_TYPES.PERSON,
           parent: contact0._id
         };
 

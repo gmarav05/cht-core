@@ -1,5 +1,6 @@
 const moment = require('moment');
 const today = moment().startOf('day');
+const { CONTACT_TYPES } = require('@medic/constants');
 
 const isReportValid = function (report) {
   if (report.form && report.fields && report.reported_date) { return true; }
@@ -228,7 +229,7 @@ function getSubsequentPregnancies(allReports, refReport) {
 }
 
 function isActivePregnancy(thisContact, allReports, report) {
-  if (thisContact.type !== 'person' || !isAlive(thisContact) || !isPregnancyForm(report)) { return false; }
+  if (thisContact.type !== CONTACT_TYPES.PERSON || !isAlive(thisContact) || !isPregnancyForm(report)) { return false; }
   const lmpDate = getMostRecentLMPDateForPregnancy(allReports, report) || report.reported_date;
   const isPregnancyRegisteredWithin9Months = lmpDate > today.clone().subtract(MAX_DAYS_IN_PREGNANCY, 'day');
   const isPregnancyTerminatedByDeliveryInLast6Weeks = getSubsequentDeliveries(allReports, report, 6 * 7).length > 0;
@@ -245,7 +246,7 @@ function isPregnant(allReports) {
 }
 
 function isReadyForNewPregnancy(thisContact, allReports) {
-  if (thisContact.type !== 'person') { return false; }
+  if (thisContact.type !== CONTACT_TYPES.PERSON) { return false; }
   const mostRecentPregnancyReport = getNewestReport(allReports, pregnancyForms);
   const mostRecentDeliveryReport = getNewestReport(allReports, deliveryForms);
   if (!mostRecentPregnancyReport && !mostRecentDeliveryReport) {
@@ -294,7 +295,7 @@ function isReadyForDelivery(thisContact, allReports) {
   //If pregnancy registration, date of LMP should be at least 6 months ago and no more than EDD + 6 weeks.
   //If pregnancy registration and no LMP, make it available at registration and until 280 days + 6 weeks from the date of registration.
   //If no pregnancy registration, previous delivery date should be at least 7 months ago.
-  if (thisContact.type !== 'person') { return false; }
+  if (thisContact.type !== CONTACT_TYPES.PERSON) { return false; }
   const latestPregnancy = getNewestReport(allReports, pregnancyForms);
   const latestDelivery = getNewestReport(allReports, deliveryForms);
   if (!latestPregnancy && !latestDelivery) {

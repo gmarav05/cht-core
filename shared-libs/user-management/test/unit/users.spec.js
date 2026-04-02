@@ -2,7 +2,13 @@ const chai = require('chai');
 chai.use(require('chai-as-promised'));
 const sinon = require('sinon');
 const rewire = require('rewire');
-const { USER_ROLES: { COUCHDB_ADMIN, ADMIN, ONLINE } } = require('@medic/constants');
+
+const { 
+  USER_ROLES: { COUCHDB_ADMIN, ADMIN, ONLINE }, 
+  CONTACT_TYPES: { PERSON }
+} = require('@medic/constants');
+
+
 
 const couchSettings = require('@medic/settings');
 const tokenLogin = require('../../src/token-login');
@@ -24,7 +30,7 @@ const facilityC = { _id: 'c', name: 'cathy' };
 const facilityD = { _id: 'd', name: 'dorothy' };
 const contactMilan = {
   _id: 'milan-contact',
-  type: 'person',
+  type: PERSON,
   name: 'milan',
 };
 
@@ -2052,10 +2058,10 @@ describe('Users service', () => {
       sinon.stub(places, 'getPlace').resolves({ _id: 'foo' });
       getContact.withArgs(Qualifier.byUuid('user1'))
         .onFirstCall().resolves(null)
-        .onSecondCall().resolves({ type: 'person', _id: 'contact_id', _rev: 1 })
+        .onSecondCall().resolves({ type: PERSON, _id: 'contact_id', _rev: 1 })
         .withArgs(Qualifier.byUuid('user2'))
         .onFirstCall().resolves(null)
-        .onSecondCall().resolves({ type: 'person', _id: 'contact_id', _rev: 1 });
+        .onSecondCall().resolves({ type: PERSON, _id: 'contact_id', _rev: 1 });
       usersPut.callsFake(user => Promise.resolve({ id: user._id, rev: 1 }));
       medicQuery.resolves({ rows: [] });
       medicPut.callsFake(userSettings => Promise.resolve({ id: userSettings._id, rev: 1 }));
@@ -2187,7 +2193,7 @@ describe('Users service', () => {
       sinon.stub(places, 'getPlace').resolves({ _id: 'place1' });
       getContact
         .onFirstCall().resolves(null)
-        .onSecondCall().resolves({ type: 'person', _id: 'contact_id', _rev: 1 });
+        .onSecondCall().resolves({ type: PERSON, _id: 'contact_id', _rev: 1 });
       db.medicLogs.get.resolves({ progress: {} });
       db.medicLogs.put.resolves({});
 
@@ -2337,7 +2343,7 @@ describe('Users service', () => {
 
       getContact.withArgs(Qualifier.byUuid('h')).resolves({
         _id: 'h',
-        type: 'person',
+        type: PERSON,
         parent: { _id: 'u', parent: { _id: 't' } }
       });
 
@@ -2392,7 +2398,7 @@ describe('Users service', () => {
       };
       getContact.withArgs(Qualifier.byUuid('h')).resolves({
         _id: 'h',
-        type: 'person',
+        type: PERSON,
         parent: { _id: 'u', parent: { _id: 'x' } }
       });
 
@@ -2439,7 +2445,7 @@ describe('Users service', () => {
       };
       getContact.withArgs(Qualifier.byUuid('h')).resolves({
         _id: 'h',
-        type: 'person',
+        type: PERSON,
         parent: { _id: 'u', parent: { _id: 'x' } }
       });
 
@@ -2498,7 +2504,7 @@ describe('Users service', () => {
       };
       service.__set__('validateNewUsername', sinon.stub().resolves());
       service.__set__('createPlace', sinon.stub().resolves());
-      getContact.withArgs(Qualifier.byUuid('def')).resolves({ _id: 'def', type: 'person', parent: { _id: 'efg' } });
+      getContact.withArgs(Qualifier.byUuid('def')).resolves({ _id: 'def', type: PERSON, parent: { _id: 'efg' } });
       sinon.stub(people, 'isAPerson').returns(true);
       return service.createUser(userData).catch(err => {
         chai.expect(err.code).to.equal(400);
@@ -2517,7 +2523,7 @@ describe('Users service', () => {
       };
       service.__set__('validateNewUsername', sinon.stub().resolves());
       service.__set__('createPlace', sinon.stub().resolves());
-      getContact.withArgs(Qualifier.byUuid('def')).resolves({ _id: 'def', type: 'person', parent: { _id: 'efg' } });
+      getContact.withArgs(Qualifier.byUuid('def')).resolves({ _id: 'def', type: PERSON, parent: { _id: 'efg' } });
       sinon.stub(people, 'isAPerson').returns(true);
       service.__set__('createContact', sinon.stub().resolves());
       service.__set__('storeUpdatedPlace', sinon.stub().resolves());
@@ -3038,7 +3044,7 @@ describe('Users service', () => {
       db.medic.get.withArgs('org.couchdb.user:paul').resolves({ facility_id: ['maine'], contact_id: 'june' });
       getContact.withArgs(Qualifier.byUuid('maricica')).resolves({ 
         _id: 'maricica', 
-        type: 'person', 
+        type: PERSON, 
         parent: { _id: 'maine' } 
       });
       sinon.stub(people, 'isAPerson').returns(true);
@@ -4019,14 +4025,14 @@ describe('Users service', () => {
         {
           password: 'Secret1234',
           username: 'mary',
-          type: 'person',
+          type: PERSON,
           place: '498a394e-f98b-4e48-8c50-f12aeb018fcc',
           contact: { name: 'mary', phone: '2652527222', address: '1 King ST, Kent Town, 55555' }
         },
         {
           password: 'Secret5678',
           username: 'peter',
-          type: 'person',
+          type: PERSON,
           place: '498a394e-f98b-4e48-8c50-f12aeb018fcc',
           contact: { name: 'Peter', phone: '2652279', address: '15 King ST, Kent Town, 55555' }
         }
@@ -4052,7 +4058,7 @@ describe('Users service', () => {
         {
           password: '',
           username: 'mary',
-          type: 'person',
+          type: PERSON,
           place: '498a394e-f98b-4e48-8c50-f12aeb018fcc',
           contact: { name: 'mary', phone: '2652527222', address: '1 King ST, Kent Town, 55555' },
           token_login: true,
@@ -4060,7 +4066,7 @@ describe('Users service', () => {
         {
           password: 'Secret9876',
           username: 'devi',
-          type: 'person',
+          type: PERSON,
           place: '498a394e-f98b-4e48-8c50-f12aeb018fcc',
           contact: { name: 'devi', phone: '265252', address: '12 King ST, Kent Town, 55555' },
           token_login: 'truthy mistake',
@@ -4068,7 +4074,7 @@ describe('Users service', () => {
         {
           password: 'Secret1144',
           username: 'jeff',
-          type: 'person',
+          type: PERSON,
           place: '498a394e-f98b-4e48-8c50-f12aeb018fcc',
           contact: { name: 'jeff', phone: '26599102', address: '27 King ST, Kent Town, 55555' },
           token_login: '',
@@ -4076,7 +4082,7 @@ describe('Users service', () => {
         {
           password: 'Secret5678',
           username: 'peter',
-          type: 'person',
+          type: PERSON,
           place: '498a394e-f98b-4e48-8c50-f12aeb018fcc',
           contact: { name: 'Peter', phone: '2652279', address: '15 King ST, Kent Town, 55555' },
           token_login: false,
@@ -4107,7 +4113,7 @@ describe('Users service', () => {
         {
           password: 'Secret1234',
           username: 'mary',
-          type: 'person',
+          type: PERSON,
           contact: { name: 'mary', address: '1 King ST, Kent Town, 55555' }
         }
       ]);
@@ -4125,7 +4131,7 @@ describe('Users service', () => {
         {
           password: 'Secret1234',
           username: 'mary',
-          type: 'person',
+          type: PERSON,
           place: '',
           contact: { name: 'mary', phone: '', address: '1 King ST, Kent Town, 55555' }
         }
@@ -4146,7 +4152,7 @@ describe('Users service', () => {
         {
           password: 'Secret1234',
           username: 'mary',
-          type: 'person',
+          type: PERSON,
           place: '498a394e-f98b-4e48-8c50-f12aeb018fcc',
           contact: {
             name: 'mary',
@@ -4162,7 +4168,7 @@ describe('Users service', () => {
         {
           password: 'Secret555',
           username: 'peter',
-          type: 'person',
+          type: PERSON,
           place: '498a394e-f98b-4e48-8c50-f12aeb018fcc',
           contact: {
             name: 'Peter',
@@ -4192,7 +4198,7 @@ describe('Users service', () => {
         {
           password: 'Secret1234',
           username: 'mary',
-          type: 'person',
+          type: PERSON,
           place: '498a394e-f98',
           contact: {
             name: 'Mary\'s name!',
@@ -4201,7 +4207,7 @@ describe('Users service', () => {
         {
           password: 'Secret5678',
           username: 'peter',
-          type: 'person',
+          type: PERSON,
           place: '498a394e-f99',
           contact: {
             name: 'Peter',
@@ -4228,7 +4234,7 @@ describe('Users service', () => {
         {
           password: 'Secret1234',
           username: 'mary',
-          type: 'person',
+          type: PERSON,
           place: '498a394e-f98',
           contact: {
             name: 'Mary\'s name!',
@@ -4237,7 +4243,7 @@ describe('Users service', () => {
         {
           password: 'Secret5678',
           username: 'peter',
-          type: 'person',
+          type: PERSON,
           place: '498a394e-f99',
           contact: {
             name: 'Peter',

@@ -18,6 +18,8 @@ const {
   getField,
 } = extras;
 
+const { CONTACT_TYPES } = require('@medic/constants');
+
 const generateEventForHomeVisit = (week, start, end) => ({
   id: `pregnancy-home-visit-week${week}`,
   start,
@@ -366,7 +368,7 @@ module.exports = [
     icon: 'icon-follow-up',
     title: 'task.pnc.danger_sign_followup_baby.title',
     appliesTo: 'contacts',
-    appliesToType: ['person'],
+    appliesToType: [CONTACT_TYPES.PERSON],
     appliesIf: function (contact) {
       return (
         contact.contact &&

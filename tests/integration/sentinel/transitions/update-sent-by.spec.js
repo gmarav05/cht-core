@@ -2,6 +2,7 @@ const utils = require('@utils');
 const sentinelUtils = require('@utils/sentinel');
 const uuid = require('uuid').v4;
 const { expect } = require('chai');
+const { CONTACT_TYPES } = require('@medic/constants');
 
 describe('update_sent_by', () => {
   after(() => utils.revertDb([], true));
@@ -65,7 +66,7 @@ describe('update_sent_by', () => {
     const contact = {
       _id: uuid,
       phone: '789456',
-      type: 'person',
+      type: CONTACT_TYPES.PERSON,
       reported_date: new Date().getTime()
     };
 
@@ -98,14 +99,14 @@ describe('update_sent_by', () => {
     const contacts = [
       {
         _id: uuid(),
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         name: 'alpha',
         phone: '123456789',
         reported_date: new Date().getTime()
       },
       {
         _id: uuid(),
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         name: 'beta',
         phone: '987654321',
         reported_date: new Date().getTime()

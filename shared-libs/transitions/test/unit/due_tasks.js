@@ -9,6 +9,7 @@ const db = require('../../src/db');
 const request = require('@medic/couch-request');
 const config = require('../../src/config');
 const environment = require('@medic/environment');
+const { CONTACT_TYPES } = require('@medic/constants');
 
 describe('due tasks', () => {
   let schedule;
@@ -272,13 +273,13 @@ describe('due tasks', () => {
       },
       contact: {
         _id: 'a',
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
           type: 'clinic',
           contact: {
             _id: 'c',
-            type: 'person',
+            type: CONTACT_TYPES.PERSON,
             phone: expectedPhone,
           },
         },
@@ -370,13 +371,13 @@ describe('due tasks', () => {
       },
       contact: {
         _id: 'a',
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
           type: 'clinic',
           contact: {
             _id: 'c',
-            type: 'person',
+            type: CONTACT_TYPES.PERSON,
             phone: 'unexpectedphone',
           },
         },
@@ -463,13 +464,13 @@ describe('due tasks', () => {
       },
       contact: {
         _id: 'a',
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
           type: 'clinic',
           contact: {
             _id: 'c',
-            type: 'person',
+            type: CONTACT_TYPES.PERSON,
             phone: phone,
           },
         },
@@ -542,13 +543,13 @@ describe('due tasks', () => {
       },
       contact: {
         _id: 'a',
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
           type: 'clinic',
           contact: {
             _id: 'c',
-            type: 'person',
+            type: CONTACT_TYPES.PERSON,
             phone: phone,
           },
         },
@@ -653,13 +654,13 @@ describe('due tasks', () => {
       },
       contact: {
         _id: 'a',
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
           type: 'clinic',
           contact: {
             _id: 'c',
-            type: 'person',
+            type: CONTACT_TYPES.PERSON,
             phone: phone,
           },
         },
@@ -771,13 +772,13 @@ describe('due tasks', () => {
       },
       contact: {
         _id: 'a',
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
           type: 'clinic',
           contact: {
             _id: 'c',
-            type: 'person',
+            type: CONTACT_TYPES.PERSON,
             phone: phone,
           },
         },
@@ -878,13 +879,13 @@ describe('due tasks', () => {
       },
       contact: {
         _id: 'a',
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
           type: 'clinic',
           contact: {
             _id: 'c',
-            type: 'person',
+            type: CONTACT_TYPES.PERSON,
             phone: phone,
           },
         },
@@ -992,13 +993,13 @@ describe('due tasks', () => {
       },
       contact: {
         _id: 'a',
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
           type: 'clinic',
           contact: {
             _id: 'c',
-            type: 'person',
+            type: CONTACT_TYPES.PERSON,
             phone: expectedPhone,
           },
         },
@@ -1211,13 +1212,13 @@ describe('due tasks', () => {
     sinon.stub(schedule._lineage, 'hydrateDocs').callsFake(([ doc ]) => {
       doc.contact = {
         _id: 'contact',
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
           type: 'clinic',
           contact: {
             _id: 'c',
-            type: 'person',
+            type: CONTACT_TYPES.PERSON,
             phone: expectedPhone,
           },
         },
@@ -1451,13 +1452,13 @@ describe('due tasks', () => {
     sinon.stub(schedule._lineage, 'hydrateDocs').callsFake(([ doc ]) => {
       doc.contact = {
         _id: 'contact',
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
           type: 'clinic',
           contact: {
             _id: 'c',
-            type: 'person',
+            type: CONTACT_TYPES.PERSON,
             phone: expectedPhone,
           },
         },
@@ -1578,13 +1579,13 @@ describe('due tasks', () => {
     sinon.stub(schedule._lineage, 'hydrateDocs').callsFake(([ doc ]) => {
       doc.contact = {
         _id: 'contact',
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
           type: 'clinic',
           contact: {
             _id: 'c',
-            type: 'person',
+            type: CONTACT_TYPES.PERSON,
             phone: expectedPhone,
           },
         },
@@ -1712,13 +1713,13 @@ describe('due tasks', () => {
     sinon.stub(schedule._lineage, 'hydrateDocs').callsFake(([ doc ]) => {
       doc.contact = {
         _id: 'contact',
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
           type: 'clinic',
           contact: {
             _id: 'c',
-            type: 'person',
+            type: CONTACT_TYPES.PERSON,
             phone: expectedPhone,
           },
         },

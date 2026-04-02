@@ -10,6 +10,9 @@ import { AttachmentService } from '@mm-services/attachment.service';
 import { ContactSaveService } from '@mm-services/contact-save.service';
 import { Contact, Qualifier } from '@medic/cht-datasource';
 import * as FileManager from '../../../../src/js/enketo/file-manager.js';
+import { CONTACT_TYPES } from '@medic/constants';
+
+const { PERSON } = CONTACT_TYPES;
 
 describe('ContactSave service', () => {
 
@@ -250,13 +253,13 @@ describe('ContactSave service', () => {
 
       const form = { getDataStr: () => xmlPersonCreate };
       const docId = null;
-      const type = 'person';
+      const type = PERSON;
 
       const mockFile = new File(['test file content'], 'test-photo.png', { type: 'image/png' });
       sinon.stub(FileManager, 'getCurrentFiles').returns([mockFile]);
 
       enketoTranslationService.contactRecordToJs.returns({
-        doc: { _id: 'person1', type: 'person', name: 'John Doe', phone: '+254712345678', sex: 'male' }
+        doc: { _id: 'person1', type: PERSON, name: 'John Doe', phone: '+254712345678', sex: 'male' }
       });
 
       await service.save(form, docId, type);
@@ -283,7 +286,7 @@ describe('ContactSave service', () => {
 
       const form = { getDataStr: () => xmlPersonCreate };
       const docId = null;
-      const type = 'person';
+      const type = PERSON;
 
       // Test various special characters that should be removed
       const fileWithSpaces = new File(['content'], 'my photo.png', { type: 'image/png' });
@@ -299,7 +302,7 @@ describe('ContactSave service', () => {
       ]);
 
       enketoTranslationService.contactRecordToJs.returns({
-        doc: { _id: 'person1', type: 'person', name: 'John Doe' }
+        doc: { _id: 'person1', type: PERSON, name: 'John Doe' }
       });
 
       await service.save(form, docId, type);
@@ -340,13 +343,13 @@ describe('ContactSave service', () => {
 
       const form = { getDataStr: () => xmlPersonCreate };
       const docId = null;
-      const type = 'person';
+      const type = PERSON;
 
       const devanagariFile = new File(['content'], 'श्रीधर.png', { type: 'image/png' });
       sinon.stub(FileManager, 'getCurrentFiles').returns([ devanagariFile ]);
 
       enketoTranslationService.contactRecordToJs.returns({
-        doc: { _id: 'person1', type: 'person', name: 'John Doe', photo: 'श्रीधर.png' }
+        doc: { _id: 'person1', type: PERSON, name: 'John Doe', photo: 'श्रीधर.png' }
       });
 
       const result = await service.save(form, docId, type);
@@ -376,7 +379,7 @@ describe('ContactSave service', () => {
 
       const form = { getDataStr: () => xmlPersonCreate };
       const docId = null;
-      const type = 'person';
+      const type = PERSON;
 
       // Files with special characters that need sanitization
       const photoFile = new File(['photo-content'], 'Gui\'s Dog-13_0_24.png', { type: 'image/png' });
@@ -388,7 +391,7 @@ describe('ContactSave service', () => {
       enketoTranslationService.contactRecordToJs.returns({
         doc: {
           _id: 'person2',
-          type: 'person',
+          type: PERSON,
           name: 'Jane Doe',
           photo: 'Gui\'s Dog-13_0_24.png',    // Original file name with apostrophe
           document: 'my file (1).pdf'         // Original file name with spaces and parentheses
@@ -427,12 +430,12 @@ describe('ContactSave service', () => {
 
       const form = { getDataStr: () => xmlWithBinaryField };
       const docId = null;
-      const type = 'person';
+      const type = PERSON;
 
       sinon.stub(FileManager, 'getCurrentFiles').returns([]);
 
       enketoTranslationService.contactRecordToJs.returns({
-        doc: { _id: 'person1', type: 'person', name: 'Jane Smith', phone: '+254712345679', sex: 'female' }
+        doc: { _id: 'person1', type: PERSON, name: 'Jane Smith', phone: '+254712345679', sex: 'female' }
       });
 
       await service.save(form, docId, type);
@@ -467,7 +470,7 @@ describe('ContactSave service', () => {
 
         const form = { getDataStr: () => xmlStr };
         const docId = 'person1';
-        const type = 'person';
+        const type = PERSON;
 
         const newFile = new File(['new photo content'], 'new-photo.png', { type: 'image/png' });
         sinon.stub(FileManager, 'getCurrentFiles').returns([newFile]);
@@ -475,7 +478,7 @@ describe('ContactSave service', () => {
         // Existing contact has an old attachment
         getContact.withArgs(Qualifier.byUuid('person1')).resolves({
           _id: 'person1',
-          type: 'person',
+          type: PERSON,
           name: 'John Doe',
           photo: 'old-photo.png',
           _attachments: {
@@ -484,7 +487,7 @@ describe('ContactSave service', () => {
         });
 
         enketoTranslationService.contactRecordToJs.returns({
-          doc: { _id: 'person1', type: 'person', name: 'John Doe', photo: 'new-photo.png' }
+          doc: { _id: 'person1', type: PERSON, name: 'John Doe', photo: 'new-photo.png' }
         });
 
         await service.save(form, docId, type);
@@ -513,13 +516,13 @@ describe('ContactSave service', () => {
 
         const form = { getDataStr: () => xmlStr };
         const docId = 'person1';
-        const type = 'person';
+        const type = PERSON;
 
         sinon.stub(FileManager, 'getCurrentFiles').returns([]);
 
         getContact.withArgs(Qualifier.byUuid('person1')).resolves({
           _id: 'person1',
-          type: 'person',
+          type: PERSON,
           name: 'John Doe',
           metadata: {
             images: [
@@ -534,7 +537,7 @@ describe('ContactSave service', () => {
         enketoTranslationService.contactRecordToJs.returns({
           doc: {
             _id: 'person1',
-            type: 'person',
+            type: PERSON,
             name: 'John Updated',
             metadata: {
               images: [
@@ -565,13 +568,13 @@ describe('ContactSave service', () => {
 
         const form = { getDataStr: () => xmlStr };
         const docId = 'person1';
-        const type = 'person';
+        const type = PERSON;
 
         sinon.stub(FileManager, 'getCurrentFiles').returns([]);
 
         getContact.withArgs(Qualifier.byUuid('person1')).resolves({
           _id: 'person1',
-          type: 'person',
+          type: PERSON,
           name: 'John Doe',
           photo: 'old-photo.png',
           _attachments: {
@@ -580,7 +583,7 @@ describe('ContactSave service', () => {
         });
 
         enketoTranslationService.contactRecordToJs.returns({
-          doc: { _id: 'person1', type: 'person', name: 'John Doe', photo: '' }
+          doc: { _id: 'person1', type: PERSON, name: 'John Doe', photo: '' }
         });
 
         await service.save(form, docId, type);
@@ -606,14 +609,14 @@ describe('ContactSave service', () => {
 
         const form = { getDataStr: () => xmlStr };
         const docId = 'person1';
-        const type = 'person';
+        const type = PERSON;
 
         const newDocFile = new File(['new doc'], 'new-doc.pdf', { type: 'application/pdf' });
         sinon.stub(FileManager, 'getCurrentFiles').returns([newDocFile]);
 
         getContact.withArgs(Qualifier.byUuid('person1')).resolves({
           _id: 'person1',
-          type: 'person',
+          type: PERSON,
           name: 'John Doe',
           photo: 'keep-photo.png',
           document: 'old-doc.pdf',
@@ -628,7 +631,7 @@ describe('ContactSave service', () => {
         enketoTranslationService.contactRecordToJs.returns({
           doc: {
             _id: 'person1',
-            type: 'person',
+            type: PERSON,
             name: 'John Doe',
             photo: 'keep-photo.png',   // kept (field still references it)
             document: 'new-doc.pdf',    // replaced (new file uploaded)
@@ -676,14 +679,14 @@ describe('ContactSave service', () => {
 
       const form = { getDataStr: () => xmlWithMultipleAttachments };
       const docId = null;
-      const type = 'person';
+      const type = PERSON;
 
       const mockFile1 = new File(['certificate content'], 'certificate.pdf', { type: 'application/pdf' });
       const mockFile2 = new File(['insurance ID content'], 'insurance-id.pdf', { type: 'application/pdf' });
       sinon.stub(FileManager, 'getCurrentFiles').returns([mockFile1, mockFile2]);
 
       enketoTranslationService.contactRecordToJs.returns({
-        doc: { _id: 'person1', type: 'person', name: 'Dr. Maria Garcia', phone: '+254712345680', sex: 'female' }
+        doc: { _id: 'person1', type: PERSON, name: 'Dr. Maria Garcia', phone: '+254712345680', sex: 'female' }
       });
 
       await service.save(form, docId, type);

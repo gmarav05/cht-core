@@ -112,7 +112,7 @@ describe('Contact API', () => {
     roles: ['chw']
   }));
   const allDocItems = [contact0, contact1, contact2, place0, place1, place2, clinic1, clinic2, patient];
-  const personType = 'person';
+  const personType = CONTACT_TYPES.PERSON;
   const e2eTestUser = {
     '_id': 'e2e_contact_test_id',
     'type': personType,

@@ -7,6 +7,7 @@ const config = require('../../src/config');
 const contactTypeUtils = require('@medic/contact-types-utils');
 const db = require('../../src/db');
 const logger = require('@medic/logger');
+const { CONTACT_TYPES } = require('@medic/constants');
 
 let transitionUtils;
 let transition;
@@ -235,7 +236,7 @@ describe('pregnancy registration with weeks since LMP', () => {
       patient: {
         _id: 'uuid',
         patient_id: '12345',
-        type: 'person'
+        type: CONTACT_TYPES.PERSON
       }
     };
 
@@ -277,7 +278,7 @@ describe('pregnancy registration with weeks since LMP', () => {
         name: 'abc',
         parent: { _id: 'parent' },
         patient_id: 12345,
-        type: 'person',
+        type: CONTACT_TYPES.PERSON,
         source_id: 'doc_id',
         reported_date: 12345678956,
       }]);

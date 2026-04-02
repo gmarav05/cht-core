@@ -1,6 +1,7 @@
 const { buildViewMapFn } = require('./utils');
 const medicOfflineFreetext = require('../../../../src/js/bootstrapper/offline-ddocs/medic-offline-freetext');
 const { expect } = require('chai');
+const { CONTACT_TYPES } = require('@medic/constants');
 
 const createReport = (data = {}) => {
   return {
@@ -20,7 +21,7 @@ describe('reports_by_freetext', () => {
     undefined,
     'invalid',
     'contact',
-    'person',
+    CONTACT_TYPES.PERSON,
   ].forEach(type => it(`emits nothing when type is invalid [${type}]`, () => {
     const doc = createReport({ type });
     const emitted = mapFn(doc, true);

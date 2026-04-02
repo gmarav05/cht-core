@@ -22,7 +22,12 @@ import { TasksSidebarFilterComponent } from '@mm-modules/tasks/tasks-sidebar-fil
 import { PlaceHierarchyService } from '@mm-services/place-hierarchy.service';
 import { SessionService } from '@mm-services/session.service';
 import { DbService } from '@mm-services/db.service';
+
 import { TelemetryService } from '@mm-services/telemetry.service';
+import { CONTACT_TYPES } from '@medic/constants';
+
+const { PERSON } = CONTACT_TYPES;
+
 
 describe('TasksComponent', () => {
   let getComponent;
@@ -237,7 +242,7 @@ describe('TasksComponent', () => {
 
   it('changes feed', async () => {
     contactTypesService.includes
-      .withArgs(sinon.match({ type: 'person' })).returns(true)
+      .withArgs(sinon.match({ type: PERSON })).returns(true)
       .withArgs(sinon.match({ type: 'clinic' })).returns(true)
       .withArgs(sinon.match({ type: 'contact' })).returns(true);
 
@@ -248,7 +253,7 @@ describe('TasksComponent', () => {
 
     const changesFeed = changesService.subscribe.args[0][0];
     expect(!!changesFeed.filter({})).to.be.false;
-    expect(changesFeed.filter({ id: 'person', doc: { _id: 'person', type: 'person' }})).to.be.true;
+    expect(changesFeed.filter({ id: 'person', doc: { _id: 'person', type: PERSON }})).to.be.true;
     expect(changesFeed.filter({ id: 'clinic', doc: { _id: 'clinic', type: 'clinic' }})).to.be.true;
     expect(changesFeed.filter({ id: 'report', doc: { _id: 'report', type: 'data_record', form: 'form' }})).to.be.true;
     expect(changesFeed.filter({ id: 'task', doc: { _id: 'task', type: 'task' }})).to.be.true;
