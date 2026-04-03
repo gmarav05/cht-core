@@ -156,7 +156,7 @@ describe('validate doc update', () => {
       const userSettings = getUserSettings();
       delete userSettings.name;
       forbiddenOnClient(
-        'name property must be equivalent to username. e.g. "${PREFIXES.COUCH_USER}sally"',
+        'name property must be equivalent to username. e.g. "org.couchdb.user:sally"',
         userCtx(),
         userSettings
       );
@@ -166,7 +166,7 @@ describe('validate doc update', () => {
       const userSettings = getUserSettings();
       userSettings._id = 'org.couchdb.foo:sally';
       forbiddenOnClient(
-        '_id must be prefixed with "${PREFIXES.COUCH_USER}". e.g. "${PREFIXES.COUCH_USER}sally"',
+        '_id must be prefixed with "org.couchdb.user:". e.g. "org.couchdb.user:sally"',
         userCtx(),
         userSettings
       );
@@ -176,7 +176,7 @@ describe('validate doc update', () => {
       const userSettings = getUserSettings();
       userSettings._id = PREFIXES.COUCH_USER;
       forbiddenOnClient(
-        '_id must define a value after "${PREFIXES.COUCH_USER}". e.g. "${PREFIXES.COUCH_USER}sally"',
+        '_id must define a value after "org.couchdb.user:". e.g. "org.couchdb.user:sally"',
         userCtx(),
         userSettings
       );
@@ -186,7 +186,7 @@ describe('validate doc update', () => {
       const userSettings = getUserSettings();
       userSettings.name = 'foo';
       forbiddenOnClient(
-        'name property must be equivalent to username. e.g. "${PREFIXES.COUCH_USER}sally"',
+        'name property must be equivalent to username. e.g. "org.couchdb.user:sally"',
         userCtx(),
         userSettings
       );

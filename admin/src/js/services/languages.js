@@ -1,8 +1,8 @@
 /*
  * Get all enabled languages
  */
-
-const { PREFIXES } = require('@medic/constants');
+const constants = require('@medic/constants');
+const PREFIXES = constants.PREFIXES;
 
 angular.module('inboxServices').factory('Languages',
   function(
