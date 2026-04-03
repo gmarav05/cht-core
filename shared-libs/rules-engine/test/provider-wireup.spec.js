@@ -7,6 +7,7 @@ const {
   engineSettings,
   defaultConfigSettingsDoc
 } = require('./mocks');
+const { PREFIXES } = require('@medic/constants');
 
 const memdownMedic = require('@medic/memdown');
 const moment = require('moment');
@@ -73,7 +74,7 @@ let clock;
 let wireup;
 let rulesStateStore;
 const currentUserContact = { _id: 'mock_user_id' };
-const currentUserSettings = { _id: 'org.couchdb.user:username' };
+const currentUserSettings = { _id: PREFIXES.COUCH_USER + 'username' };
 const settings = {
   rules: defaultConfigSettingsDoc.tasks.rules,
   rulesAreDeclarative: true
@@ -310,7 +311,7 @@ describe('provider-wireup integration tests', () => {
         contactDocs: [],
         reportDocs: [headlessReport],
         taskDocs: [headlessTask],
-        userSettingsId: 'org.couchdb.user:username',
+        userSettingsId: PREFIXES.COUCH_USER + 'username',
       });
 
       expect(db.bulkDocs.callCount).to.eq(2);
@@ -341,7 +342,7 @@ describe('provider-wireup integration tests', () => {
         contactDocs: [chtDocs.contact],
         reportDocs: [headlessReport, chtDocs.pregnancyReport, reportConnectedByPlace],
         taskDocs: [headlessTask, taskRequestedByChtContact],
-        userSettingsId: 'org.couchdb.user:username',
+        userSettingsId: PREFIXES.COUCH_USER + 'username',
       });
 
       expect(rulesStateStore.hasAllContacts()).to.be.true;
@@ -368,7 +369,7 @@ describe('provider-wireup integration tests', () => {
             timestamp: NOW,
           }]
         }],
-        userSettingsId: 'org.couchdb.user:username',
+        userSettingsId: PREFIXES.COUCH_USER + 'username',
       });
     });
 
@@ -519,7 +520,7 @@ describe('provider-wireup integration tests', () => {
         type: 'target',
         updated_date: moment().startOf('day').valueOf(),
         owner: 'mock_user_id',
-        user: 'org.couchdb.user:username',
+        user: PREFIXES.COUCH_USER + 'username',
         reporting_period: '2024-01',
       });
       expect(writtenDoc.targets[0]).to.deep.eq({

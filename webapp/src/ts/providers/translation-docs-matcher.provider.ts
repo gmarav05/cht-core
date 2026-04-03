@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
+import { PREFIXES } from '@medic/constants';
 
 @Injectable()
 export class TranslationDocsMatcherProvider {
-  private static DOC_ID_PREFIX = 'messages-';
+  private static DOC_ID_PREFIX = PREFIXES.TRANSLATIONS;
   private static translationsDocIdMatcher = new RegExp(`^${TranslationDocsMatcherProvider.DOC_ID_PREFIX}(.+)$`);
 
   static test(docId?) {

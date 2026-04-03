@@ -2,6 +2,8 @@
 
   'use strict';
 
+  const { PREFIXES } = require('@medic/constants');
+
   angular.module('inboxServices').factory('UserSettings',
     function(
       $q,
@@ -14,7 +16,7 @@
       const userDocId = () => {
         const userCtx = Session.userCtx();
         if (userCtx) {
-          return 'org.couchdb.user:' + userCtx.name;
+          return PREFIXES.COUCH_USER + userCtx.name;
         }
       };
 

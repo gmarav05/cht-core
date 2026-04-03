@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import sinon from 'sinon';
 import { assert, expect } from 'chai';
 import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { DOC_IDS } from '@medic/constants';
+import { DOC_IDS, PREFIXES } from '@medic/constants';
 
 import { SessionService } from '@mm-services/session.service';
 import { AuthService } from '@mm-services/auth.service';
@@ -92,7 +92,7 @@ describe('RulesEngineService', () => {
   };
 
   const userSettingsDoc = {
-    _id: 'org.couchdb.user:username',
+    _id: PREFIXES.COUCH_USER + 'username',
     type: 'user-settings',
     roles: [],
   };
@@ -1176,7 +1176,7 @@ describe('RulesEngineService', () => {
       const targetDoc = {
         _id: 'target~2025-01~user~org.couchdb.user:fred',
         type: 'target',
-        user: 'org.couchdb.user:fred',
+        user: PREFIXES.COUCH_USER + 'fred',
         owner: 'user',
         reporting_period: '2025-01',
         updated_date: Date.now(),
@@ -1267,7 +1267,7 @@ describe('RulesEngineService', () => {
       const targetDoc = {
         _id: 'target~2025-01~user~org.couchdb.user:fred',
         type: 'target',
-        user: 'org.couchdb.user:fred',
+        user: PREFIXES.COUCH_USER + 'fred',
         owner: 'user',
         reporting_period: '2025-01',
         updated_date: Date.now(),
@@ -1288,7 +1288,7 @@ describe('RulesEngineService', () => {
       const targetDoc = {
         _id: 'target~2025-01~user~org.couchdb.user:fred',
         type: 'target',
-        user: 'org.couchdb.user:fred',
+        user: PREFIXES.COUCH_USER + 'fred',
         owner: 'user',
         reporting_period: '2025-01',
         updated_date: Date.now(),

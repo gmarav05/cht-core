@@ -6,7 +6,7 @@ const placeFactory = require('@factories/cht/contacts/place');
 const personFactory = require('@factories/cht/contacts/person');
 const userFactory = require('@factories/cht/users/users');
 const chai = require('chai');
-const { USER_ROLES, CONTACT_TYPES } = require('@medic/constants');
+const { USER_ROLES, CONTACT_TYPES, PREFIXES } = require('@medic/constants');
 
 const getUserId = n => `org.couchdb.user:${n}`;
 const password = 'passwordSUP3RS3CR37!';
@@ -303,14 +303,14 @@ describe('Users API', () => {
         })
         .then(result => {
           chai.expect(result).to.deep.nested.include({
-            'user.id': 'org.couchdb.user:philip',
-            'user-settings.id': 'org.couchdb.user:philip',
+            'user.id': PREFIXES.COUCH_USER + 'philip',
+            'user-settings.id': PREFIXES.COUCH_USER + 'philip',
           });
           chai.expect(result.contact.id).to.not.be.undefined;
         })
         .then(() => sentinelUtils.waitForSentinel())
         .then(() => Promise.all([
-          utils.getDoc('org.couchdb.user:philip'),
+          utils.getDoc(PREFIXES.COUCH_USER + 'philip'),
           utils.request('/_users/org.couchdb.user:philip')
         ]))
         .then(([userSettings, user]) => {
@@ -423,7 +423,7 @@ describe('Users API', () => {
       docs.push(...Array.from(Array(nbrTasks), () => ({
         _id: `task~org.couchdb.user:offline~${uuid()}`,
         type: 'task',
-        user: 'org.couchdb.user:offline'
+        user: PREFIXES.COUCH_USER + 'offline'
       })));
       await utils.saveDocs(docs);
       const resp = await utils.requestOnTestDb(
@@ -1306,7 +1306,7 @@ describe('Users API', () => {
           .then(loginTokenDoc => {
             chai.expect(loginTokenDoc).to.include({
               type: 'token_login',
-              user: 'org.couchdb.user:testuser',
+              user: PREFIXES.COUCH_USER + 'testuser',
             });
             chai.expect(loginTokenDoc.tasks).to.be.ok;
             chai.expect(loginTokenDoc.tasks.length).to.equal(2);
@@ -1384,7 +1384,7 @@ describe('Users API', () => {
           .then(loginTokenDoc => {
             chai.expect(loginTokenDoc).to.include({
               type: 'token_login',
-              user: 'org.couchdb.user:testuser',
+              user: PREFIXES.COUCH_USER + 'testuser',
             });
             chai.expect(loginTokenDoc.tasks).to.be.ok;
             chai.expect(loginTokenDoc.tasks.length).to.equal(2);
@@ -1578,7 +1578,7 @@ describe('Users API', () => {
           return utils.getDoc(tokenLoginDocId);
         })
         .then(tokenLoginDoc => {
-          chai.expect(tokenLoginDoc.user).to.equal('org.couchdb.user:testuser');
+          chai.expect(tokenLoginDoc.user).to.equal(PREFIXES.COUCH_USER + 'testuser');
 
           const onlineRequestOpts = {
             auth: { username: 'onlineuser', password },
@@ -1789,7 +1789,7 @@ describe('Users API', () => {
         body: [user1, user2, user3, user4, user5],
       });
 
-      const user5Name = user5Response.user.id.replace('org.couchdb.user:', '');
+      const user5Name = user5Response.user.id.replace(PREFIXES.COUCH_USER, '');
       await utils.request({
         path: `/api/v1/users/${user5Name}`,
         method: 'DELETE',

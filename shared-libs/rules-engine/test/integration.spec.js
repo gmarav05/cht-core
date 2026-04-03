@@ -8,6 +8,7 @@ const sinon = require('sinon');
 
 const RulesEngine = require('../src');
 const rulesEmitter = require('../src/rules-emitter');
+const { PREFIXES } = require('@medic/constants');
 
 const { expect } = chai;
 chai.use(chaiExclude);
@@ -227,7 +228,7 @@ describe(`Rules Engine Integration Tests`, () => {
       expect(db.bulkDocs.args[1][0].docs.length).to.eq(1);
       expect(db.bulkDocs.args[1][0].docs[0]).to.deep.include({
         type: 'target',
-        user: 'org.couchdb.user:username',
+        user: PREFIXES.COUCH_USER + 'username',
         owner: 'user',
         reporting_period: TARGET_INTERVAL,
       });
@@ -280,7 +281,7 @@ describe(`Rules Engine Integration Tests`, () => {
       expect(db.bulkDocs.args[1][0].docs.length).to.eq(1);
       expect(db.bulkDocs.args[1][0].docs[0]).to.deep.include({
         type: 'target',
-        user: 'org.couchdb.user:username',
+        user: PREFIXES.COUCH_USER + 'username',
         owner: 'user',
       });
       expect(db.bulkDocs.args[2][0]).to.have.property('length', 1);
