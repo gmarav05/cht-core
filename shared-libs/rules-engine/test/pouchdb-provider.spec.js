@@ -223,11 +223,11 @@ describe('pouchdb provider', () => {
       const docTag = '2019-07';
       await pouchdbProvider(db).commitTargetDoc(targets, docTag, { userContactDoc, userSettingsDoc });
 
-      const targetDocId = 'target~2019-07~user~org.couchdb.user:username';
+      const targetDocId = 'target~2019-07~user~${PREFIXES.COUCH_USER}username';
 
       const firstTargetDoc = await db.get(targetDocId);
       expect(firstTargetDoc).excluding('_rev').to.deep.eq({
-        _id: 'target~2019-07~user~org.couchdb.user:username',
+        _id: 'target~2019-07~user~${PREFIXES.COUCH_USER}username',
         updated_date: moment().startOf('day').valueOf(),
         type: 'target',
         owner: 'user',
@@ -244,7 +244,7 @@ describe('pouchdb provider', () => {
       await pouchdbProvider(db).commitTargetDoc(nextTargets, docTag, { userContactDoc, userSettingsDoc },  true);
       const secondTargetDoc = await db.get(targetDocId);
       expect(secondTargetDoc).excluding('_rev').to.deep.eq({
-        _id: 'target~2019-07~user~org.couchdb.user:username',
+        _id: 'target~2019-07~user~${PREFIXES.COUCH_USER}username',
         updated_date: moment().startOf('day').valueOf(),
         type: 'target',
         owner: 'user',

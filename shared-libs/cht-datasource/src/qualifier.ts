@@ -180,7 +180,7 @@ export const byReportingPeriod = (reportingPeriod: string): ReportingPeriodQuali
 };
 
 /**
- * A qualifier that identifies entities based on a username (without the "org.couchdb.user:" prefix).
+ * A qualifier that identifies entities based on a username (without the "${PREFIXES.COUCH_USER}" prefix).
  */
 export interface UsernameQualifier {
   readonly username: string

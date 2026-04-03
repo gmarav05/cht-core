@@ -87,7 +87,7 @@ describe('translations', () => {
       chai.expect(db.medic.allDocs.callCount).to.equal(1);
       chai.expect(db.medic.allDocs.args[0]).to.deep.equal([{
         startkey: PREFIXES.TRANSLATIONS,
-        endkey: 'messages-\ufff0',
+        endkey: PREFIXES.TRANSLATIONS + '\ufff0',
         include_docs: true,
       }]);
     });
@@ -536,7 +536,7 @@ describe('translations', () => {
         ]);
         chai.expect(db.medic.allDocs.callCount).to.equal(1);
         chai.expect(db.medic.allDocs.args[0]).to.deep.equal([
-          { startkey: PREFIXES.TRANSLATIONS, endkey: `messages-\ufff0`, include_docs: true }
+          { startkey: PREFIXES.TRANSLATIONS, endkey: PREFIXES.TRANSLATIONS + '\ufff0', include_docs: true }
         ]);
       });
     });
@@ -557,7 +557,7 @@ describe('translations', () => {
         ]);
         chai.expect(db.medic.allDocs.callCount).to.equal(1);
         chai.expect(db.medic.allDocs.args[0]).to.deep.equal([
-          { startkey: PREFIXES.TRANSLATIONS, endkey: `messages-\ufff0`, include_docs: true }
+          { startkey: PREFIXES.TRANSLATIONS, endkey: PREFIXES.TRANSLATIONS + '\ufff0', include_docs: true }
         ]);
       });
     });
@@ -581,7 +581,7 @@ describe('translations', () => {
 
           chai.expect(db.medic.allDocs.callCount).to.equal(1);
           chai.expect(db.medic.allDocs.args[0]).to.deep.equal([
-            { startkey: PREFIXES.TRANSLATIONS, endkey: `messages-\ufff0`, include_docs: true }
+            { startkey: PREFIXES.TRANSLATIONS, endkey: PREFIXES.TRANSLATIONS + '\ufff0', include_docs: true }
           ]);
         });
       });

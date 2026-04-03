@@ -4348,7 +4348,7 @@ describe('Users service', () => {
           facility_id: ssoUserData.place,
           contact_id: ssoUserData.contact,
           roles: ssoUserData.roles,
-          _id: `org.couchdb.user:${ssoUserData.username}`,
+          _id: `${PREFIXES.COUCH_USER}${ssoUserData.username}`,
           name: ssoUserData.username,
         };
         chai.expect(db.medic.put.calledOnceWithExactly({
@@ -4411,7 +4411,7 @@ describe('Users service', () => {
           facility_id: [ssoUserData.place],
           contact_id: ssoUserData.contact,
           roles: ssoUserData.roles,
-          _id: `org.couchdb.user:${ssoUserData.username}`,
+          _id: `${PREFIXES.COUCH_USER}${ssoUserData.username}`,
           name: ssoUserData.username,
         };
 
@@ -4491,7 +4491,7 @@ describe('Users service', () => {
           facility_id: [ssoUserData.place],
           contact_id: ssoUserData.contact,
           roles: ssoUserData.roles,
-          _id: `org.couchdb.user:${ssoUserData1.username}`,
+          _id: `${PREFIXES.COUCH_USER}${ssoUserData1.username}`,
           name: ssoUserData1.username,
         };
 
@@ -4547,18 +4547,18 @@ describe('Users service', () => {
           facility_id: [ssoUserData.place],
           contact_id: ssoUserData.contact,
           roles: ssoUserData.roles,
-          _id: `org.couchdb.user:${ssoUserData.username}`,
+          _id: `${PREFIXES.COUCH_USER}${ssoUserData.username}`,
           name: ssoUserData.username,
         };
         const expectedUser1 = {
           ...expectedUser,
           name: ssoUserData1.username,
-          _id: `org.couchdb.user:${ssoUserData1.username}`,
+          _id: `${PREFIXES.COUCH_USER}${ssoUserData1.username}`,
         };
         const expectedUser2 = {
           ...expectedUser,
           name: ssoUserData2.username,
-          _id: `org.couchdb.user:${ssoUserData2.username}`,
+          _id: `${PREFIXES.COUCH_USER}${ssoUserData2.username}`,
         };
 
         const response = await service.createUsers([ssoUserData, ssoUserData1, ssoUserData2]);
@@ -4656,7 +4656,7 @@ describe('Users service', () => {
           facility_id: [ssoUserData.place],
           contact_id: ssoUserData.contact,
           roles: ssoUserData.roles,
-          _id: `org.couchdb.user:${ssoUserData.username}`,
+          _id: `${PREFIXES.COUCH_USER}${ssoUserData.username}`,
           name: ssoUserData.username,
         };
         const existingUserSettings = {
@@ -4702,7 +4702,7 @@ describe('Users service', () => {
           facility_id: [ssoUserData.place],
           contact_id: ssoUserData.contact,
           roles: ssoUserData.roles,
-          _id: `org.couchdb.user:${ssoUserData.username}`,
+          _id: `${PREFIXES.COUCH_USER}${ssoUserData.username}`,
           name: ssoUserData.username,
         };
         const existingUserSettings = {
@@ -4747,7 +4747,7 @@ describe('Users service', () => {
           facility_id: [ssoUserData.place],
           contact_id: ssoUserData.contact,
           roles: ssoUserData.roles,
-          _id: `org.couchdb.user:${ssoUserData.username}`,
+          _id: `${PREFIXES.COUCH_USER}${ssoUserData.username}`,
           name: ssoUserData.username,
         };
         const existingUserSettings = {

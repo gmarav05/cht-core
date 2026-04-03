@@ -88,13 +88,13 @@ describe('add-contact-id-to-user-docs migration', () => {
   it('migrates the contact_id value for all batches', async () => {
     const userSettingsFirstBatch = Array.from(
       { length: BATCH_SIZE },
-      (_, i) => createUserSettingsDoc(`org.couchdb.user:test-chw-${i}`, `contact-${i}`)
+      (_, i) => createUserSettingsDoc(`${PREFIXES.COUCH_USER}test-chw-${i}`, `contact-${i}`)
     );
     const userSettingsSecondBatch = Array.from(
       { length: BATCH_SIZE },
-      (_, i) => createUserSettingsDoc(`org.couchdb.user:test-chw-11${i}`, `contact-11${i}`)
+      (_, i) => createUserSettingsDoc(`${PREFIXES.COUCH_USER}test-chw-11${i}`, `contact-11${i}`)
     );
-    const userSettingsThirdBatch = [createUserSettingsDoc(`org.couchdb.user:test-chw-222`, `contact-222`)];
+    const userSettingsThirdBatch = [createUserSettingsDoc(`${PREFIXES.COUCH_USER}test-chw-222`, `contact-222`)];
     medicAllDocs.onFirstCall().resolves(createCouchResponse(userSettingsFirstBatch));
     medicAllDocs.onSecondCall().resolves(createCouchResponse(userSettingsSecondBatch));
     medicAllDocs.onThirdCall().resolves(createCouchResponse(userSettingsThirdBatch));

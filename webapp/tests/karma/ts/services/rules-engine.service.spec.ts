@@ -1174,7 +1174,7 @@ describe('RulesEngineService', () => {
 
     it('should fetch previous month targets when ReportingPeriod.PREVIOUS is passed', async () => {
       const targetDoc = {
-        _id: 'target~2025-01~user~org.couchdb.user:fred',
+        _id: 'target~2025-01~user~${PREFIXES.COUCH_USER}fred',
         type: 'target',
         user: PREFIXES.COUCH_USER + 'fred',
         owner: 'user',
@@ -1265,7 +1265,7 @@ describe('RulesEngineService', () => {
 
     it('should calculate correct reporting period for previous month', async () => {
       const targetDoc = {
-        _id: 'target~2025-01~user~org.couchdb.user:fred',
+        _id: 'target~2025-01~user~${PREFIXES.COUCH_USER}fred',
         type: 'target',
         user: PREFIXES.COUCH_USER + 'fred',
         owner: 'user',
@@ -1286,7 +1286,7 @@ describe('RulesEngineService', () => {
 
     it('should process multiple targets', async () => {
       const targetDoc = {
-        _id: 'target~2025-01~user~org.couchdb.user:fred',
+        _id: 'target~2025-01~user~${PREFIXES.COUCH_USER}fred',
         type: 'target',
         user: PREFIXES.COUCH_USER + 'fred',
         owner: 'user',

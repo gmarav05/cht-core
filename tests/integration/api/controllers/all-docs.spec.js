@@ -17,7 +17,7 @@ const parentPlace = {
 };
 
 const getIdsForUser = (user) => [
-  `org.couchdb.user:${user}`,
+  `${PREFIXES.COUCH_USER}${user}`,
   DOC_IDS.SETTINGS,
   '_design/medic-client',
   DOC_IDS.SERVICE_WORKER_META

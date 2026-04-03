@@ -18,7 +18,7 @@ describe('initial-replication', () => {
   const requiredDocs = [
     '_design/medic-client',
     DOC_IDS.SETTINGS,
-    `org.couchdb.user:${userAllowedDocs.user.username}`,
+    `${PREFIXES.COUCH_USER}${userAllowedDocs.user.username}`,
     DOC_IDS.SERVICE_WORKER_META,
     'resources',
     DOC_IDS.BRANDING,

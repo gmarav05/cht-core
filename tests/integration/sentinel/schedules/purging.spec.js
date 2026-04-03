@@ -258,7 +258,7 @@ const tasks = [
 const latestTargetInterval = moment().subtract(7, 'months').format('YYYY-MM');
 const targets = [
   {
-    _id: `target~${moment().subtract(9, 'months').format('YYYY-MM')}~org.couchdb.user:user2`,
+    _id: `target~${moment().subtract(9, 'months').format('YYYY-MM')}~${PREFIXES.COUCH_USER}user2`,
     type: 'target',
     user: PREFIXES.COUCH_USER + 'user2',
     owner: 'fixture:user:user2',
@@ -266,7 +266,7 @@ const targets = [
     targets: [],
   },
   {
-    _id: `target~${moment().subtract(6, 'months').format('YYYY-MM')}~org.couchdb.user:user2`,
+    _id: `target~${moment().subtract(6, 'months').format('YYYY-MM')}~${PREFIXES.COUCH_USER}user2`,
     type: 'target',
     user: PREFIXES.COUCH_USER + 'user2',
     owner: 'fixture:user:user2',
@@ -274,7 +274,7 @@ const targets = [
     targets: [],
   },
   {
-    _id: `target~${moment().subtract(7, 'months').subtract(2, 'days').format('YYYY-MM')}~org.couchdb.user:user2`,
+    _id: `target~${moment().subtract(7, 'months').subtract(2, 'days').format('YYYY-MM')}~${PREFIXES.COUCH_USER}user2`,
     type: 'target',
     user: PREFIXES.COUCH_USER + 'user2',
     owner: 'fixture:user:user2',
@@ -282,7 +282,7 @@ const targets = [
     targets: [],
   },
   {
-    _id: `target~${moment().subtract(3, 'months').format('YYYY-MM')}~org.couchdb.user:user2`,
+    _id: `target~${moment().subtract(3, 'months').format('YYYY-MM')}~${PREFIXES.COUCH_USER}user2`,
     type: 'target',
     user: PREFIXES.COUCH_USER + 'user2',
     owner: 'fixture:user:user2',
