@@ -22,8 +22,7 @@ describe('nouveau utils', () => {
 
     it('should escape a user name', () => {
       const userId = PREFIXES.COUCH_USER + 'fixture.user.test';
-      expect(lib.escapeKeys(userId))
-        .to.equal(userId.replace(/:/g, '\\:'));
+      expect(lib.escapeKeys(userId)).to.equal('org.couchdb.user\\:fixture.user.test');
     });
 
     it('should escape a task uuid', () => {
