@@ -3,8 +3,10 @@ import { PREFIXES } from '@medic/constants';
 
 @Injectable()
 export class TranslationDocsMatcherProvider {
-  private static DOC_ID_PREFIX = PREFIXES.TRANSLATIONS;
-  private static translationsDocIdMatcher = new RegExp(`^${TranslationDocsMatcherProvider.DOC_ID_PREFIX}(.+)$`);
+  private static readonly DOC_ID_PREFIX = PREFIXES.TRANSLATIONS;
+  private static readonly translationsDocIdMatcher = new RegExp(
+    `^${TranslationDocsMatcherProvider.DOC_ID_PREFIX}(.+)$`
+  );
 
   static test(docId?) {
     return docId && TranslationDocsMatcherProvider.translationsDocIdMatcher.test(docId);
