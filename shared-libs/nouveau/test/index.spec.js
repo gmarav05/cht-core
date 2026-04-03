@@ -27,18 +27,12 @@ describe('nouveau utils', () => {
     });
 
     it('should escape a task uuid', () => {
-      const taskId = [
-        'task~',
-        PREFIXES.COUCH_USER,
-        '48_tam~0f335495-cc71-43a5-a3d0-0e1b32d54c8e~',
-        'commodities-stock-out~cha-commodity-stock-out~1723279828121'
-      ].join('');
-
-      expect(lib.escapeKeys(taskId)).to.equal(
-        taskId
-          .replace(/~/g, '\\~')
-          .replace(/:/g, '\\:')
-          .replace(/-/g, '\\-')
+      expect(
+        // eslint-disable-next-line @stylistic/max-len
+        lib.escapeKeys('task~org.couchdb.user:48_tam~0f335495-cc71-43a5-a3d0-0e1b32d54c8e~commodities-stock-out~cha-commodity-stock-out~1723279828121')
+      ).to.equal(
+        // eslint-disable-next-line @stylistic/max-len
+        'task\\~org.couchdb.user\\:48_tam\\~0f335495\\-cc71\\-43a5\\-a3d0\\-0e1b32d54c8e\\~commodities\\-stock\\-out\\~cha\\-commodity\\-stock\\-out\\~1723279828121'
       );
     });
   });
