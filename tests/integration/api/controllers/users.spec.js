@@ -311,7 +311,7 @@ describe('Users API', () => {
         .then(() => sentinelUtils.waitForSentinel())
         .then(() => Promise.all([
           utils.getDoc(PREFIXES.COUCH_USER + 'philip'),
-          utils.request('/_users/${PREFIXES.COUCH_USER}philip')
+          utils.request(`/_users/${PREFIXES.COUCH_USER}philip`)
         ]))
         .then(([userSettings, user]) => {
           chai.expect(userSettings).to.include({ name: 'philip', type: 'user-settings' });

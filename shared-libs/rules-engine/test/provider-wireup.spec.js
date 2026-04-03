@@ -514,9 +514,9 @@ describe('provider-wireup integration tests', () => {
       expect(provider.commitTargetDoc.callCount).to.eq(1);
       await provider.commitTargetDoc.returnValues[0];
 
-      const writtenDoc = await db.get('target~2024-01~mock_user_id~${PREFIXES.COUCH_USER}username');
+      const writtenDoc = await db.get(`target~2024-01~mock_user_id~${PREFIXES.COUCH_USER}username`);
       expect(writtenDoc).excluding(['targets', '_rev']).to.deep.eq({
-        _id: 'target~2024-01~mock_user_id~${PREFIXES.COUCH_USER}username',
+        _id: `target~2024-01~mock_user_id~${PREFIXES.COUCH_USER}username`,
         type: 'target',
         updated_date: moment().startOf('day').valueOf(),
         owner: 'mock_user_id',

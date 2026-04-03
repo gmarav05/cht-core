@@ -1210,7 +1210,7 @@ describe('db-doc handler', () => {
         .then(() => Promise.all([
           utils.requestOnTestDb(_.defaults({ path: '/fixture:user:offline' }, supervisorRequestOptions)),
           utils
-            .requestOnTestDb(_.defaults({ path: '/${PREFIXES.COUCH_USER}offline' }, supervisorRequestOptions))
+            .requestOnTestDb(_.defaults({ path: `/${PREFIXES.COUCH_USER}offline` }, supervisorRequestOptions))
             .catch(err => err),
           utils
             .requestOnTestDb(_.defaults({ path: '/fixture:offline:clinic:patient' }, supervisorRequestOptions))
