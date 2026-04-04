@@ -6,7 +6,6 @@ import { AfterViewInit, Component, HostListener, NgZone, OnInit } from '@angular
 import { Store } from '@ngrx/store';
 import { setTheme as setBootstrapTheme } from 'ngx-bootstrap/utils';
 import { combineLatest, take } from 'rxjs';
-import { HTTP_HEADERS } from '@medic/constants';
 
 import { DBSyncService, SyncStatus } from '@mm-services/db-sync.service';
 import { Selectors } from '@mm-selectors/index';
@@ -56,7 +55,7 @@ import { PrivacyPolicyComponent } from '@mm-modules/privacy-policy/privacy-polic
 import { SidebarMenuComponent } from '@mm-components/sidebar-menu/sidebar-menu.component';
 import { SnackbarComponent } from '@mm-components/snackbar/snackbar.component';
 import { TasksNotificationService } from '@mm-services/task-notifications.service';
-import { DOC_IDS, DOC_TYPES } from '@medic/constants';
+import { HTTP_HEADERS, DOC_IDS, DOC_TYPES } from '@medic/constants';
 
 const SYNC_STATUS = {
   inProgress: {
