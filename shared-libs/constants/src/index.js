@@ -27,6 +27,8 @@ const HTTP_HEADERS = {
   MEDIC_USER: 'X-Medic-User',
   OPENROSA_VERSION: 'X-OpenRosa-Version',
   CONTENT_TYPE_OPTIONS: 'X-Content-Type-Options',
+  MEDIC_REPLICATION_ID: 'medic-replication-id',
+  LOGOUT_AUTHORIZATION: 'logout-authorization',
 };
 
 // Sentinel Metadata

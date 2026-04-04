@@ -6,6 +6,7 @@ import { AfterViewInit, Component, HostListener, NgZone, OnInit } from '@angular
 import { Store } from '@ngrx/store';
 import { setTheme as setBootstrapTheme } from 'ngx-bootstrap/utils';
 import { combineLatest, take } from 'rxjs';
+import { HTTP_HEADERS } from '@medic/constants';
 
 import { DBSyncService, SyncStatus } from '@mm-services/db-sync.service';
 import { Selectors } from '@mm-selectors/index';
@@ -242,7 +243,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         .apply(dbFetch, args)
         .then((response) => {
           // ignore 401 that could come through other channels than CHT API
-          if (response.status === 401 && response.headers?.get('logout-authorization') === 'CHT-Core API') {
+          if (response.status === 401 && response.headers?.get(HTTP_HEADERS.LOGOUT_AUTHORIZATION) === 'CHT-Core API') {
             this.showSessionExpired();
             setTimeout(() => {
               console.info('Redirect to login after 1 minute of inactivity');
