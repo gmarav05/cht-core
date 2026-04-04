@@ -6,6 +6,7 @@ import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-tran
 import sinon from 'sinon';
 import { expect } from 'chai';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
+import { DOC_IDS } from '@medic/constants';
 
 import { Selectors } from '@mm-selectors/index';
 import { AnalyticsFilterComponent } from '@mm-components/filters/analytics-filter/analytics-filter.component';
@@ -36,7 +37,7 @@ describe('Analytics Filter Component', () => {
       setSidebarFilter: sinon.stub(GlobalActions.prototype, 'setSidebarFilter'),
     };
     route = {
-      snapshot: { queryParams: { query: '' }, firstChild: { data: { moduleId: 'target-aggregates' } } },
+      snapshot: { queryParams: { query: '' }, firstChild: { data: { moduleId: DOC_IDS.TARGET_AGGREGATES } } },
       url: of([])
     };
     routerEventSubject = new Subject();
@@ -87,7 +88,7 @@ describe('Analytics Filter Component', () => {
   it('should display filter button when all conditions of showFilterButton are true', fakeAsync(() => {
     sinon.resetHistory();
     sessionService.isAdmin.returns(false);
-    route.snapshot.firstChild.data.moduleId = 'target-aggregates';
+    route.snapshot.firstChild.data.moduleId = DOC_IDS.TARGET_AGGREGATES;
 
     component.ngOnInit();
     flush();
@@ -114,7 +115,7 @@ describe('Analytics Filter Component', () => {
   it('should display total active filter count', fakeAsync(() => {
     sinon.resetHistory();
     sessionService.isAdmin.returns(false);
-    route.snapshot.firstChild.data.moduleId = 'target-aggregates';
+    route.snapshot.firstChild.data.moduleId = DOC_IDS.TARGET_AGGREGATES;
 
     component.ngOnInit();
     flush();
@@ -135,7 +136,7 @@ describe('Analytics Filter Component', () => {
     sinon.resetHistory();
     component.analyticsModules = [
       { id: 'targets' },
-      { id: 'target-aggregates' },
+      { id: DOC_IDS.TARGET_AGGREGATES },
     ];
     routerEventSubject.next({ snapshot: { data: { moduleId: 'targets' } } });
     flush();
@@ -170,7 +171,7 @@ describe('Analytics Filter Component', () => {
   it('should update the active module when route changes', fakeAsync(() => {
     component.analyticsModules = [
       { id: 'targets' },
-      { id: 'target-aggregates' },
+      { id: DOC_IDS.TARGET_AGGREGATES },
     ];
 
     routerEventSubject.next({ snapshot: { data: { moduleId: 'random-module' } } });
@@ -184,10 +185,10 @@ describe('Analytics Filter Component', () => {
     expect(component.activeModule).to.not.be.undefined;
     expect(component.activeModule.id).to.equal('targets');
 
-    routerEventSubject.next({ snapshot: { data: { moduleId: 'target-aggregates' } } });
+    routerEventSubject.next({ snapshot: { data: { moduleId: DOC_IDS.TARGET_AGGREGATES } } });
     flush();
 
     expect(component.activeModule).to.not.be.undefined;
-    expect(component.activeModule.id).to.equal('target-aggregates');
+    expect(component.activeModule.id).to.equal(DOC_IDS.TARGET_AGGREGATES);
   }));
 });

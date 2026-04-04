@@ -11,6 +11,7 @@ import {
 import { AnalyticsRouteGuardProvider } from '@mm-modules/analytics/analytics-route.guard.provider';
 import { TrainingCardDeactivationGuardProvider } from 'src/ts/training-card.guard.provider';
 import { AGGREGATE_TARGETS_ID, TARGETS_ID } from '@mm-services/analytics-modules.service';
+import { DOC_IDS } from '@medic/constants';
 
 export const routes:Routes = [
   {
@@ -32,7 +33,7 @@ export const routes:Routes = [
         canDeactivate: [ TrainingCardDeactivationGuardProvider ],
       },
       {
-        path: 'target-aggregates',
+        path: DOC_IDS.TARGET_AGGREGATES,
         component: AnalyticsTargetAggregatesComponent,
         data: { moduleId: AGGREGATE_TARGETS_ID },
         canDeactivate: [ TrainingCardDeactivationGuardProvider ],
