@@ -2,7 +2,6 @@ import { expect } from 'chai';
 
 import { Actions } from '@mm-actions/analytics';
 import { analyticsReducer } from '@mm-reducers/analytics';
-import { DOC_IDS } from '@medic/constants';
 
 describe('Analytics Reducer', () => {
   let state;
@@ -46,9 +45,9 @@ describe('Analytics Reducer', () => {
         route: ['/', 'analytics', 'targets']
       },
       {
-        id: DOC_IDS.TARGET_AGGREGATES,
+        id: 'target-aggregates',
         label: 'analytics.target.aggregates',
-        route: ['/', 'analytics', DOC_IDS.TARGET_AGGREGATES]
+        route: ['/', 'analytics', 'target-aggregates']
       }
     ];
     const action = Actions.setAnalyticsModules(data);
@@ -64,9 +63,9 @@ describe('Analytics Reducer', () => {
           route: ['/', 'analytics', 'targets']
         },
         {
-          id: DOC_IDS.TARGET_AGGREGATES,
+          id: 'target-aggregates',
           label: 'analytics.target.aggregates',
-          route: ['/', 'analytics', DOC_IDS.TARGET_AGGREGATES]
+          route: ['/', 'analytics', 'target-aggregates']
         }
       ]
     });

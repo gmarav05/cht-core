@@ -3,7 +3,6 @@ import { fakeAsync, flush, waitForAsync } from '@angular/core/testing';
 import { Subject } from 'rxjs';
 import sinon from 'sinon';
 import { expect, assert } from 'chai';
-import { DOC_IDS } from '@medic/constants';
 
 import { AnalyticsRouteGuardProvider } from '@mm-modules/analytics/analytics-route.guard.provider';
 import { Selectors } from '@mm-selectors/index';
@@ -57,7 +56,7 @@ describe('AnalyticsRouteGuard provider', () => {
       });
 
     subject.next([
-      { id: DOC_IDS.TARGET_AGGREGATES, route: ['/', 'analytics', DOC_IDS.TARGET_AGGREGATES] },
+      { id: 'target-aggregates', route: ['/', 'analytics', 'target-aggregates'] },
       { id: 'targets', route: ['/', 'analytics', 'targets'] }
     ]);
 

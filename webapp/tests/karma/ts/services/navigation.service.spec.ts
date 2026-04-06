@@ -8,7 +8,6 @@ import sinon from 'sinon';
 import { NavigationService } from '@mm-services/navigation.service';
 import { HeaderTabsService } from '@mm-services/header-tabs.service';
 import { Selectors } from '@mm-selectors/index';
-import { DOC_IDS } from '@medic/constants';
 
 describe('NavigationService', () => {
   let service: NavigationService;
@@ -147,7 +146,7 @@ describe('NavigationService', () => {
           pathFromRoot: [
             { routeConfig: null },
             { routeConfig: { path: 'analytics' } },
-            { routeConfig: { path: DOC_IDS.TARGET_AGGREGATES } },
+            { routeConfig: { path: 'target-aggregates' } },
           ]
         },
         params: { id: '12345' },
@@ -158,7 +157,7 @@ describe('NavigationService', () => {
 
       expect(result).to.be.true;
       expect(router.navigate.callCount).to.equal(1);
-      expect(router.navigate.args[0]).to.deep.equal([['/', 'analytics', DOC_IDS.TARGET_AGGREGATES]]);
+      expect(router.navigate.args[0]).to.deep.equal([['/', 'analytics', 'target-aggregates']]);
     });
 
     it('should navigate to parent from child with type_id when the routing has multiple levels', () => {

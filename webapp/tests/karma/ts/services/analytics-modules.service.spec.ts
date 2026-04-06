@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import sinon from 'sinon';
 import { expect, assert } from 'chai';
-import { DOC_IDS } from '@medic/constants';
 
 import { AnalyticsModulesService } from '@mm-services/analytics-modules.service';
 import { SettingsService } from '@mm-services/settings.service';
@@ -71,7 +70,7 @@ describe('AnalyticsModulesService', () => {
         expect(result[0].available()).to.equal(true);
         expect(result[1]).to.deep.include({
           label: 'analytics.target.aggregates',
-          route: ['/', 'analytics', DOC_IDS.TARGET_AGGREGATES],
+          route: ['/', 'analytics', 'target-aggregates'],
         });
         expect(result[1].available()).to.equal(true);
       });

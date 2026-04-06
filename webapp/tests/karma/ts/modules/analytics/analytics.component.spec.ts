@@ -5,7 +5,6 @@ import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import sinon from 'sinon';
 import { expect } from 'chai';
-import { DOC_IDS } from '@medic/constants';
 
 import { AnalyticsComponent } from '@mm-modules/analytics/analytics.component';
 import { AnalyticsFilterComponent } from '@mm-components/filters/analytics-filter/analytics-filter.component';
@@ -89,13 +88,13 @@ describe('AnalyticsComponent', () => {
 
   it('should set analytics module when store emits', () => {
     store.overrideSelector(Selectors.getAnalyticsModules, [
-      { id: DOC_IDS.TARGET_AGGREGATES, route: ['/', 'analytics', DOC_IDS.TARGET_AGGREGATES] },
+      { id: 'target-aggregates', route: ['/', 'analytics', 'target-aggregates'] },
       { id: 'targets', route: ['/', 'analytics', 'targets'] }
     ]);
     store.refreshState();
 
     expect(component.analyticsModules).to.deep.equal([
-      { id: DOC_IDS.TARGET_AGGREGATES, route: ['/', 'analytics', DOC_IDS.TARGET_AGGREGATES] },
+      { id: 'target-aggregates', route: ['/', 'analytics', 'target-aggregates'] },
       { id: 'targets', route: ['/', 'analytics', 'targets'] }
     ]);
   });
