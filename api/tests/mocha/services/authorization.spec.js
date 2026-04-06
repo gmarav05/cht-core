@@ -2898,7 +2898,9 @@ describe('Authorization service', () => {
       sinon.stub(db.medic, 'allDocs').resolves({
         rows: [
           {
-            id: 'c1', doc: { _id: 'c1', type: CONTACT_TYPES.PERSON, parent: { _id: 'p1', parent: { _id: 'facility_id' } } }
+            id: 'c1', 
+            doc: { _id: 'c1', type: CONTACT_TYPES.PERSON, 
+              parent: { _id: 'p1', parent: { _id: 'facility_id' } } }
           },
           {
             id: 'patient1doc',
@@ -3057,7 +3059,9 @@ describe('Authorization service', () => {
 
       sinon.stub(db.medic, 'allDocs').resolves({
         rows: [
-          { id: 'c1', doc: { _id: 'c1', type: CONTACT_TYPES.PERSON, parent: { _id: 'p1', parent: { _id: 'facility_id' } } } },
+          { id: 'c1', 
+            doc: { _id: 'c1', type: CONTACT_TYPES.PERSON, 
+              parent: { _id: 'p1', parent: { _id: 'facility_id' } } } },
           {
             id: 'patient1doc',
             doc: {
@@ -3178,7 +3182,9 @@ describe('Authorization service', () => {
       const docObjs = [
         { // allowed
           doc: {
-            _id: 'c1', type: CONTACT_TYPES.PERSON, parent: { _id: 'p1', parent: { _id: 'facility_id' } }, patient_id: 'contact1'
+            _id: 'c1', 
+            type: CONTACT_TYPES.PERSON, 
+            parent: { _id: 'p1', parent: { _id: 'facility_id' } }, patient_id: 'contact1'
           },
           viewResults: {
             contactsByDepth: [
@@ -3190,7 +3196,9 @@ describe('Authorization service', () => {
           },
         },
         { // denied
-          doc: { _id: 'c2', type: CONTACT_TYPES.PERSON, parent: { _id: 'p2', parent: { _id: 'p3' } }, patient_id: 'contact2' },
+          doc: { _id: 'c2', 
+            type: CONTACT_TYPES.PERSON, 
+            parent: { _id: 'p2', parent: { _id: 'p3' } }, patient_id: 'contact2' },
           viewResults: {
             contactsByDepth: [
               { key: ['c2'], value: { shortcode: 'contact2' } },
@@ -3225,7 +3233,9 @@ describe('Authorization service', () => {
       sinon.stub(db.medic, 'allDocs').resolves({
         rows: [
           {
-            id: 'c1', doc: { _id: 'c1', type: CONTACT_TYPES.PERSON, parent: { _id: 'p1', parent: { _id: 'facility_id' } },
+            id: 'c1', doc: { _id: 'c1', 
+              type: CONTACT_TYPES.PERSON, 
+              parent: { _id: 'p1', parent: { _id: 'facility_id' } },
               patient_id: 'contact1' }
           },
           {
@@ -3372,7 +3382,10 @@ describe('Authorization service', () => {
 
       sinon.stub(db.medic, 'allDocs').resolves({
         rows: [
-          { id: 'c1', doc: { _id: 'c1', type: CONTACT_TYPES.PERSON, parent: { _id: 'p1', parent: { _id: 'facility_id' } } } },
+          { id: 'c1', 
+            doc: { _id: 'c1', 
+              type: CONTACT_TYPES.PERSON, 
+              parent: { _id: 'p1', parent: { _id: 'facility_id' } } } },
           {
             id: 'patient1doc',
             doc: {
@@ -3470,7 +3483,10 @@ describe('Authorization service', () => {
 
       sinon.stub(db.medic, 'allDocs').resolves({
         rows: [
-          { id: 'c1', doc: { _id: 'c1', type: CONTACT_TYPES.PERSON, parent: { _id: 'p1', parent: { _id: 'facility_id' } } } },
+          { id: 'c1', 
+            doc: { _id: 'c1', 
+              type: CONTACT_TYPES.PERSON, 
+              parent: { _id: 'p1', parent: { _id: 'facility_id' } } } },
           {
             id: 'patient1doc',
             doc: {
