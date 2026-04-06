@@ -3,7 +3,6 @@ const utils = require('@utils');
 const chaiExclude = require('chai-exclude');
 const { CONTACT_TYPES } = require('@medic/constants');
 chai.use(chaiExclude);
-const { CONTACT_TYPES } = require('@medic/constants');
 
 const password = 'passwordSUP3RS3CR37!';
 
