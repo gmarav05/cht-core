@@ -1,5 +1,4 @@
 const extras = require('./nools-extras');
-const { CONTACT_TYPES } = require('@medic/constants');
 
 const {
   MAX_DAYS_IN_PREGNANCY,
@@ -270,7 +269,7 @@ module.exports = [
     icon: 'icon-follow-up',
     title: 'task.pnc.danger_sign_followup_baby.title',
     appliesTo: 'contacts',
-    appliesToType: [CONTACT_TYPES.PERSON],
+    appliesToType: ['person'],
     appliesIf: function (contact) {
       return contact.contact &&
         contact.contact.t_danger_signs_referral_follow_up === 'yes' &&

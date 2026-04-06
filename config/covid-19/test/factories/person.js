@@ -1,6 +1,5 @@
 const Factory = require('rosie').Factory;
 const uuid = require('uuid');
-const { CONTACT_TYPES } = require('@medic/constants');
 
 const parent = {
   _id: 'clinic1',
@@ -24,7 +23,7 @@ const ephemeral_dob = {
 module.exports = new Factory()
   .sequence('_id', uuid.v4)
   .attr('parent', parent)
-  .attr('type', CONTACT_TYPES.PERSON)
+  .attr('type', 'person')
   .attr('name', 'Mary Smith')
   .attr('short_name', '')
   .attr('date_of_birth_method', 'approx')

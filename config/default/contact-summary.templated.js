@@ -1,6 +1,5 @@
 const moment = require('moment');
 const extras = require('./contact-summary-extras');
-const { CONTACT_TYPES } = require('@medic/constants');
 const { today, MAX_DAYS_IN_PREGNANCY, isHighRiskPregnancy, getNewestReport, getSubsequentPregnancyFollowUps,
   getSubsequentDeliveries, isAlive, isReadyForNewPregnancy, isReadyForDelivery, isActivePregnancy, countANCFacilityVisits,
   getAllRiskFactors, getLatestDangerSignsForPregnancy, getNextANCVisitDate,
@@ -19,23 +18,23 @@ const context = {
 };
 
 const fields = [
-  { appliesToType: CONTACT_TYPES.PERSON, label: 'patient_id', value: thisContact.patient_id, width: 4 },
-  { appliesToType: CONTACT_TYPES.PERSON, label: 'contact.age', value: thisContact.date_of_birth, width: 4, filter: 'age' },
-  { appliesToType: CONTACT_TYPES.PERSON, label: 'contact.sex', value: 'contact.sex.' + thisContact.sex, translate: true, width: 4 },
-  { appliesToType: CONTACT_TYPES.PERSON, label: 'person.field.phone', value: thisContact.phone, width: 4 },
-  { appliesToType: CONTACT_TYPES.PERSON, label: 'person.field.alternate_phone', value: thisContact.phone_alternate, width: 4 },
-  { appliesToType: CONTACT_TYPES.PERSON, label: 'External ID', value: thisContact.external_id, width: 4 },
-  { appliesToType: CONTACT_TYPES.PERSON, label: 'contact.parent', value: thisLineage, filter: 'lineage' },
+  { appliesToType: 'person', label: 'patient_id', value: thisContact.patient_id, width: 4 },
+  { appliesToType: 'person', label: 'contact.age', value: thisContact.date_of_birth, width: 4, filter: 'age' },
+  { appliesToType: 'person', label: 'contact.sex', value: 'contact.sex.' + thisContact.sex, translate: true, width: 4 },
+  { appliesToType: 'person', label: 'person.field.phone', value: thisContact.phone, width: 4 },
+  { appliesToType: 'person', label: 'person.field.alternate_phone', value: thisContact.phone_alternate, width: 4 },
+  { appliesToType: 'person', label: 'External ID', value: thisContact.external_id, width: 4 },
+  { appliesToType: 'person', label: 'contact.parent', value: thisLineage, filter: 'lineage' },
   { appliesToType: '!person', label: 'contact', value: thisContact.contact && thisContact.contact.name, width: 4 },
   { appliesToType: '!person', label: 'contact.phone', value: thisContact.contact && thisContact.contact.phone, width: 4 },
   { appliesToType: '!person', label: 'External ID', value: thisContact.external_id, width: 4 },
   { appliesToType: '!person', appliesIf: function () { return thisContact.parent && thisLineage[0]; }, label: 'contact.parent', value: thisLineage, filter: 'lineage' },
-  { appliesToType: CONTACT_TYPES.PERSON, label: 'contact.notes', value: thisContact.notes, width: 12 },
+  { appliesToType: 'person', label: 'contact.notes', value: thisContact.notes, width: 12 },
   { appliesToType: '!person', label: 'contact.notes', value: thisContact.notes, width: 12 }
 ];
 
 if (thisContact.short_name) {
-  fields.unshift({ appliesToType: CONTACT_TYPES.PERSON, label: 'contact.short_name', value: thisContact.short_name, width: 4 });
+  fields.unshift({ appliesToType: 'person', label: 'contact.short_name', value: thisContact.short_name, width: 4 });
 }
 
 const cards = [
@@ -155,7 +154,7 @@ const cards = [
 
   {
     label: 'contact.profile.death.title',
-    appliesToType: CONTACT_TYPES.PERSON,
+    appliesToType: 'person',
     appliesIf: function () {
       return !isAlive(thisContact);
     },
@@ -185,7 +184,7 @@ const cards = [
     label: 'contact.profile.pregnancy.past',
     appliesToType: 'report',
     appliesIf: function (report) {
-      if (thisContact.type !== CONTACT_TYPES.PERSON) { return false; }
+      if (thisContact.type !== 'person') { return false; }
       if (report.form === 'delivery') { return true; }
       if (report.form === 'pregnancy') {
         //check if early end to pregnancy (miscarriage/abortion)
