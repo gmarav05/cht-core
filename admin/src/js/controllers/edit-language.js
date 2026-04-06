@@ -1,7 +1,5 @@
 const _ = require('lodash/core');
-const constants = require('@medic/constants');
-const DOC_TYPES = constants.DOC_TYPES;
-const PREFIXES = constants.PREFIXES;
+const { DOC_TYPES, PREFIXES } = require('@medic/constants');
 
 angular.module('controllers').controller('EditLanguageCtrl',
   function (

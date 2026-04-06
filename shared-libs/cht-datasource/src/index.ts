@@ -429,7 +429,7 @@ export const getDatasource = (ctx: DataContext) => {
          * Returns the target for the given username and reporting period.
          * @param reportingPeriod the reporting period for the target
          * @param contactId the contact identifier of the user for the target
-         * @param username the username (without the "${PREFIXES.COUCH_USER}" prefix) of the user for the target
+         * @param username the username (without the "org.couchdb.user:" prefix) of the user for the target
          * @returns the target or `null` if no target is found
          * @throws InvalidArgumentError if no reporting period, contact identifier, and/or username is provided
          */

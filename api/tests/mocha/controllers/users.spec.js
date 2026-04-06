@@ -194,7 +194,7 @@ describe('Users Controller', () => {
     let userList;
 
     beforeEach(() => {
-      userList = [ 
+      userList = [
         { id: PREFIXES.COUCH_USER + 'admin', roles: [COUCHDB_ADMIN] },
         {
           id: PREFIXES.COUCH_USER + 'chw',
