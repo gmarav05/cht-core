@@ -28,9 +28,12 @@ const HTTP_HEADERS = {
   MEDIC_SERVICE: 'X-Medic-Service',
   MEDIC_USER: 'X-Medic-User',
   OPENROSA_VERSION: 'X-OpenRosa-Version',
-  CONTENT_TYPE_OPTIONS: 'X-Content-Type-Options',
   MEDIC_REPLICATION_ID: 'medic-replication-id',
   LOGOUT_AUTHORIZATION: 'logout-authorization',
+};
+
+const STANDARD_HTTP_HEADERS = {
+  CONTENT_TYPE_OPTIONS: 'X-Content-Type-Options',
 };
 
 // Sentinel Metadata
@@ -56,4 +59,5 @@ module.exports = {
   SENTINEL_METADATA,
   USER_ROLES,
   CONTACT_TYPES,
+  STANDARD_HTTP_HEADERS,
 };
