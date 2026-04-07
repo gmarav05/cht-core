@@ -6,7 +6,7 @@ const placeFactory = require('@factories/cht/contacts/place');
 const personFactory = require('@factories/cht/contacts/person');
 const genericReportFactory = require('@factories/cht/reports/generic-report');
 const sentinelUtils = require('@utils/sentinel');
-const { CONTACT_TYPES } = require('@medic/constants');
+const { CONTACT_TYPES, DOC_TYPES } = require('@medic/constants');
 
 /* global window */
 
@@ -47,7 +47,7 @@ describe('purge', function() {
     return window.CHTCore.DB
       .get()
       .allDocs({ include_docs: true })
-      .then(results => results.rows.map(row => row.doc).filter(doc => doc.type === 'data_record'));
+      .then(results => results.rows.map(row => row.doc).filter(doc => doc.type === DOC_TYPES.DATA_RECORD));
   });
 
   const updatePurgeSettings = async (purgeFn, revert) => {
