@@ -14,7 +14,7 @@ export class UpdatePasswordService {
    * Updates are in the style of the /api/v1/users/{username} service, see
    * its documentation for more details.
    *
-   * @param      {string} username         The user you wish to update, without ${PREFIXES.COUCH_USER}
+   * @param      {string} username         The user you wish to update, without org.couchdb.user:
    * @param      {string} currentPassword  Password for Basic Auth
    * @param      {string} newPassword      Password to set
    */
