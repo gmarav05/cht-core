@@ -2,7 +2,7 @@ const utils = require('@utils');
 const sentinelUtils = require('@utils/sentinel');
 const chai = require('chai');
 const moment = require('moment');
-const { CONTACT_TYPES } = require('@medic/constants');
+const { CONTACT_TYPES, PREFIXES } = require('@medic/constants');
 
 const password = 'SuperS3creT';
 const docs = [
@@ -160,7 +160,7 @@ const tasks = [
   {
     _id: 'task1~user1',
     type: 'task',
-    user: 'org.couchdb.user:user1',
+    user: PREFIXES.COUCH_USER + 'user1',
     owner: 'contact1',
     state: 'Draft',
     emission: {
@@ -172,7 +172,7 @@ const tasks = [
   {
     _id: 'task2~user1',
     type: 'task',
-    user: 'org.couchdb.user:user1',
+    user: PREFIXES.COUCH_USER + 'user1',
     owner: 'contact1',
     state: 'Draft',
     emission: {
@@ -184,7 +184,7 @@ const tasks = [
   {
     _id: 'task3~user1',
     type: 'task',
-    user: 'org.couchdb.user:user1',
+    user: PREFIXES.COUCH_USER + 'user1',
     owner: 'contact1',
     state: 'Completed',
     emission: {
@@ -196,7 +196,7 @@ const tasks = [
   {
     _id: 'task4~user1',
     type: 'task',
-    user: 'org.couchdb.user:user1',
+    user: PREFIXES.COUCH_USER + 'user1',
     owner: 'contact1',
     state: 'Completed',
     emission: {
@@ -208,7 +208,7 @@ const tasks = [
   {
     _id: 'task1~user2',
     type: 'task',
-    user: 'org.couchdb.user:user2',
+    user: PREFIXES.COUCH_USER + 'user2',
     owner: 'contact1',
     state: 'Ready',
     emission: {
@@ -220,7 +220,7 @@ const tasks = [
   {
     _id: 'task2~user2',
     type: 'task',
-    user: 'org.couchdb.user:user2',
+    user: PREFIXES.COUCH_USER + 'user2',
     owner: 'contact1',
     state: 'Ready',
     emission: {
@@ -232,7 +232,7 @@ const tasks = [
   {
     _id: 'task3~user2',
     type: 'task',
-    user: 'org.couchdb.user:user2',
+    user: PREFIXES.COUCH_USER + 'user2',
     owner: 'contact1',
     state: 'Failed',
     emission: {
@@ -244,7 +244,7 @@ const tasks = [
   {
     _id: 'task4~user2',
     type: 'task',
-    user: 'org.couchdb.user:user2',
+    user: PREFIXES.COUCH_USER + 'user2',
     owner: 'contact1',
     state: 'Failed',
     emission: {
@@ -258,33 +258,33 @@ const tasks = [
 const latestTargetInterval = moment().subtract(7, 'months').format('YYYY-MM');
 const targets = [
   {
-    _id: `target~${moment().subtract(9, 'months').format('YYYY-MM')}~org.couchdb.user:user2`,
+    _id: `target~${moment().subtract(9, 'months').format('YYYY-MM')}~${PREFIXES.COUCH_USER}user2`,
     type: 'target',
-    user: 'org.couchdb.user:user2',
+    user: PREFIXES.COUCH_USER + 'user2',
     owner: 'fixture:user:user2',
     reporting_period: moment().subtract(9, 'months').format('YYYY-MM'),
     targets: [],
   },
   {
-    _id: `target~${moment().subtract(6, 'months').format('YYYY-MM')}~org.couchdb.user:user2`,
+    _id: `target~${moment().subtract(6, 'months').format('YYYY-MM')}~${PREFIXES.COUCH_USER}user2`,
     type: 'target',
-    user: 'org.couchdb.user:user2',
+    user: PREFIXES.COUCH_USER + 'user2',
     owner: 'fixture:user:user2',
     reporting_period: moment().subtract(6, 'months').format('YYYY-MM'),
     targets: [],
   },
   {
-    _id: `target~${moment().subtract(7, 'months').subtract(2, 'days').format('YYYY-MM')}~org.couchdb.user:user2`,
+    _id: `target~${moment().subtract(7, 'months').subtract(2, 'days').format('YYYY-MM')}~${PREFIXES.COUCH_USER}user2`,
     type: 'target',
-    user: 'org.couchdb.user:user2',
+    user: PREFIXES.COUCH_USER + 'user2',
     owner: 'fixture:user:user2',
     reporting_period: moment().subtract(7, 'months').subtract(2, 'days').format('YYYY-MM'),
     targets: [],
   },
   {
-    _id: `target~${moment().subtract(3, 'months').format('YYYY-MM')}~org.couchdb.user:user2`,
+    _id: `target~${moment().subtract(3, 'months').format('YYYY-MM')}~${PREFIXES.COUCH_USER}user2`,
     type: 'target',
-    user: 'org.couchdb.user:user2',
+    user: PREFIXES.COUCH_USER + 'user2',
     owner: 'fixture:user:user2',
     reporting_period: moment().subtract(3, 'months').format('YYYY-MM'),
     targets: [],
