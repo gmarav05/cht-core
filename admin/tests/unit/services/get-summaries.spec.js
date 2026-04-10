@@ -1,3 +1,6 @@
+const constants = require('@medic/constants');
+const DOC_TYPES = constants.DOC_TYPES;
+
 describe('GetSummaries service', () => {
 
   'use strict';
@@ -80,7 +83,7 @@ describe('GetSummaries service', () => {
         { doc: {
           _id: 'a',
           _rev: '1',
-          type: 'data_record',
+          type: DOC_TYPES.DATA_RECORD,
           form: 'delivery',
           from: '+123',
           contact: {
@@ -103,7 +106,7 @@ describe('GetSummaries service', () => {
         { doc: {
           _id: 'b',
           _rev: '2',
-          type: 'data_record',
+          type: DOC_TYPES.DATA_RECORD,
           form: 'registration',
           sent_by: '+321',
           errors: [ { code: 'sys.missing_fields', fields: [ 'patient_id' ] } ],

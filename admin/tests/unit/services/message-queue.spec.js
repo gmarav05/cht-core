@@ -1,3 +1,6 @@
+const constants = require('@medic/constants');
+const DOC_TYPES = constants.DOC_TYPES;
+
 describe('MessageQueue service', function() {
 
   'use strict';
@@ -238,7 +241,7 @@ describe('MessageQueue service', function() {
             _id: 'report_id1',
             reported_date: 100,
             form: 'form_name',
-            type: 'data_record',
+            type: DOC_TYPES.DATA_RECORD,
           },
           value: {
             sms: {

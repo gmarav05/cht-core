@@ -75,7 +75,7 @@ export namespace v1 {
     if (!isDoc(doc)) {
       return false;
     }
-    return doc.type === 'data_record' && hasStringFieldWithValue(doc, 'form');
+    return doc.type === DOC_TYPES.DATA_RECORD && hasStringFieldWithValue(doc, 'form');
   };
 
   /** @internal */
