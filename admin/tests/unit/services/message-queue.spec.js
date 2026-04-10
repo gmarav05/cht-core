@@ -1,5 +1,4 @@
-const constants = require('@medic/constants');
-const DOC_TYPES = constants.DOC_TYPES;
+const { DOC_TYPES } = require('@medic/constants');
 
 describe('MessageQueue service', function() {
 
