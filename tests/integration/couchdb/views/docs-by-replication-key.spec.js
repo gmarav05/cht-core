@@ -1,7 +1,7 @@
 const utils = require('@utils');
 const nouveau = require('@medic/nouveau');
 const { expect } = require('chai');
-const { CONTACT_TYPES, DOC_TYPES } = require('@medic/constants');
+const { CONTACT_TYPES, DOC_TYPES, PREFIXES } = require('@medic/constants');
 
 describe('docs_by_replication_key', () => {
   let docByPlaceIds;
