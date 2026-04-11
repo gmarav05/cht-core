@@ -6,7 +6,7 @@ import { GetSummariesService } from '@mm-services/get-summaries.service';
 import { DbService } from '@mm-services/db.service';
 import { SessionService } from '@mm-services/session.service';
 import { ContactTypesService } from '@mm-services/contact-types.service';
-import { CONTACT_TYPES } from '@medic/constants';
+import { CONTACT_TYPES, DOC_TYPES } from '@medic/constants';
 
 const { PERSON } = CONTACT_TYPES;
 
@@ -97,7 +97,7 @@ describe('GetSummaries service', () => {
             doc: {
               _id: 'a',
               _rev: '1',
-              type: 'data_record',
+              type: DOC_TYPES.DATA_RECORD,
               form: 'delivery',
               from: '+123',
               contact: {
@@ -122,7 +122,7 @@ describe('GetSummaries service', () => {
             doc: {
               _id: 'b',
               _rev: '2',
-              type: 'data_record',
+              type: DOC_TYPES.DATA_RECORD,
               form: 'registration',
               sent_by: '+321',
               errors: [ { code: 'sys.missing_fields', fields: [ 'patient_id' ] } ],
@@ -133,7 +133,7 @@ describe('GetSummaries service', () => {
             doc: {
               _id: 'c',
               _rev: '1',
-              type: 'data_record',
+              type: DOC_TYPES.DATA_RECORD,
               form: 'delivery',
               from: '+123',
               contact: {

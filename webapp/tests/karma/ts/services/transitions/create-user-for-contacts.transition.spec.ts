@@ -8,7 +8,7 @@ import { expect } from 'chai';
 import { UserContactService } from '@mm-services/user-contact.service';
 import { ExtractLineageService } from '@mm-services/extract-lineage.service';
 import { CHTDatasourceService } from '@mm-services/cht-datasource.service';
-import { CONTACT_TYPES } from '@medic/constants';
+import { CONTACT_TYPES, DOC_TYPES } from '@medic/constants';
 
 const { PERSON } = CONTACT_TYPES;
 
@@ -51,7 +51,7 @@ const NEW_CONTACT = deepFreeze({
 });
 
 const REPLACE_USER_DOC = deepFreeze({
-  type: 'data_record',
+  type: DOC_TYPES.DATA_RECORD,
   form: 'replace_user',
   fields: {
     replacement_contact_id: NEW_CONTACT._id,
@@ -62,7 +62,7 @@ const REPLACE_USER_DOC = deepFreeze({
 });
 
 const getDataRecord = (contact = { _id: ORIGINAL_CONTACT._id }) => ({
-  type: 'data_record',
+  type: DOC_TYPES.DATA_RECORD,
   form: 'other',
   contact
 });
@@ -155,8 +155,8 @@ describe('Create User for Contacts Transition', () => {
     });
 
     [
-      [{ type: 'data_record' }],
-      [{ type: PERSON }, { type: 'user-settings' }, { type: 'data_record' }],
+      [{ type: DOC_TYPES.DATA_RECORD }],
+      [{ type: PERSON }, { type: 'user-settings' }, { type: DOC_TYPES.DATA_RECORD }],
     ].forEach(docs => {
       it('returns true when given a report', () => {
         expect(transition.filter(docs)).to.be.true;

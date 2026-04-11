@@ -2,7 +2,7 @@ const utils = require('@utils');
 const sentinelUtils = require('@utils/sentinel');
 const uuid = require('uuid').v4;
 const chai = require('chai');
-const { CONTACT_TYPES } = require('@medic/constants');
+const { CONTACT_TYPES, DOC_TYPES } = require('@medic/constants');
 
 const contacts = [{
   _id: 'person',
@@ -39,7 +39,7 @@ describe('death_reporting', () => {
     const doc = {
       _id: uuid(),
       form: 'DEAD',
-      type: 'data_record',
+      type: DOC_TYPES.DATA_RECORD,
       reported_date: new Date().getTime(),
       fields: {
         patient_id: 'person'
@@ -75,7 +75,7 @@ describe('death_reporting', () => {
     const doc = {
       _id: uuid(),
       form: 'MAYBE_DEAD',
-      type: 'data_record',
+      type: DOC_TYPES.DATA_RECORD,
       reported_date: new Date().getTime(),
       fields: {
         patient_id: 'person'
@@ -111,7 +111,7 @@ describe('death_reporting', () => {
     const doc = {
       _id: uuid(),
       form: 'DEAD',
-      type: 'data_record',
+      type: DOC_TYPES.DATA_RECORD,
       reported_date: new Date().getTime(),
       fields: {
         patient_id: 'other'
@@ -147,7 +147,7 @@ describe('death_reporting', () => {
     const doc = {
       _id: uuid(),
       form: 'DEAD',
-      type: 'data_record',
+      type: DOC_TYPES.DATA_RECORD,
       reported_date: new Date().getTime(),
       fields: {
         patient_id: '',
@@ -184,7 +184,7 @@ describe('death_reporting', () => {
     const doc = {
       _id: uuid(),
       form: 'DEAD',
-      type: 'data_record',
+      type: DOC_TYPES.DATA_RECORD,
       reported_date: new Date().getTime(),
       fields: {
         patient_id: '12345'
@@ -224,7 +224,7 @@ describe('death_reporting', () => {
     const doc = {
       _id: uuid(),
       form: 'DEAD',
-      type: 'data_record',
+      type: DOC_TYPES.DATA_RECORD,
       reported_date: new Date().getTime(),
       fields: {
         patient_id: 'person',
@@ -236,7 +236,7 @@ describe('death_reporting', () => {
     const doc2 = {
       _id: uuid(),
       form: 'DEAD',
-      type: 'data_record',
+      type: DOC_TYPES.DATA_RECORD,
       reported_date: new Date().getTime(),
       fields: {
         patient_id: 'person',
@@ -248,7 +248,7 @@ describe('death_reporting', () => {
     const doc3 = {
       _id: uuid(),
       form: 'UNDEAD',
-      type: 'data_record',
+      type: DOC_TYPES.DATA_RECORD,
       reported_date: new Date().getTime(),
       fields: {
         patient_id: 'person',

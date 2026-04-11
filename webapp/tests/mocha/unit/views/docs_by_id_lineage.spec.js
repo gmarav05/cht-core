@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const utils = require('./utils');
 const map = utils.loadView('medic-db', 'medic-client', 'docs_by_id_lineage');
-const { CONTACT_TYPES } = require('@medic/constants');
+const { CONTACT_TYPES, DOC_TYPES } = require('@medic/constants');
 
 describe('docs_by_id_lineage view', () => {
   beforeEach(() => {
@@ -11,7 +11,7 @@ describe('docs_by_id_lineage view', () => {
     it('does not emit if doc is not a report', () => {
       const doc = {
         _id: 'messsage',
-        type: 'data_record',
+        type: DOC_TYPES.DATA_RECORD,
         sms_message: { }
       };
 
@@ -21,7 +21,7 @@ describe('docs_by_id_lineage view', () => {
     it('emits report document for depth 0', () => {
       const doc = {
         _id: 'report',
-        type: 'data_record',
+        type: DOC_TYPES.DATA_RECORD,
         form: 'form',
       };
 
@@ -33,7 +33,7 @@ describe('docs_by_id_lineage view', () => {
     it('emits contact lineage for depth 1+', () => {
       const doc = {
         _id: 'report',
-        type: 'data_record',
+        type: DOC_TYPES.DATA_RECORD,
         form: 'form',
         contact: {
           _id: 'contact1',
@@ -56,7 +56,7 @@ describe('docs_by_id_lineage view', () => {
     it('does not emit lineage for empty contact parents', () => {
       const doc1 = {
         _id: 'report1',
-        type: 'data_record',
+        type: DOC_TYPES.DATA_RECORD,
         form: 'form',
         contact: {}
       };
@@ -66,7 +66,7 @@ describe('docs_by_id_lineage view', () => {
 
       const doc2 = {
         _id: 'report2',
-        type: 'data_record',
+        type: DOC_TYPES.DATA_RECORD,
         form: 'form',
         contact: {
           _id: 'contact1',
@@ -82,7 +82,7 @@ describe('docs_by_id_lineage view', () => {
 
       const doc3 = {
         _id: 'report3',
-        type: 'data_record',
+        type: DOC_TYPES.DATA_RECORD,
         form: 'form',
         contact: {
           _id: 'contact1',

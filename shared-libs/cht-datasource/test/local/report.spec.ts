@@ -12,7 +12,7 @@ import * as Lineage from '../../src/local/libs/lineage';
 import * as LocalCore from '../../src/local/libs/core';
 import * as LocalContact from '../../src/local/contact';
 import { InvalidArgumentError, ResourceNotFoundError } from '../../src';
-import { CONTACT_TYPES } from '@medic/constants';
+import { CONTACT_TYPES, DOC_TYPES } from '@medic/constants';
 
 const { PERSON } = CONTACT_TYPES;
 
@@ -46,7 +46,7 @@ describe('local report', () => {
       });
 
       it('returns a report by UUID', async () => {
-        const doc = { type: 'data_record', form: 'yes', _id: 'uuid', _rev: '1' };
+        const doc = { type: DOC_TYPES.DATA_RECORD, form: 'yes', _id: 'uuid', _rev: '1' };
         getDocByIdInner.resolves(doc);
         settingsGetAll.returns(settings);
 
@@ -72,7 +72,7 @@ describe('local report', () => {
       });
 
       it('returns null if the identified doc does not have a form field', async () => {
-        const doc = { type: 'data_record', _id: '_id' };
+        const doc = { type: DOC_TYPES.DATA_RECORD, _id: '_id' };
         getDocByIdInner.resolves(doc);
         settingsGetAll.returns(settings);
 
@@ -120,7 +120,7 @@ describe('local report', () => {
 
       it('returns a report with contact lineage when found', async () => {
         const report = {
-          type: 'data_record',
+          type: DOC_TYPES.DATA_RECORD,
           form: 'yes',
           _id: 'report_id',
           _rev: '1',
@@ -350,7 +350,7 @@ describe('local report', () => {
         _rev: '1',
         type: PERSON,
       } as const;
-      const reportDoc = { _id: 'report-1', type: 'data_record', form: 'test-form' } as const;
+      const reportDoc = { _id: 'report-1', type: DOC_TYPES.DATA_RECORD, form: 'test-form' } as const;
       const supportedForms = ['test-form', 'other-form'];
       const reportedDate = new Date().getTime();
 
@@ -405,7 +405,7 @@ describe('local report', () => {
           ...input,
           contact: minifiedContact,
           reported_date: reportedDate,
-          type: 'data_record'
+          type: DOC_TYPES.DATA_RECORD
         };
         expect(createDocInner.calledOnceWithExactly(expectedReport)).to.be.true;
       });
@@ -431,7 +431,7 @@ describe('local report', () => {
           ...input,
           contact: minifiedContact,
           reported_date: reportedDate,
-          type: 'data_record'
+          type: DOC_TYPES.DATA_RECORD
         };
         expect(createDocInner.calledOnceWithExactly(expectedReport)).to.be.true;
       });
@@ -477,7 +477,7 @@ describe('local report', () => {
 
       [
         null,
-        { _id: 'non-existent-contact', type: 'data_record' }
+        { _id: 'non-existent-contact', type: DOC_TYPES.DATA_RECORD }
       ].forEach(invalidContact => {
         it('throws error if contact is not found', async () => {
           const input = {
@@ -506,7 +506,7 @@ describe('local report', () => {
       const originalReport = {
         _id: 'report-1',
         _rev: '1-rev',
-        type: 'data_record',
+        type: DOC_TYPES.DATA_RECORD,
         form: 'test-form',
         reported_date: 12312312,
         contact: {

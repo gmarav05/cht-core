@@ -9,7 +9,7 @@ import * as Remote from '../src/remote';
 import * as Core from '../src/libs/core';
 import { fakeGenerator } from './utils';
 import * as Input from '../src/input';
-import { CONTACT_TYPES } from '@medic/constants';
+import { CONTACT_TYPES, DOC_TYPES } from '@medic/constants';
 
 const { PERSON } = CONTACT_TYPES;
 
@@ -346,7 +346,7 @@ describe('report', () => {
       it('returns report doc for valid input', async () => {
         const input = {
           name: 'report-1',
-          type: 'data_record',
+          type: DOC_TYPES.DATA_RECORD,
           contact: 'c1',
           form: 'form'
         };
@@ -402,7 +402,7 @@ describe('report', () => {
           _id: 'b8208fa332bf1f09b606e6efd8002a4a',
           _rev: '1-9ffca0e670bcc111de86f68ae8f47d3b',
           form: 'pregnancy_danger_sign',
-          type: 'data_record',
+          type: DOC_TYPES.DATA_RECORD,
           contact: { _id: 'c1', name: 'hydrated contact' },
           reported_date: 12312312,
           fields: {}

@@ -15,7 +15,7 @@ import {
   assertUuidQualifier
 } from '../../src/libs/parameter-validators';
 import { InvalidArgumentError } from '../../src';
-import { CONTACT_TYPES } from '@medic/constants';
+import { CONTACT_TYPES, DOC_TYPES } from '@medic/constants';
 
 const { PERSON } = CONTACT_TYPES;
 
@@ -442,7 +442,7 @@ describe('libs parameter-validators', () => {
       {
         ...reportInput,
         reported_date: 1769526124,
-        type: 'data_record',
+        type: DOC_TYPES.DATA_RECORD,
         custom_field: 'hello world',
       }
     ].forEach((input) => {

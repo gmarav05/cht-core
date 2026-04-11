@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const moment = require('moment');
 const utils = require('@utils');
-const { CONTACT_TYPES } = require('@medic/constants');
+const { CONTACT_TYPES, DOC_TYPES } = require('@medic/constants');
 
 describe('Import Records', () => {
 
@@ -68,7 +68,7 @@ describe('Import Records', () => {
           expect(rows.length).to.equal(1);
           const doc = rows[0].doc;
           expect(doc).to.include({
-            type: 'data_record',
+            type: DOC_TYPES.DATA_RECORD,
             form: 'TEST',
             from: '+447765902000'
           });
@@ -109,7 +109,7 @@ describe('Import Records', () => {
           expect(rows.length).to.equal(1);
           const doc = rows[0].doc;
           expect(doc).to.include({
-            type: 'data_record',
+            type: DOC_TYPES.DATA_RECORD,
             form: 'TEST'
           });
           expect(doc.fields).to.deep.equal({
@@ -147,7 +147,7 @@ describe('Import Records', () => {
           expect(rows.length).to.equal(1);
           const doc = rows[0].doc;
           expect(doc).to.include({
-            type: 'data_record',
+            type: DOC_TYPES.DATA_RECORD,
             form: 'TEST',
             from: '+447765902000'
           });

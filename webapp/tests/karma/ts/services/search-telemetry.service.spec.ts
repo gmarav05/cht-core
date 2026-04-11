@@ -4,7 +4,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { SearchTelemetryService } from '@mm-services/search-telemetry.service';
 import { TelemetryService } from '@mm-services/telemetry.service';
-import { CONTACT_TYPES } from '@medic/constants';
+import { CONTACT_TYPES, DOC_TYPES } from '@medic/constants';
 
 const { PERSON } = CONTACT_TYPES;
 
@@ -107,7 +107,7 @@ describe('SearchTelemetryService', () => {
     const report = {
       _id: 'REF_REF_V1',
       form: 'RR',
-      type: 'data_record',
+      type: DOC_TYPES.DATA_RECORD,
       from: '+123456789',
       fields: { patient_id: '12345', name: 'John', custom_field: 'johanna' },
       custom_patient_name: 'Johnny',

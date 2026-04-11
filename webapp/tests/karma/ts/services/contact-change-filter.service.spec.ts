@@ -4,7 +4,7 @@ import sinon from 'sinon';
 
 import { ContactChangeFilterService } from '@mm-services/contact-change-filter.service';
 import { ContactTypesService } from '@mm-services/contact-types.service';
-import { CONTACT_TYPES } from '@medic/constants';
+import { CONTACT_TYPES, DOC_TYPES } from '@medic/constants';
 
 const { PERSON } = CONTACT_TYPES;
 
@@ -56,7 +56,7 @@ describe('ContactChangeFilter service', () => {
       contactTypesIncludes.returns(false);
 
       const change1 = { doc: { parent: { _id: '123'} } };
-      const change2 = { doc: { parent: { _id: '123'}, type: 'data_record' } };
+      const change2 = { doc: { parent: { _id: '123'}, type: DOC_TYPES.DATA_RECORD } };
       const change3 = { doc: {} };
       const contact = { doc: { _id: '123' } };
 
@@ -195,7 +195,7 @@ describe('ContactChangeFilter service', () => {
       change1 = {
         doc: {
           form: 'a',
-          type: 'data_record',
+          type: DOC_TYPES.DATA_RECORD,
           fields: {}
         }
       };
@@ -203,7 +203,7 @@ describe('ContactChangeFilter service', () => {
       change2 = {
         doc: {
           form: 'a',
-          type: 'data_record'
+          type: DOC_TYPES.DATA_RECORD
         }
       };
 
@@ -384,7 +384,7 @@ describe('ContactChangeFilter service', () => {
         doc: {
           _id: 'report1',
           form: 'stock_report',
-          type: 'data_record',
+          type: DOC_TYPES.DATA_RECORD,
           fields: { patient_id: 'contact1' }
         }
       };
@@ -399,7 +399,7 @@ describe('ContactChangeFilter service', () => {
         doc: {
           _id: 'report1',
           form: 'assessment',
-          type: 'data_record',
+          type: DOC_TYPES.DATA_RECORD,
           fields: { patient_id: 'child_patient1' }
         }
       };
@@ -424,7 +424,7 @@ describe('ContactChangeFilter service', () => {
         doc: {
           _id: 'other1',
           form: 'some_form',
-          type: 'data_record',
+          type: DOC_TYPES.DATA_RECORD,
           fields: { patient_id: 'someone_else' }
         }
       };

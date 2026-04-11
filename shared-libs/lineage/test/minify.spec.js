@@ -1,6 +1,6 @@
 const chai = require('chai');
 const lineageFactory = require('../src');
-const { CONTACT_TYPES } = require('@medic/constants');
+const { CONTACT_TYPES, DOC_TYPES } = require('@medic/constants');
 
 describe('Minify', function() {
 
@@ -128,7 +128,7 @@ describe('Minify', function() {
       // Given
       const actual = {
         _id: 'c',
-        type: 'data_record',
+        type: DOC_TYPES.DATA_RECORD,
         patient_id: '123',
         patient: {
           _id: 'a',
@@ -142,7 +142,7 @@ describe('Minify', function() {
       };
       const expected = {
         _id: 'c',
-        type: 'data_record',
+        type: DOC_TYPES.DATA_RECORD,
         patient_id: '123'
       };
 
@@ -157,7 +157,7 @@ describe('Minify', function() {
       // Given
       const actual = {
         _id: 'c',
-        type: 'data_record',
+        type: DOC_TYPES.DATA_RECORD,
         place_id: '123',
         place: {
           _id: 'a',
@@ -171,7 +171,7 @@ describe('Minify', function() {
       };
       const expected = {
         _id: 'c',
-        type: 'data_record',
+        type: DOC_TYPES.DATA_RECORD,
         place_id: '123'
       };
 
@@ -235,7 +235,7 @@ describe('Minify', function() {
     it('should not minify linked docs for reports', () => {
       const actual = {
         _id: 'r',
-        type: 'data_record',
+        type: DOC_TYPES.DATA_RECORD,
         contact: {
           _id: 'contact_id',
           name: 'contact',
@@ -255,7 +255,7 @@ describe('Minify', function() {
 
       const expected = {
         _id: 'r',
-        type: 'data_record',
+        type: DOC_TYPES.DATA_RECORD,
         contact: {
           _id: 'contact_id',
           parent: { _id: 'parent_id' },

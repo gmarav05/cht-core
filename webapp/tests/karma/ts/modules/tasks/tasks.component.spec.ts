@@ -24,10 +24,9 @@ import { SessionService } from '@mm-services/session.service';
 import { DbService } from '@mm-services/db.service';
 
 import { TelemetryService } from '@mm-services/telemetry.service';
-import { CONTACT_TYPES } from '@medic/constants';
+import { CONTACT_TYPES, DOC_TYPES } from '@medic/constants';
 
 const { PERSON } = CONTACT_TYPES;
-
 
 describe('TasksComponent', () => {
   let getComponent;
@@ -255,10 +254,12 @@ describe('TasksComponent', () => {
     expect(!!changesFeed.filter({})).to.be.false;
     expect(changesFeed.filter({ id: 'person', doc: { _id: 'person', type: PERSON }})).to.be.true;
     expect(changesFeed.filter({ id: 'clinic', doc: { _id: 'clinic', type: 'clinic' }})).to.be.true;
-    expect(changesFeed.filter({ id: 'report', doc: { _id: 'report', type: 'data_record', form: 'form' }})).to.be.true;
+    expect(changesFeed.filter({ id: 'report', doc: { _id: 'report', 
+      type: DOC_TYPES.DATA_RECORD, form: 'form' }})).to.be.true;
     expect(changesFeed.filter({ id: 'task', doc: { _id: 'task', type: 'task' }})).to.be.true;
 
-    expect(changesFeed.filter({ id: 'foo', doc: { _id: 'a', type: 'data_record', form: undefined }})).to.be.false;
+    expect(changesFeed.filter({ id: 'foo', doc: { _id: 'a', 
+      type: DOC_TYPES.DATA_RECORD, form: undefined }})).to.be.false;
   });
 
   it('should react to rulesEngine emissions', fakeAsync(async () => {

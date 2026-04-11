@@ -2,7 +2,7 @@ const utils = require('@utils');
 const sentinelUtils = require('@utils/sentinel');
 const uuid = require('uuid').v4;
 const { expect } = require('chai');
-const { CONTACT_TYPES } = require('@medic/constants');
+const { CONTACT_TYPES, DOC_TYPES } = require('@medic/constants');
 
 describe('update_clinics', () => {
   after(() => utils.revertDb([], true));
@@ -20,7 +20,7 @@ describe('update_clinics', () => {
 
     const doc = {
       _id: uuid(),
-      type: 'data_record',
+      type: DOC_TYPES.DATA_RECORD,
       from: '12345',
       reported_date: new Date().getTime(),
     };
@@ -58,7 +58,7 @@ describe('update_clinics', () => {
 
     const doc2 = {
       _id: uuid(),
-      type: 'data_record',
+      type: DOC_TYPES.DATA_RECORD,
       contact: { _id: 'some_other_contact' },
       from: '12345',
       reported_date: new Date().getTime(),
@@ -97,7 +97,7 @@ describe('update_clinics', () => {
 
     const doc1 = {
       _id: uuid(),
-      type: 'data_record',
+      type: DOC_TYPES.DATA_RECORD,
       from: '12345',
       form: 'A',
       reported_date: new Date().getTime()
@@ -105,7 +105,7 @@ describe('update_clinics', () => {
 
     const doc2 = {
       _id: uuid(),
-      type: 'data_record',
+      type: DOC_TYPES.DATA_RECORD,
       refid: 'external',
       form: 'A',
       reported_date: new Date().getTime(),
@@ -145,7 +145,7 @@ describe('update_clinics', () => {
 
     const doc1 = {
       _id: uuid(),
-      type: 'data_record',
+      type: DOC_TYPES.DATA_RECORD,
       from: '12345',
       form: 'A',
       reported_date: new Date().getTime()
@@ -153,7 +153,7 @@ describe('update_clinics', () => {
 
     const doc2 = {
       _id: uuid(),
-      type: 'data_record',
+      type: DOC_TYPES.DATA_RECORD,
       refid: 'external',
       form: 'B',
       reported_date: new Date().getTime(),
@@ -161,7 +161,7 @@ describe('update_clinics', () => {
 
     const doc3 = {
       _id: uuid(),
-      type: 'data_record',
+      type: DOC_TYPES.DATA_RECORD,
       from: '12345',
       form: 'A',
       content_type: 'xml',
@@ -234,28 +234,28 @@ describe('update_clinics', () => {
 
     const refidPerson = {
       _id: uuid(),
-      type: 'data_record',
+      type: DOC_TYPES.DATA_RECORD,
       refid: 'SMS_PERSON', // view indexes with uppercase only
       reported_date: new Date().getTime()
     };
 
     const refidPersonContactType = {
       _id: uuid(),
-      type: 'data_record',
+      type: DOC_TYPES.DATA_RECORD,
       refid: 'SMS_PERSON_CT', // view indexes with uppercase only
       reported_date: new Date().getTime()
     };
 
     const refidClinic = {
       _id: uuid(),
-      type: 'data_record',
+      type: DOC_TYPES.DATA_RECORD,
       refid: 'SMS_CLINIC', // view indexes with uppercase only
       reported_date: new Date().getTime()
     };
 
     const phonePerson = {
       _id: uuid(),
-      type: 'data_record',
+      type: DOC_TYPES.DATA_RECORD,
       from: '21112222',
       reported_date: new Date().getTime()
     };
