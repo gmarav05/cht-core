@@ -20,19 +20,19 @@ describe('Tasks group landing page', () => {
   const healthCenter = places.get(CONTACT_TYPES.HEALTH_CENTER);
 
   const politiciansClinic = placeFactory.place().build({
-    type: CONTACT_TYPES.CLINIC,
+    type: 'clinic',
     name: 'Politicians',
     parent: healthCenter,
     reported_date: todayDate
   });
   const artistClinic = placeFactory.place().build({
-    type: CONTACT_TYPES.CLINIC,
+    type: 'clinic',
     name: 'Artists',
     parent: healthCenter,
     reported_date: todayDate,
   });
   const scientistsClinic = placeFactory.place().build({
-    type: CONTACT_TYPES.CLINIC,
+    type: 'clinic',
     name: 'Scientists',
     parent: healthCenter,
     reported_date: todayDate,

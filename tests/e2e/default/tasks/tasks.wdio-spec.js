@@ -17,7 +17,7 @@ const { CONTACT_TYPES } = require('@medic/constants');
 describe('Tasks', () => {
 
   const places = placeFactory.generateHierarchy();
-  const clinic = places.get(CONTACT_TYPES.CLINIC);
+  const clinic = places.get('clinic');
   const healthCenter1 = places.get(CONTACT_TYPES.HEALTH_CENTER);
   const districtHospital = places.get('district_hospital');
   const healthCenter2 = placeFactory.place().build({
