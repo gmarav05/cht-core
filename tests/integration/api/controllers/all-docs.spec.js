@@ -152,10 +152,14 @@ describe('all_docs handler', () => {
     const lineage = { _id: 'PARENT_PLACE' };
     const docs = [
 
-      { _id: 'allowed_contact', parent: { _id: 'fixture:offline', parent: lineage }, type: CONTACT_TYPES.CLINIC },
-      { _id: 'allowed_report', contact: { _id: 'fixture:offline', parent: lineage }, type: DOC_TYPES.DATA_RECORD, form: 'a' },
-      { _id: 'denied_contact', parent: { _id: 'fixture:online', parent: lineage }, type: CONTACT_TYPES.CLINIC },
-      { _id: 'denied_report', contact: { _id: 'fixture:online', parent: lineage }, type: DOC_TYPES.DATA_RECORD, form: 'a' },
+      { _id: 'allowed_contact', parent: { _id: 'fixture:offline', parent: lineage }, 
+        type: CONTACT_TYPES.CLINIC },
+      { _id: 'allowed_report', contact: { _id: 'fixture:offline', parent: lineage }, 
+        type: DOC_TYPES.DATA_RECORD, form: 'a' },
+      { _id: 'denied_contact', parent: { _id: 'fixture:online', parent: lineage }, 
+        type: CONTACT_TYPES.CLINIC },
+      { _id: 'denied_report', contact: { _id: 'fixture:online', parent: lineage }, 
+        type: DOC_TYPES.DATA_RECORD, form: 'a' },
       { _id: 'allowed_task', user: PREFIXES.COUCH_USER + 'offline', type: 'task', owner: 'fixture:user:offline' },
       { _id: 'denied_task', user: PREFIXES.COUCH_USER + 'online', type: 'task', owner: 'fixture:user:offline' },
       { _id: 'allowed_target', user: PREFIXES.COUCH_USER + 'offline', type: 'target', owner: 'fixture:user:offline' },
