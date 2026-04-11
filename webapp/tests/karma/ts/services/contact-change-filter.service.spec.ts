@@ -216,7 +216,7 @@ describe('ContactChangeFilter service', () => {
             ]
           },
           {
-            type: { id: CONTACT_TYPES.CLINIC },
+            type: { id: 'clinic' },
             contacts: [
               { doc: { _id: 'child_id3', patient_id: 'child_patient3', place_id: 'child_place3' }}
             ]

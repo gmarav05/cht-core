@@ -78,7 +78,7 @@ describe('Muting transition', () => {
     });
 
     it('should return false for valid docs but not valid submissions', () => {
-      config.get.withArgs('contact_types').returns([{ id: 'person' }, { id: CONTACT_TYPES.CLINIC } ]);
+      config.get.withArgs('contact_types').returns([{ id: 'person' }, { id: 'clinic' } ]);
       config.get.withArgs('muting').returns({ mute_forms: ['formA', 'formB'], unmute_forms: ['formC', 'formD'] });
       transitionUtils.hasRun.returns(false);
       sinon.stub(utils, 'isValidSubmission').returns(false);
@@ -99,7 +99,7 @@ describe('Muting transition', () => {
     });
 
     it('should return false for invalid contacts', () => {
-      config.getAll.returns({ contact_types: [{ id: 'person' }, { id: CONTACT_TYPES.CLINIC } ] });
+      config.getAll.returns({ contact_types: [{ id: 'person' }, { id: 'clinic' } ] });
       mutingUtils.isMutedInLineage.returns(false);
       chai.expect(transition.filter({ doc: { muted: false }, info: {} })).to.equal(false); // not a contact
       chai.expect(transition.filter({ doc: { muted: false, type: 'something' }, info: {} }))
@@ -128,7 +128,7 @@ describe('Muting transition', () => {
       config.getAll.returns({
         contact_types: [
           { id: 'person' },
-          { id: CONTACT_TYPES.CLINIC },
+          { id: 'clinic' },
           { id: CONTACT_TYPES.HEALTH_CENTER },
           { id: 'district_hospital' }
         ]
@@ -166,7 +166,7 @@ describe('Muting transition', () => {
       config.getAll.returns({
         contact_types: [
           { id: 'person' },
-          { id: CONTACT_TYPES.CLINIC },
+          { id: 'clinic' },
           { id: CONTACT_TYPES.HEALTH_CENTER },
           { id: 'district_hospital' }
         ]

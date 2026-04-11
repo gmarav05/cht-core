@@ -13,7 +13,7 @@ describe('update_scheduled_reports', () => {
       getAll: sinon.stub().returns({}),
       get: sinon.stub().returns([
         { id: 'person', parents: [CONTACT_TYPES.CLINIC], person: true },
-        { id: CONTACT_TYPES.CLINIC, parents: [CONTACT_TYPES.HEALTH_CENTER] },
+        { id: 'clinic', parents: [CONTACT_TYPES.HEALTH_CENTER] },
         { id: CONTACT_TYPES.HEALTH_CENTER }
       ]),
     });
@@ -204,7 +204,7 @@ describe('update_scheduled_reports', () => {
       const doc = {
         type: DOC_TYPES.DATA_RECORD,
         form: 'form',
-        contact: { parent: { _id: CONTACT_TYPES.CLINIC, type: CONTACT_TYPES.CLINIC } },
+        contact: { parent: { _id: 'clinic', type: CONTACT_TYPES.CLINIC } },
         fields: {
           week: 9,
           year: 2018
@@ -222,7 +222,7 @@ describe('update_scheduled_reports', () => {
       const doc = {
         type: DOC_TYPES.DATA_RECORD,
         form: 'form',
-        contact: { parent: { _id: CONTACT_TYPES.CLINIC, type: CONTACT_TYPES.CLINIC } },
+        contact: { parent: { _id: 'clinic', type: CONTACT_TYPES.CLINIC } },
         fields: {
           week_number: 15,
           year: 2018
@@ -247,7 +247,7 @@ describe('update_scheduled_reports', () => {
       const doc = {
         type: DOC_TYPES.DATA_RECORD,
         form: 'form',
-        contact: { parent: { _id: CONTACT_TYPES.CLINIC, type: CONTACT_TYPES.CLINIC } },
+        contact: { parent: { _id: 'clinic', type: CONTACT_TYPES.CLINIC } },
         fields: {
           month_num: 7,
           year: 2018
@@ -272,7 +272,7 @@ describe('update_scheduled_reports', () => {
       const doc = {
         type: DOC_TYPES.DATA_RECORD,
         form: 'form',
-        contact: { parent: { _id: CONTACT_TYPES.CLINIC, type: CONTACT_TYPES.CLINIC } },
+        contact: { parent: { _id: 'clinic', type: CONTACT_TYPES.CLINIC } },
         fields: {
           week: 9,
           year: 2018
@@ -297,7 +297,7 @@ describe('update_scheduled_reports', () => {
       const doc = {
         type: DOC_TYPES.DATA_RECORD,
         form: 'form',
-        contact: { parent: { _id: CONTACT_TYPES.CLINIC, type: CONTACT_TYPES.CLINIC } },
+        contact: { parent: { _id: 'clinic', type: CONTACT_TYPES.CLINIC } },
         fields: {
           month: 9,
           year: 2018
@@ -347,7 +347,7 @@ describe('update_scheduled_reports', () => {
         doc: {
           _id: 'abc',
           form: 'z',
-          contact: { parent: { _id: CONTACT_TYPES.CLINIC, type: CONTACT_TYPES.CLINIC } },
+          contact: { parent: { _id: 'clinic', type: CONTACT_TYPES.CLINIC } },
           fields: {
             year: 2013,
             month: 4,
@@ -419,7 +419,7 @@ describe('update_scheduled_reports', () => {
           _id: 'xyz',
           _rev: '1-kkkk',
           form: 'z',
-          contact: { parent: { _id: CONTACT_TYPES.CLINIC, type: CONTACT_TYPES.CLINIC } },
+          contact: { parent: { _id: 'clinic', type: CONTACT_TYPES.CLINIC } },
           fields: {
             month: 4,
             year: 2013,
@@ -514,7 +514,7 @@ describe('update_scheduled_reports', () => {
           _id: 'xyz',
           _rev: '1-kkkk',
           form: 'z',
-          contact: { parent: { _id: CONTACT_TYPES.CLINIC, type: CONTACT_TYPES.CLINIC } },
+          contact: { parent: { _id: 'clinic', type: CONTACT_TYPES.CLINIC } },
           fields: {
             month: 4,
             year: 2013,
@@ -536,7 +536,7 @@ describe('update_scheduled_reports', () => {
         doc: {
           _id: 'xyz',
           form: 'z',
-          contact: { parent: { _id: CONTACT_TYPES.CLINIC, type: CONTACT_TYPES.CLINIC } },
+          contact: { parent: { _id: 'clinic', type: CONTACT_TYPES.CLINIC } },
           fields: {
             year: 2013,
           },

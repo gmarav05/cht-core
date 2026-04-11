@@ -24,7 +24,7 @@ const contacts = [
     phone: PATIENT_PHONE,
   },
   {
-    _id: CONTACT_TYPES.CLINIC,
+    _id: 'clinic',
     type: CONTACT_TYPES.CLINIC,
     name: 'Bob',
     contact: {
@@ -128,7 +128,7 @@ describe('Recipient Resolution Integration', () => {
       contact: {
         _id: 'patient',
         parent: {
-          _id: CONTACT_TYPES.CLINIC,
+          _id: 'clinic',
           parent: {
             _id: 'parent',
           }

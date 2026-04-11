@@ -22,7 +22,7 @@ describe('Contacts Service', () => {
     const placeTypes = [
       { id: 'district_hospital' },
       { id: 'health_center' },
-      { id: CONTACT_TYPES.CLINIC }
+      { id: 'clinic' }
     ];
     contactTypesService = {
       getPlaceTypes: sinon.stub().resolves(placeTypes),

@@ -5,7 +5,7 @@ const { assert } = require('chai');
 const { CONTACT_TYPES } = require('@medic/constants');
 
 const CLINIC = utils.deepFreeze({
-  _id: CONTACT_TYPES.CLINIC,
+  _id: 'clinic',
   type: CONTACT_TYPES.CLINIC,
 });
 

@@ -19,7 +19,7 @@ describe('TasksForContact service', () => {
 
   const docId = 'dockyMcDocface';
   const PERSON_TYPE = { id: 'person', person: true, parents: [CONTACT_TYPES.CLINIC] };
-  const CLINIC_TYPE = { id: CONTACT_TYPES.CLINIC, parents: ['health_center'] };
+  const CLINIC_TYPE = { id: 'clinic', parents: ['health_center'] };
   const HEALTH_CENTER_TYPE = { id: 'health_center' };
 
   beforeEach(() => {

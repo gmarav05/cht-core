@@ -156,7 +156,7 @@ describe('TasksGroupComponent', () => {
       ];
       const contactModel = {
         doc: { _id: 'contact', type: CONTACT_TYPES.CLINIC },
-        type: { id: CONTACT_TYPES.CLINIC },
+        type: { id: 'clinic' },
       };
       await compileComponent(lastSubmittedTask, tasks);
 
@@ -178,7 +178,7 @@ describe('TasksGroupComponent', () => {
       expect(contactViewModelGeneratorService.loadChildren.args[0]).to.deep.equal([
         {
           doc: { _id: 'contact', type: CONTACT_TYPES.CLINIC },
-          type: { id: CONTACT_TYPES.CLINIC },
+          type: { id: 'clinic' },
         },
       ]);
 
@@ -249,7 +249,7 @@ describe('TasksGroupComponent', () => {
 
       const contactModel = {
         doc: { _id: 'contact' },
-        type: { id: CONTACT_TYPES.CLINIC },
+        type: { id: 'clinic' },
       };
       store.overrideSelector(Selectors.getTaskGroupContact, { ...contactModel });
       store.refreshState();
@@ -447,7 +447,7 @@ describe('TasksGroupComponent', () => {
         { _id: 'em10', owner: 'e', title: 'title2' },
       ];
       const lastSubmittedTask = { _id: 'em3' };
-      const contactModel = { doc: { _id: 'c' }, type: { id: CONTACT_TYPES.CLINIC } };
+      const contactModel = { doc: { _id: 'c' }, type: { id: 'clinic' } };
       await compileComponent(lastSubmittedTask, tasks, contactModel, false);
 
       await nextTick();
@@ -504,7 +504,7 @@ describe('TasksGroupComponent', () => {
         { _id: 'em9', owner: 'contact2', title: 'type9' },
       ];
       const lastSubmittedTask = { _id: 'em3' };
-      const contactModel = { doc: { _id: 'contact1' }, type: { id: CONTACT_TYPES.CLINIC } };
+      const contactModel = { doc: { _id: 'contact1' }, type: { id: 'clinic' } };
       await compileComponent(lastSubmittedTask, tasks, contactModel, false);
 
       await nextTick();
@@ -559,7 +559,7 @@ describe('TasksGroupComponent', () => {
 
     it('should handle errors while loading children', async () => {
       const lastSubmittedTask = { _id: 'em1' };
-      const contact = { doc: { _id: CONTACT_TYPES.CLINIC } };
+      const contact = { doc: { _id: 'clinic' } };
       const tasks = [{ _id: 'em1' }, { _id: 'em2' }];
 
       contactViewModelGeneratorService.loadChildren.rejects({ err: 'omg' });
@@ -575,7 +575,7 @@ describe('TasksGroupComponent', () => {
 
     it('should handle errors while getting ids for tasks', async () => {
       const lastSubmittedTask = { _id: 'em1' };
-      const contact = { doc: { _id: CONTACT_TYPES.CLINIC } };
+      const contact = { doc: { _id: 'clinic' } };
       const tasks = [{ _id: 'em1' }, { _id: 'em2' }];
 
       contactViewModelGeneratorService.loadChildren.resolves(['children']);

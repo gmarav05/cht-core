@@ -351,7 +351,7 @@ const truncateMessage = function(parts, max) {
  * @param {Object} content An object with one of `translationKey` or a `messages`
  *        array for translation, or an already prepared `message` string.
  * @param {String|String[]} recipient A recipient definition. This can be a string or an array of recipients.
- *        String or String value can be one of: 'reporting_unit', CONTACT_TYPES.CLINIC, 'parent', 'grandparent',
+ *        String or String value can be one of: 'reporting_unit', 'clinic', 'parent', 'grandparent',
  *        the name of a property in `fields` or on the doc, a valid phone number directly, a path to a
  *        property on the doc.
  *        If an array is provided, each entry is tried in order and the first successfully resolved phone number 

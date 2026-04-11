@@ -251,8 +251,8 @@ describe('TasksComponent', () => {
     expect(!!changesFeed.filter({})).to.be.false;
     expect(changesFeed.filter({ id: 'person', doc: { _id: 'person', type: 'person' }})).to.be.true;
 
-    expect(changesFeed.filter({ id: CONTACT_TYPES.CLINIC, 
-      doc: { _id: CONTACT_TYPES.CLINIC, type: CONTACT_TYPES.CLINIC }})).to.be.true;
+    expect(changesFeed.filter({ id: 'clinic', 
+      doc: { _id: 'clinic', type: CONTACT_TYPES.CLINIC }})).to.be.true;
     expect(changesFeed.filter({ id: 'report', doc: { _id: 'report', 
       type: DOC_TYPES.DATA_RECORD, form: 'form' }})).to.be.true;
     expect(changesFeed.filter({ id: 'task', doc: { _id: 'task', type: 'task' }})).to.be.true;

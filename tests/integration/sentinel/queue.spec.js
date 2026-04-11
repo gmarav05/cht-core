@@ -20,7 +20,7 @@ const contacts = [
     reported_date: new Date().getTime()
   },
   {
-    _id: CONTACT_TYPES.CLINIC,
+    _id: 'clinic',
     name: 'Clinic',
     type: CONTACT_TYPES.CLINIC,
     parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } },
@@ -33,7 +33,7 @@ const contacts = [
   {
     _id: 'chw',
     type: 'person',
-    parent: { _id: CONTACT_TYPES.CLINIC, 
+    parent: { _id: 'clinic', 
       parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } },
     phone: 'phone1',
     name: 'chw1',
@@ -44,7 +44,7 @@ const contacts = [
     name: 'Person',
     type: 'person',
     patient_id: 'patient',
-    parent: { _id: CONTACT_TYPES.CLINIC, 
+    parent: { _id: 'clinic', 
       parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } },
     reported_date: new Date().getTime()
   }

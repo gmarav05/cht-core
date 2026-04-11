@@ -37,7 +37,7 @@ const contactTypes = [
     edit_form: 'form:contact:health_center:edit'
   },
   {
-    id: CONTACT_TYPES.CLINIC,
+    id: 'clinic',
     name_key: 'contact.type.clinic',
     group_key: 'contact.type.clinic.plural',
     create_key: 'contact.type.clinic.new',

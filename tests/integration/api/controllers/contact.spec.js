@@ -249,7 +249,7 @@ describe('Contact API', () => {
     const twoLimit = 2;
     const invalidContactType = 'invalidPerson';
     const freetext = 'contact';
-    const placeFreetext = CONTACT_TYPES.CLINIC;
+    const placeFreetext = 'clinic';
     const endpoint = '/api/v1/contact/uuid';
     const emptyNouveauCursor = 'W10=';
 

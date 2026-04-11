@@ -179,7 +179,7 @@ describe('cht-datasource Contact', () => {
       const twoLimit = 2;
       const cursor = null;
       const freetext = 'contact';
-      const placeFreetext = CONTACT_TYPES.CLINIC;
+      const placeFreetext = 'clinic';
       const invalidLimit = 'invalidLimit';
       const invalidCursor = 'invalidCursor';
       const emptyNouveauCursor = 'W10=';

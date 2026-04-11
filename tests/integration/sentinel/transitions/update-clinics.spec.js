@@ -218,7 +218,7 @@ describe('update_clinics', () => {
         reported_date: new Date().getTime(),
       },
       {
-        _id: CONTACT_TYPES.CLINIC,
+        _id: 'clinic',
         type: CONTACT_TYPES.CLINIC,
         rc_code: 'sms_clinic',
         contact: { _id: 'person' },

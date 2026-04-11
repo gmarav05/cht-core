@@ -166,7 +166,7 @@ describe('update clinic', () => {
       },
     };
 
-    config.getAll.returns({ contact_types: [ { id: CONTACT_TYPES.CLINIC } ] });
+    config.getAll.returns({ contact_types: [ { id: 'clinic' } ] });
     sinon.stub(db.medic, 'query').resolves({ rows: [{ doc: contact }] });
     getContactWithLineage.returns(Promise.resolve(contact));
     return transition.onMatch({ doc: doc }).then(changed => {
@@ -218,7 +218,7 @@ describe('update clinic', () => {
       name: 'zenith',
       phone: '+12345',
     };
-    config.getAll.returns({ contact_types: [ { id: CONTACT_TYPES.CLINIC } ] });
+    config.getAll.returns({ contact_types: [ { id: 'clinic' } ] });
     sinon.stub(db.medic, 'query').resolves({ rows: [{ doc: clinic }] });
     const getPersonWithLineage = sinon
       .stub()
@@ -481,7 +481,7 @@ describe('update clinic', () => {
     };
 
     // config has no contact_types matching 'unknown_type', so getContactType returns undefined
-    config.getAll.returns({ contact_types: [{ id: CONTACT_TYPES.CLINIC }] });
+    config.getAll.returns({ contact_types: [{ id: 'clinic' }] });
     sinon.stub(db.medic, 'query').resolves({ rows: [{ doc: result }] });
 
     return transition.onMatch({ doc }).then(changed => {
@@ -563,7 +563,7 @@ describe('update clinic', () => {
       },
     };
 
-    config.getAll.returns({ contact_types: [ { id: CONTACT_TYPES.CLINIC } ] });
+    config.getAll.returns({ contact_types: [ { id: 'clinic' } ] });
     sinon.stub(db.medic, 'query').resolves({ rows: [{ doc: contact }] });
     getContactWithLineage.resolves(contact);
     return transition.onMatch({ doc: doc }).then(changed => {

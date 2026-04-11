@@ -464,7 +464,7 @@ describe('functional transitions', () => {
           id: 'random form with contact',
           form: 'C',
           type: DOC_TYPES.DATA_RECORD,
-          contact: { _id: 'contact3', parent: { _id: CONTACT_TYPES.CLINIC } },
+          contact: { _id: 'contact3', parent: { _id: 'clinic' } },
           from: 'phone3',
           reported_date: new Date().valueOf()
         },
@@ -472,7 +472,7 @@ describe('functional transitions', () => {
           id: 'will have errors',
           form: 'P',
           type: DOC_TYPES.DATA_RECORD,
-          contact: { _id: 'contact3', parent: { _id: CONTACT_TYPES.CLINIC } },
+          contact: { _id: 'contact3', parent: { _id: 'clinic' } },
           from: 'phone3',
           fields: { random_field: 225 },
           reported_date: new Date().valueOf()
@@ -485,7 +485,7 @@ describe('functional transitions', () => {
         phone: 'phone1',
         name: 'Merkel',
         type: 'person',
-        parent: { _id: CONTACT_TYPES.CLINIC, type: CONTACT_TYPES.CLINIC, name: 'Clinic' },
+        parent: { _id: 'clinic', type: CONTACT_TYPES.CLINIC, name: 'Clinic' },
         reported_date: new Date().valueOf()
       };
       const contact3 = {
@@ -493,7 +493,7 @@ describe('functional transitions', () => {
         phone: 'phone3',
         name: 'Angela',
         type: 'person',
-        parent: { _id: CONTACT_TYPES.CLINIC },
+        parent: { _id: 'clinic' },
         reported_date: new Date().valueOf()
       };
 
@@ -561,7 +561,7 @@ describe('functional transitions', () => {
         assert.equal(savedDocs[0].id, 'has alert');
         assert.equal(savedDocs[0]._id.length, 36);
         assert(!savedDocs[0].errors);
-        assert.deepEqual(savedDocs[0].contact, { _id: 'contact1', parent: { _id: CONTACT_TYPES.CLINIC } });
+        assert.deepEqual(savedDocs[0].contact, { _id: 'contact1', parent: { _id: 'clinic' } });
         assert.equal(savedDocs[0].sent_by, 'Merkel');
         assert.equal(savedDocs[0].tasks.length, 1);
         assert.equal(savedDocs[0].tasks[0].messages[0].message, 'alert!');

@@ -380,7 +380,7 @@ describe('ContactsEdit component', () => {
         getContact
           .withArgs(Qualifier.byUuid('parent_id'))
           .resolves({ _id: 'parent_id', type: 'the_place' });
-        contactTypesService.getChildren.resolves([{ id: CONTACT_TYPES.CLINIC }]);
+        contactTypesService.getChildren.resolves([{ id: 'clinic' }]);
 
         await createComponent();
         await fixture.whenStable();
@@ -417,7 +417,7 @@ describe('ContactsEdit component', () => {
 
       it('should render form with parent', async () => {
         routeSnapshot.params = { type: CONTACT_TYPES.CLINIC, parent_id: 'the_district' };
-        contactTypesService.getChildren.resolves([{ id: CONTACT_TYPES.CLINIC }]);
+        contactTypesService.getChildren.resolves([{ id: 'clinic' }]);
         contactTypesService.get.resolves({
           create_form: 'clinic_create_form_id',
           create_key: 'clinic_create_key',
@@ -946,7 +946,7 @@ describe('ContactsEdit component', () => {
 
     it('when saving new contact', async () => {
       routeSnapshot.params = { type: CONTACT_TYPES.CLINIC, parent_id: 'the_district' };
-      contactTypesService.getChildren.resolves([{ id: CONTACT_TYPES.CLINIC }]);
+      contactTypesService.getChildren.resolves([{ id: 'clinic' }]);
       contactTypesService.get.resolves({
         create_form: 'clinic_create_form_id',
         create_key: 'clinic_create_key',
@@ -1115,7 +1115,7 @@ describe('ContactsEdit component', () => {
 
     it('should catch duplicate siblings', async () => {
       routeSnapshot.params = { type: CONTACT_TYPES.CLINIC, parent_id: 'the_district' };
-      contactTypesService.getChildren.resolves([{ id: CONTACT_TYPES.CLINIC }]);
+      contactTypesService.getChildren.resolves([{ id: 'clinic' }]);
       contactTypesService.get.resolves({
         create_form: 'clinic_create_form_id',
         create_key: 'clinic_create_key',
@@ -1161,7 +1161,7 @@ describe('ContactsEdit component', () => {
   describe('toggleDuplicatesAcknowledged', () => {
     it('should set acknowledge to true', async () => {
       routeSnapshot.params = { type: CONTACT_TYPES.CLINIC, parent_id: 'the_district' };
-      contactTypesService.getChildren.resolves([{ id: CONTACT_TYPES.CLINIC }]);
+      contactTypesService.getChildren.resolves([{ id: 'clinic' }]);
       contactTypesService.get.resolves({
         create_form: 'clinic_create_form_id',
         create_key: 'clinic_create_key',
@@ -1221,7 +1221,7 @@ describe('ContactsEdit component', () => {
 
     it('does nothing if no duplicates exist', async () => {
       routeSnapshot.params = { type: CONTACT_TYPES.CLINIC, parent_id: 'the_district' };
-      contactTypesService.getChildren.resolves([{ id: CONTACT_TYPES.CLINIC }]);
+      contactTypesService.getChildren.resolves([{ id: 'clinic' }]);
       contactTypesService.get.resolves({
         create_form: 'clinic_create_form_id',
         create_key: 'clinic_create_key',

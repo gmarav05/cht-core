@@ -34,7 +34,7 @@ describe('Reports tab messages', () => {
             type: 'ANC Reminders LMP',
             translation_key: 'instance.upgrade.version',
             message_key: 'messages.c.report_accepted',
-            recipient: CONTACT_TYPES.CLINIC,
+            recipient: 'clinic',
             state_history: [{
               state: 'scheduled',
               timestamp: '2024-02-26T10:42:41.080Z'

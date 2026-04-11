@@ -83,7 +83,7 @@ describe('ContactViewModelGenerator service', () => {
         icon: childPlaceIcon, person: true, parents: [ 'family', CONTACT_TYPES.CLINIC ] },
       { id: 'chp', person: true, parents: [ 'mushroom' ] },
       { id: 'red-herring' },
-      { id: CONTACT_TYPES.CLINIC, parents: [ 'mushroom' ] },
+      { id: 'clinic', parents: [ 'mushroom' ] },
       { id: 'mushroom', name_key: 'label.mushroom' }
     ];
     lineageModelGenerator = { contact: sinon.stub() };

@@ -867,7 +867,7 @@ describe('registration', () => {
       };
       const contactTypes = [
         { id: CONTACT_TYPES.HEALTH_CENTER },
-        { id: CONTACT_TYPES.CLINIC, parents: [CONTACT_TYPES.HEALTH_CENTER] },
+        { id: 'clinic', parents: [CONTACT_TYPES.HEALTH_CENTER] },
         { id: 'patient', parents: [CONTACT_TYPES.CLINIC], person: true },
       ];
       config.get.returns([eventConfig]);
@@ -1324,7 +1324,7 @@ describe('registration', () => {
       };
       const contactTypes = [
         { id: CONTACT_TYPES.HEALTH_CENTER },
-        { id: CONTACT_TYPES.CLINIC, parents: [CONTACT_TYPES.HEALTH_CENTER] },
+        { id: 'clinic', parents: [CONTACT_TYPES.HEALTH_CENTER] },
         { id: 'patient', parents: [CONTACT_TYPES.CLINIC], person: true },
       ];
       config.get.returns([eventConfig]);
@@ -1698,7 +1698,7 @@ describe('registration', () => {
       };
       const contactTypes = [
         { id: CONTACT_TYPES.HEALTH_CENTER },
-        { id: CONTACT_TYPES.CLINIC, parents: [CONTACT_TYPES.HEALTH_CENTER] },
+        { id: 'clinic', parents: [CONTACT_TYPES.HEALTH_CENTER] },
         { id: 'patient', parents: [CONTACT_TYPES.CLINIC], person: true },
       ];
       config.get.returns([eventConfig]);
@@ -1957,7 +1957,7 @@ describe('registration', () => {
         { id: 'district' },
         { id: CONTACT_TYPES.HEALTH_CENTER, parents: ['district'] },
         { id: 'local_thing', parents: ['district'] },
-        { id: CONTACT_TYPES.CLINIC, parents: [CONTACT_TYPES.HEALTH_CENTER] },
+        { id: 'clinic', parents: [CONTACT_TYPES.HEALTH_CENTER] },
         { id: 'area', parents: ['local_thing'] },
       ];
       config.get.returns([eventConfig]);
@@ -3071,7 +3071,7 @@ describe('registration', () => {
         form: 'R',
         fields: { patient_id: '56987' },
         patient: {
-          _id: CONTACT_TYPES.CLINIC,
+          _id: 'clinic',
           place_id: '56987',
           type: CONTACT_TYPES.CLINIC,
         }
@@ -3086,7 +3086,7 @@ describe('registration', () => {
         transitionUtils.addRegistrationNotFoundError.args[0].should.deep.equal([doc, registrationConfig]);
         contactTypeUtils.isPerson.callCount.should.equal(1);
         contactTypeUtils.isPerson.args[0].should.deep.equal([{}, 
-          { _id: CONTACT_TYPES.CLINIC, place_id: '56987', type: CONTACT_TYPES.CLINIC }]);
+          { _id: 'clinic', place_id: '56987', type: CONTACT_TYPES.CLINIC }]);
       });
     });
 
