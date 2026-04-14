@@ -55,7 +55,7 @@ describe('death_reporting', () => {
       .then(info => {
         chai.expect(info.transitions).to.deep.equal({});
       })
-      .then(() => utils.getDoc(CONTACT_TYPES.PERSON))
+      .then(() => utils.getDoc('person'))
       .then(person => {
         chai.expect(person.date_of_death).to.equal(undefined);
       });
@@ -91,7 +91,7 @@ describe('death_reporting', () => {
       .then(info => {
         chai.expect(info.transitions).to.deep.equal({});
       })
-      .then(() => utils.getDoc(CONTACT_TYPES.PERSON))
+      .then(() => utils.getDoc('person'))
       .then(person => {
         chai.expect(person.date_of_death).to.equal(undefined);
       });
@@ -127,7 +127,7 @@ describe('death_reporting', () => {
       .then(info => {
         chai.expect(info.transitions).to.deep.equal({});
       })
-      .then(() => utils.getDoc(CONTACT_TYPES.PERSON))
+      .then(() => utils.getDoc('person'))
       .then(person => {
         chai.expect(person.date_of_death).to.equal(undefined);
       });
@@ -164,7 +164,7 @@ describe('death_reporting', () => {
       .then(info => {
         chai.expect(info.transitions).to.deep.nested.include({ 'death_reporting.ok': true });
       })
-      .then(() => utils.getDoc(CONTACT_TYPES.PERSON))
+      .then(() => utils.getDoc('person'))
       .then(person => {
         chai.expect(person.date_of_death).to.equal(doc.reported_date);
       });
@@ -200,7 +200,7 @@ describe('death_reporting', () => {
       .then(info => {
         chai.expect(info.transitions).to.deep.nested.include({ 'death_reporting.ok': true });
       })
-      .then(() => utils.getDoc(CONTACT_TYPES.PERSON))
+      .then(() => utils.getDoc('person'))
       .then(person => {
         chai.expect(person.date_of_death).to.equal(doc.reported_date);
       })
@@ -264,7 +264,7 @@ describe('death_reporting', () => {
       .then(info => {
         chai.expect(info.transitions).to.deep.nested.include({ 'death_reporting.ok': true });
       })
-      .then(() => utils.getDoc(CONTACT_TYPES.PERSON))
+      .then(() => utils.getDoc('person'))
       .then(person => {
         chai.expect(person.date_of_death).to.equal(doc.fields.time_of_death);
       })
@@ -274,7 +274,7 @@ describe('death_reporting', () => {
       .then(info => {
         chai.expect(info.transitions).to.deep.equal({});
       })
-      .then(() => utils.getDoc(CONTACT_TYPES.PERSON))
+      .then(() => utils.getDoc('person'))
       .then(person => {
         chai.expect(person.date_of_death).to.equal(doc.fields.time_of_death);
       })
@@ -284,7 +284,7 @@ describe('death_reporting', () => {
       .then(info => {
         chai.expect(info.transitions).to.deep.nested.include({ 'death_reporting.ok': true });
       })
-      .then(() => utils.getDoc(CONTACT_TYPES.PERSON))
+      .then(() => utils.getDoc('person'))
       .then(person => {
         chai.expect(person.date_of_death).to.equal(undefined);
       });

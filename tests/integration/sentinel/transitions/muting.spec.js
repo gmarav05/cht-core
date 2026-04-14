@@ -318,7 +318,7 @@ describe('muting', () => {
       type: DOC_TYPES.DATA_RECORD,
       form: 'mute',
       fields: {
-        patient_id: CONTACT_TYPES.PERSON
+        patient_id: 'person'
       },
       reported_date: new Date().getTime(),
       contact: {
@@ -332,7 +332,7 @@ describe('muting', () => {
       type: DOC_TYPES.DATA_RECORD,
       form: 'mute',
       fields: {
-        patient_id: CONTACT_TYPES.PERSON
+        patient_id: 'person'
       },
       reported_date: new Date().getTime(),
       contact: {
@@ -346,7 +346,7 @@ describe('muting', () => {
       type: DOC_TYPES.DATA_RECORD,
       form: 'unmute',
       fields: {
-        patient_id: CONTACT_TYPES.PERSON
+        patient_id: 'person'
       },
       reported_date: new Date().getTime(),
       contact: {
@@ -360,7 +360,7 @@ describe('muting', () => {
       type: DOC_TYPES.DATA_RECORD,
       form: 'unmute',
       fields: {
-        patient_id: CONTACT_TYPES.PERSON
+        patient_id: 'person'
       },
       reported_date: new Date().getTime(),
       contact: {
@@ -621,7 +621,7 @@ describe('muting', () => {
       type: DOC_TYPES.DATA_RECORD,
       form: 'mute',
       fields: {
-        patient_id: CONTACT_TYPES.PERSON,
+        patient_id: 'person',
       },
       reported_date: new Date().getTime(),
       contact: {
@@ -946,7 +946,7 @@ describe('muting', () => {
         content_type: 'xml',
         form: 'test_form',
         fields: {
-          patient_id: CONTACT_TYPES.PERSON
+          patient_id: 'person'
         },
         scheduled_tasks: [
           { group: 1, state: 'pending', translation_key: 'beta', recipient: 'clinic', },
@@ -959,7 +959,7 @@ describe('muting', () => {
         type: DOC_TYPES.DATA_RECORD,
         form: 'xml_form',
         fields: {
-          patient_id: CONTACT_TYPES.PERSON
+          patient_id: 'person'
         },
         scheduled_tasks: [
           { group: 1, state: 'scheduled', translation_key: 'beta', recipient: 'clinic' },
@@ -972,7 +972,7 @@ describe('muting', () => {
         type: DOC_TYPES.DATA_RECORD,
         form: 'sms_form_2',
         fields: {
-          patient_id: CONTACT_TYPES.PERSON
+          patient_id: 'person'
         },
         scheduled_tasks: [
           { group: 1, state: 'pending', translation_key: 'beta', recipient: 'clinic' },
@@ -986,7 +986,7 @@ describe('muting', () => {
         content_type: 'xml',
         form: 'xml_form',
         fields: {
-          patient_id: CONTACT_TYPES.PERSON
+          patient_id: 'person'
         },
         scheduled_tasks: [
           { group: 1, state: 'pending', translation_key: 'beta', recipient: 'clinic',
@@ -1001,7 +1001,7 @@ describe('muting', () => {
         type: DOC_TYPES.DATA_RECORD,
         form: 'sms_form_1',
         fields: {
-          patient_id: CONTACT_TYPES.PERSON
+          patient_id: 'person'
         },
         contact: { _id: 'person' },
         scheduled_tasks: [

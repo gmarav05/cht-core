@@ -3105,7 +3105,7 @@ describe('registration', () => {
         form: 'R',
         fields: { place_id: '56987' },
         place: {
-          _id: CONTACT_TYPES.PERSON,
+          _id: 'person',
           patient_id: '56987',
           type: CONTACT_TYPES.PERSON,
         }
@@ -3120,7 +3120,7 @@ describe('registration', () => {
         transitionUtils.addRegistrationNotFoundError.args[0].should.deep.equal([doc, registrationConfig]);
         contactTypeUtils.isPlace.callCount.should.equal(1);
         contactTypeUtils.isPlace.args[0].should.deep.equal(
-          [{}, { _id: CONTACT_TYPES.PERSON, patient_id: '56987', type: CONTACT_TYPES.PERSON }]
+          [{}, { _id: 'person', patient_id: '56987', type: CONTACT_TYPES.PERSON }]
         );
       });
     });
@@ -3144,7 +3144,7 @@ describe('registration', () => {
         form: 'R',
         fields: { place_id: '56987', patient_id: '69874' },
         place: {
-          _id: CONTACT_TYPES.PERSON,
+          _id: 'person',
           patient_id: '56987',
           type: CONTACT_TYPES.PERSON,
         },
@@ -3208,7 +3208,7 @@ describe('registration', () => {
         form: 'R',
         fields: { place_id: '56987', patient_id: '69874' },
         place: {
-          _id: CONTACT_TYPES.PERSON,
+          _id: 'person',
           patient_id: '56987',
           type: CONTACT_TYPES.PERSON,
         },
@@ -3236,7 +3236,7 @@ describe('registration', () => {
         contactTypeUtils.isPlace.callCount.should.equal(1);
         contactTypeUtils.isPlace.args[0].should.deep.equal([
           {},
-          { _id: CONTACT_TYPES.PERSON, patient_id: '56987', type: CONTACT_TYPES.PERSON }
+          { _id: 'person', patient_id: '56987', type: CONTACT_TYPES.PERSON }
         ]);
       });
     });
