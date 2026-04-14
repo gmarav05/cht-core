@@ -49,7 +49,7 @@ const contactTypes = [
     count_visits: true
   },
   {
-    id: CONTACT_TYPES.PERSON,
+    id: 'person',
     name_key: 'contact.type.person',
     group_key: 'contact.type.person.plural',
     create_key: 'contact.type.person.new',

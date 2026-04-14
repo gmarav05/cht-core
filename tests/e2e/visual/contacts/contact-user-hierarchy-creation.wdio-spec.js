@@ -74,7 +74,7 @@ describe('Creating and editing contacts and users', () => {
     await browser.pause(150); // Waiting for animation to avoid blurry screenshots
     await generateScreenshot('new-chw-supervisor', 'new-person');
     await commonPage.closeFastActionList();
-    await commonPage.clickFastActionFAB({ actionId: CONTACT_TYPES.PERSON });
+    await commonPage.clickFastActionFAB({ actionid: 'person' });
     await commonEnketoPage.setInputValue('Full name', 'John Doe');
     await generateScreenshot('new-chw-supervisor', 'belongs-to');
     await commonEnketoPage.selectRadioButton('Sex', 'male');

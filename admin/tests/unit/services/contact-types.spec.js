@@ -214,7 +214,7 @@ describe('ContactTypes service', () => {
 
   describe('isPersonType', () => {
     it('should return true when provided a person type', () => {
-      chai.expect(service.isPersonType({ id: CONTACT_TYPES.PERSON })).to.equal(true);
+      chai.expect(service.isPersonType({ id: 'person' })).to.equal(true);
       chai.expect(service.isPersonType({ id: 'other', person: true })).to.equal(true);
     });
 

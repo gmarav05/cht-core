@@ -319,7 +319,7 @@ describe('ContactTypes service', () => {
       const contact = { type: { id: 'a_person', person: true } };
       expect(await service.isPerson(contact)).to.equal(true);
 
-      const contact2 = { type: { id: CONTACT_TYPES.PERSON } };
+      const contact2 = { type: { id: 'person' } };
       expect(await service.isPerson(contact2)).to.equal(true);
     });
 

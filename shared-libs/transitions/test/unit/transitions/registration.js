@@ -44,7 +44,7 @@ describe('registration', () => {
     settings = {
       contact_types: [
         { id: 'place' },
-        { id: CONTACT_TYPES.PERSON, person: true, parents: ['place'] },
+        { id: 'person', person: true, parents: ['place'] },
       ]
     };
   });

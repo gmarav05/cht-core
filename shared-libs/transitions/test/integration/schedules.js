@@ -589,7 +589,7 @@ describe('functional schedules', () => {
       fields: { patient_id: '98765' },
       patient: patient
     };
-    config.getAll.returns({ contact_types: [{ id: CONTACT_TYPES.PERSON, person: true }, { id: 'place' }] });
+    config.getAll.returns({ contact_types: [{ id: 'person', person: true }, { id: 'place' }] });
 
     return transition.onMatch({ doc: doc })
       .then(complete => {
