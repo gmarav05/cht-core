@@ -1,4 +1,4 @@
-const { CONTACT_TYPES, DOC_TYPES: LOCAL_DOC_TYPES } = require('@medic/constants');
+const { CONTACT_TYPES, DOC_TYPES: CONTACT_TYPES_DOC_TYPES } = require('@medic/constants');
 
 describe('ContactTypes service', () => {
 
@@ -107,7 +107,7 @@ describe('ContactTypes service', () => {
     });
 
     it('returns true for contact type', () => {
-      chai.expect(service.includes({ type: LOCAL_DOC_TYPES.CONTACT })).to.equal(true);
+      chai.expect(service.includes({ type: CONTACT_TYPES_DOC_TYPES.CONTACT})).to.equal(true);
     });
 
     it('returns false for random type', () => {
