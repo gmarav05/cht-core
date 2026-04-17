@@ -2011,7 +2011,7 @@ describe('db-doc handler', () => {
             name: 'allowed attach',
           },
           {
-          _id: 'allowed_attach_2',
+            _id: 'allowed_attach_2',
             type: 'clinic',
             parent: { _id: 'fixture:offline' },
             name: 'allowed attach',
