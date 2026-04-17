@@ -2140,7 +2140,9 @@ describe('db-doc handler', () => {
 
     it('GET attachment with name containing slashes', () => {
       const revs = {
+        allowed_attach: [],  
         allowed_attach_1: [],
+        denied_attach: [],
         denied_attach_1: [],
       };
 
