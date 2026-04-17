@@ -202,7 +202,8 @@ describe('ContactTypes service', () => {
     it('should return the type id of the provided contact', () => {
       chai.expect(service.getTypeId({ type: 'person' })).to.equal('person');
       chai.expect(service.getTypeId({ type: 'clinic' })).to.equal('clinic');
-      chai.expect(service.getTypeId({ type: LOCAL_DOC_TYPES.CONTACT, contact_type: 'something' })).to.equal('something');
+      chai.expect(service.getTypeId({ type: LOCAL_DOC_TYPES.CONTACT, 
+        contact_type: 'something' })).to.equal('something');
     });
 
     it('should not crash when provided invalid inputs', () => {
