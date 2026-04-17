@@ -202,7 +202,7 @@ describe('ContactTypes service', () => {
     it('should return the type id of the provided contact', () => {
       chai.expect(service.getTypeId({ type: 'person' })).to.equal('person');
       chai.expect(service.getTypeId({ type: CONTACT_TYPES.CLINIC })).to.equal(CONTACT_TYPES.CLINIC);
-      chai.expect(service.getTypeId({ type: LOCAL_DOC_TYPES.CONTACT, 
+      chai.expect(service.getTypeId({ type: CONTACT_TYPES_DOC_TYPES.CONTACT, 
         contact_type: 'something' })).to.equal('something');
     });
 
