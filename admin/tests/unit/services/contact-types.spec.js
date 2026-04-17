@@ -1,4 +1,4 @@
-const { CONTACT_TYPES } = require('@medic/constants');
+const { CONTACT_TYPES, DOC_TYPES } = require('@medic/constants');
 
 describe('ContactTypes service', () => {
 

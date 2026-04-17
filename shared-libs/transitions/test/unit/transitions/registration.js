@@ -841,7 +841,8 @@ describe('registration', () => {
               name: 'Petes Place',
               contact_type: 'clinic',
               type: DOC_TYPES.CONTACT,
-              parent: { _id: 'west_hc', name: 'west hc', contact_type: CONTACT_TYPES.HEALTH_CENTER, type: DOC_TYPES.CONTACT }
+              parent: { _id: 'west_hc', name: 'west hc', 
+                contact_type: CONTACT_TYPES.HEALTH_CENTER, type: DOC_TYPES.CONTACT }
             }
           },
         }
