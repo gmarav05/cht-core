@@ -1,7 +1,6 @@
 import { assert } from 'chai';
 import sinon from 'sinon';
 import { FormatProvider } from '@mm-providers/format.provider';
-import { CONTACT_TYPES } from '@medic/constants';
 
 let translate;
 let format;
