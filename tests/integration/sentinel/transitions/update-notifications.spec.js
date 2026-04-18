@@ -299,7 +299,7 @@ describe('update_notifications', () => {
       })
       .then(() => utils.saveDoc(mute2))
       .then(() => sentinelUtils.waitForSentinel(mute2._id))
-      .then(() => sentinelUtils.getInfoDocs([mute2._id, CONTACT_TYPES.PERSON, 'clinic']))
+      .then(() => sentinelUtils.getInfoDocs([mute2._id, 'person', 'clinic']))
       .then(infos => {
         expect(infos[0].transitions).to.not.be.undefined;
         expect(infos[0].transitions.update_notifications).to.not.be.undefined;
@@ -311,7 +311,7 @@ describe('update_notifications', () => {
 
         expect(infos[2].muting_history).to.be.undefined;
       })
-      .then(() => utils.getDocs([mute2._id, CONTACT_TYPES.PERSON, 'clinic']))
+      .then(() => utils.getDocs([mute2._id, 'person', 'clinic']))
       .then(updated => {
         expect(updated[0].tasks).to.not.be.undefined;
         expect(updated[0].tasks).to.have.lengthOf(1);

@@ -102,11 +102,10 @@ describe('remote person', () => {
     describe('getPage', () => {
       const limit = 3;
       const cursor = '1';
-      const personType = PERSON;
-      const personTypeQualifier = { contactType: personType };
+      const personTypeQualifier = { contactType: PERSON };
       const queryParam = {
         limit: limit.toString(),
-        type: personType,
+        type: PERSON,
         cursor,
       };
 
@@ -141,7 +140,7 @@ describe('remote person', () => {
         expect(result).to.equal(expectedResponse);
         expect(getResourcesInner.calledOnceWithExactly({
           limit: limit.toString(),
-          type: personType,
+          type: PERSON,
         })).to.be.true;
       });
     });

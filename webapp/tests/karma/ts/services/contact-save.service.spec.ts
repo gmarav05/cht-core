@@ -253,7 +253,6 @@ describe('ContactSave service', () => {
 
       const form = { getDataStr: () => xmlPersonCreate };
       const docId = null;
-      const type = PERSON;
 
       const mockFile = new File(['test file content'], 'test-photo.png', { type: 'image/png' });
       sinon.stub(FileManager, 'getCurrentFiles').returns([mockFile]);
@@ -262,7 +261,7 @@ describe('ContactSave service', () => {
         doc: { _id: 'person1', type: PERSON, name: 'John Doe', phone: '+254712345678', sex: 'male' }
       });
 
-      await service.save(form, docId, type);
+      await service.save(form, docId, PERSON);
 
       expect(attachmentService.add.calledOnce, 'AttachmentService.add should be called once').to.be.true;
 
@@ -286,7 +285,6 @@ describe('ContactSave service', () => {
 
       const form = { getDataStr: () => xmlPersonCreate };
       const docId = null;
-      const type = PERSON;
 
       // Test various special characters that should be removed
       const fileWithSpaces = new File(['content'], 'my photo.png', { type: 'image/png' });
@@ -305,7 +303,7 @@ describe('ContactSave service', () => {
         doc: { _id: 'person1', type: PERSON, name: 'John Doe' }
       });
 
-      await service.save(form, docId, type);
+      await service.save(form, docId, PERSON);
 
       expect(attachmentService.add.callCount).to.equal(4);
 
@@ -343,7 +341,6 @@ describe('ContactSave service', () => {
 
       const form = { getDataStr: () => xmlPersonCreate };
       const docId = null;
-      const type = PERSON;
 
       const devanagariFile = new File(['content'], 'श्रीधर.png', { type: 'image/png' });
       sinon.stub(FileManager, 'getCurrentFiles').returns([ devanagariFile ]);
@@ -352,7 +349,7 @@ describe('ContactSave service', () => {
         doc: { _id: 'person1', type: PERSON, name: 'John Doe', photo: 'श्रीधर.png' }
       });
 
-      const result = await service.save(form, docId, type);
+      const result = await service.save(form, docId, PERSON);
 
       expect(attachmentService.add.callCount).to.equal(1);
       const attachmentName = attachmentService.add.getCall(0).args[1];
@@ -379,7 +376,6 @@ describe('ContactSave service', () => {
 
       const form = { getDataStr: () => xmlPersonCreate };
       const docId = null;
-      const type = PERSON;
 
       // Files with special characters that need sanitization
       const photoFile = new File(['photo-content'], 'Gui\'s Dog-13_0_24.png', { type: 'image/png' });
@@ -398,7 +394,7 @@ describe('ContactSave service', () => {
         }
       });
 
-      const result = await service.save(form, docId, type);
+      const result = await service.save(form, docId, PERSON);
 
       // Verify attachments are created with sanitized names
       expect(attachmentService.add.callCount).to.equal(2);
@@ -430,7 +426,6 @@ describe('ContactSave service', () => {
 
       const form = { getDataStr: () => xmlWithBinaryField };
       const docId = null;
-      const type = PERSON;
 
       sinon.stub(FileManager, 'getCurrentFiles').returns([]);
 
@@ -438,7 +433,7 @@ describe('ContactSave service', () => {
         doc: { _id: 'person1', type: PERSON, name: 'Jane Smith', phone: '+254712345679', sex: 'female' }
       });
 
-      await service.save(form, docId, type);
+      await service.save(form, docId, PERSON);
 
       expect(attachmentService.add.calledOnce, 'AttachmentService.add should be called once').to.be.true;
 
@@ -470,7 +465,6 @@ describe('ContactSave service', () => {
 
         const form = { getDataStr: () => xmlStr };
         const docId = 'person1';
-        const type = PERSON;
 
         const newFile = new File(['new photo content'], 'new-photo.png', { type: 'image/png' });
         sinon.stub(FileManager, 'getCurrentFiles').returns([newFile]);
@@ -490,7 +484,7 @@ describe('ContactSave service', () => {
           doc: { _id: 'person1', type: PERSON, name: 'John Doe', photo: 'new-photo.png' }
         });
 
-        await service.save(form, docId, type);
+        await service.save(form, docId, PERSON);
 
         expect(
           attachmentService.add.calledWith(sinon.match({ _id: 'person1' }), 'user-file-new-photo.png'),
@@ -516,7 +510,6 @@ describe('ContactSave service', () => {
 
         const form = { getDataStr: () => xmlStr };
         const docId = 'person1';
-        const type = PERSON;
 
         sinon.stub(FileManager, 'getCurrentFiles').returns([]);
 
@@ -547,7 +540,7 @@ describe('ContactSave service', () => {
           }
         });
 
-        await service.save(form, docId, type);
+        await service.save(form, docId, PERSON);
 
         expect(
           attachmentService.remove.called,
@@ -568,7 +561,6 @@ describe('ContactSave service', () => {
 
         const form = { getDataStr: () => xmlStr };
         const docId = 'person1';
-        const type = PERSON;
 
         sinon.stub(FileManager, 'getCurrentFiles').returns([]);
 
@@ -586,7 +578,7 @@ describe('ContactSave service', () => {
           doc: { _id: 'person1', type: PERSON, name: 'John Doe', photo: '' }
         });
 
-        await service.save(form, docId, type);
+        await service.save(form, docId, PERSON);
 
         expect(
           attachmentService.remove.calledWith(sinon.match({ _id: 'person1' }), 'user-file-old-photo.png'),
@@ -609,7 +601,6 @@ describe('ContactSave service', () => {
 
         const form = { getDataStr: () => xmlStr };
         const docId = 'person1';
-        const type = PERSON;
 
         const newDocFile = new File(['new doc'], 'new-doc.pdf', { type: 'application/pdf' });
         sinon.stub(FileManager, 'getCurrentFiles').returns([newDocFile]);
@@ -639,7 +630,7 @@ describe('ContactSave service', () => {
           }
         });
 
-        await service.save(form, docId, type);
+        await service.save(form, docId, PERSON);
 
         expect(
           attachmentService.add.calledWith(sinon.match({ _id: 'person1' }), 'user-file-new-doc.pdf'),
@@ -679,7 +670,6 @@ describe('ContactSave service', () => {
 
       const form = { getDataStr: () => xmlWithMultipleAttachments };
       const docId = null;
-      const type = PERSON;
 
       const mockFile1 = new File(['certificate content'], 'certificate.pdf', { type: 'application/pdf' });
       const mockFile2 = new File(['insurance ID content'], 'insurance-id.pdf', { type: 'application/pdf' });
@@ -689,7 +679,7 @@ describe('ContactSave service', () => {
         doc: { _id: 'person1', type: PERSON, name: 'Dr. Maria Garcia', phone: '+254712345680', sex: 'female' }
       });
 
-      await service.save(form, docId, type);
+      await service.save(form, docId, PERSON);
 
       expect(
         attachmentService.add.callCount,

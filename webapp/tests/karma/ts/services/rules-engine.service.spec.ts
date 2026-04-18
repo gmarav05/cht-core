@@ -362,7 +362,7 @@ describe('RulesEngineService', () => {
     const scenarios = [
       {
         doc: { _id: 'person', type: PERSON },
-        expected: [PERSON],
+        expected: ['person'],
       },
       {
         doc: { _id: 'contact', type: 'contact', contact_type: PERSON },

@@ -124,8 +124,7 @@ describe('Person Controller', () => {
     });
 
     describe('getAll', () => {
-      const personType = CONTACT_TYPES.PERSON;
-      const personTypeQualifier = Qualifier.byContactType(personType);
+      const personTypeQualifier = Qualifier.byContactType(CONTACT_TYPES.PERSON);
       const person = { name: 'John Doe' };
       const limit = 100;
       const cursor = null;
@@ -135,7 +134,7 @@ describe('Person Controller', () => {
         personGetPageByType.resolves(people);
         req = {
           query: {
-            type: personType,
+            type: CONTACT_TYPES.PERSON,
             cursor,
             limit,
           }

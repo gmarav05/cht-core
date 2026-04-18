@@ -268,8 +268,7 @@ describe(PERSON, () => {
     });
 
     describe('getAll', () => {
-      const personType = PERSON;
-      const personTypeQualifier = { contactType: personType } as const;
+      const personTypeQualifier = { contactType: PERSON } as const;
       const firstPerson = { _id: 'person1' } as Person.v1.Person;
       const secondPerson = { _id: 'person2' } as Person.v1.Person;
       const thirdPerson = { _id: 'person3' } as Person.v1.Person;
