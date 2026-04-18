@@ -2005,26 +2005,14 @@ describe('db-doc handler', () => {
       return utils
         .saveDocs([
           {
-            _id: 'allowed_attach',
-            type: 'clinic',
-            parent: { _id: 'fixture:offline' },
-            name: 'allowed attach',
-          },
-          {
             _id: 'allowed_attach_2',
-            type: 'clinic',
+            type: CONTACT_TYPES.CLINIC,
             parent: { _id: 'fixture:offline' },
             name: 'allowed attach',
-          },
-          {
-            _id: 'denied_attach',
-            type: 'clinic',
-            parent: { _id: 'fixture:online' },
-            name: 'denied attach',
           },
           {
             _id: 'denied_attach_2',
-            type: 'clinic',
+            type: CONTACT_TYPES.CLINIC,
             parent: { _id: 'fixture:online' },
             name: 'denied attach',
           },
@@ -2140,9 +2128,7 @@ describe('db-doc handler', () => {
 
     it('GET attachment with name containing slashes', () => {
       const revs = {
-        allowed_attach: [],  
         allowed_attach_1: [],
-        denied_attach: [],
         denied_attach_1: [],
       };
 

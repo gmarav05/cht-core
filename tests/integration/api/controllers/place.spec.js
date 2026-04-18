@@ -34,7 +34,7 @@ describe('Place API', () => {
     type: placeType,
     contact: {}
   }));
-  // this is named as clinic3 and not clinic2 because placeMap.get(CONTACT_TYPES.CLINIC)
+  // this is named as clinic3 and not clinic2 because placeMap.get('clinic')
   // generates the name `clinic2` always and this is to not cause conflict and confusion
   const clinic3 = utils.deepFreeze(placeFactory.place().build({
     name: 'clinic3',

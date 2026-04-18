@@ -27,7 +27,7 @@ const contacts = [
     parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } },
     contact: {
       _id: 'person',
-      parent: { _id: 'clinic', 
+      parent: { _id: 'clinic',
         parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
     },
     reported_date: new Date().getTime()
@@ -37,7 +37,7 @@ const contacts = [
     name: 'Person',
     type: 'person',
     patient_id: '99999',
-    parent: { _id: 'clinic', 
+    parent: { _id: 'clinic',
       parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } },
     phone: '+444999',
     reported_date: new Date().getTime()
@@ -70,7 +70,7 @@ const extraContacts = [
     name: 'Person',
     type: 'person',
     patient_id: '888888',
-    parent: { _id: 'clinic', 
+    parent: { _id: 'clinic',
       parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } },
     phone: '+444888',
     reported_date: new Date().getTime()
@@ -129,7 +129,7 @@ describe('muting', () => {
       reported_date: new Date().getTime(),
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', 
+        parent: { _id: 'clinic',
           parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       }
     };
@@ -164,7 +164,7 @@ describe('muting', () => {
       reported_date: new Date().getTime(),
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', 
+        parent: { _id: 'clinic',
           parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       }
     };
@@ -221,7 +221,7 @@ describe('muting', () => {
       reported_date: new Date().getTime(),
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', 
+        parent: { _id: 'clinic',
           parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       }
     };
@@ -238,7 +238,7 @@ describe('muting', () => {
       reported_date: new Date().getTime(),
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', 
+        parent: { _id: 'clinic',
           parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       }
     };
@@ -330,7 +330,7 @@ describe('muting', () => {
       reported_date: new Date().getTime(),
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', 
+        parent: { _id: 'clinic',
           parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       }
     };
@@ -345,7 +345,7 @@ describe('muting', () => {
       reported_date: new Date().getTime(),
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', 
+        parent: { _id: 'clinic',
           parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       }
     };
@@ -360,7 +360,7 @@ describe('muting', () => {
       reported_date: new Date().getTime(),
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', 
+        parent: { _id: 'clinic',
           parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       }
     };
@@ -375,7 +375,7 @@ describe('muting', () => {
       reported_date: new Date().getTime(),
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', 
+        parent: { _id: 'clinic',
           parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       }
     };
@@ -506,7 +506,7 @@ describe('muting', () => {
       reported_date: new Date().getTime(),
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', 
+        parent: { _id: 'clinic',
           parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       }
     };
@@ -521,7 +521,7 @@ describe('muting', () => {
       reported_date: new Date().getTime(),
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', 
+        parent: { _id: 'clinic',
           parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       }
     };
@@ -625,7 +625,7 @@ describe('muting', () => {
       reported_date: new Date().getTime(),
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', 
+        parent: { _id: 'clinic',
           parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       }
     };
@@ -640,7 +640,7 @@ describe('muting', () => {
       reported_date: new Date().getTime(),
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', 
+        parent: { _id: 'clinic',
           parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       }
     };
@@ -731,7 +731,7 @@ describe('muting', () => {
       reported_date: new Date().getTime(),
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', 
+        parent: { _id: 'clinic',
           parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       }
     };
@@ -746,7 +746,7 @@ describe('muting', () => {
       reported_date: new Date().getTime(),
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', 
+        parent: { _id: 'clinic',
           parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       }
     };
@@ -761,7 +761,7 @@ describe('muting', () => {
       reported_date: new Date().getTime(),
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', 
+        parent: { _id: 'clinic',
           parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       }
     };
@@ -897,7 +897,7 @@ describe('muting', () => {
       reported_date: new Date().getTime(),
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', 
+        parent: { _id: 'clinic',
           parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       }
     };
@@ -906,7 +906,7 @@ describe('muting', () => {
       _id: 'person3',
       name: 'Person',
       type: 'person',
-      parent: { _id: 'clinic', 
+      parent: { _id: 'clinic',
         parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } },
       phone: '+444999'
     };
@@ -916,7 +916,7 @@ describe('muting', () => {
       name: 'Person',
       type: 'person',
       contact_type: 'not a person',
-      parent: { _id: 'clinic', 
+      parent: { _id: 'clinic',
         parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } },
       phone: '+444999'
     };

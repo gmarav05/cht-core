@@ -2266,8 +2266,8 @@ describe('Authorization service', () => {
         feed.subjectIds = [];
 
         viewResults.contactsByDepth = [
-          { key: ['clinic_id'], value: { shortcode: CONTACT_TYPES.CLINIC, primary_contact: 'juli' } },
-          { key: ['clinic_id', 0], value: { shortcode: CONTACT_TYPES.CLINIC, primary_contact: 'juli' } },
+          { key: ['clinic_id'], value: { shortcode: 'clinic', primary_contact: 'juli' } },
+          { key: ['clinic_id', 0], value: { shortcode: 'clinic', primary_contact: 'juli' } },
         ];
         service.updateContext(true, feed, viewResults).should.equal(true);
         feed.subjectIds.should.have.deep.members([ 'clinic_id', CONTACT_TYPES.CLINIC ]);
@@ -4145,7 +4145,7 @@ describe('Authorization service', () => {
       authCtx.reportDepth = 1;
       service.__get__('isAllowedDepth')(authCtx, docsByReplicationKey).should.equal(true);
 
-      docsByReplicationKey = [{ fields: { key: CONTACT_TYPES.CLINIC, type: DOC_TYPES.DATA_RECORD, submitter: 'chw'  }}];
+      docsByReplicationKey = [{ fields: { key: 'clinic', type: DOC_TYPES.DATA_RECORD, submitter: 'chw'  }}];
       service.__get__('isAllowedDepth')(authCtx, docsByReplicationKey).should.equal(true);
     });
 

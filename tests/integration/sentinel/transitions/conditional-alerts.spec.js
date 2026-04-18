@@ -25,7 +25,7 @@ const contacts = [
     parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } },
     contact: {
       _id: 'person',
-      parent: { _id: 'clinic', 
+      parent: { _id: 'clinic',
         parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
     },
     reported_date: new Date().getTime()
@@ -34,7 +34,7 @@ const contacts = [
     _id: 'person',
     name: 'Person',
     type: 'person',
-    parent: { _id: 'clinic', 
+    parent: { _id: 'clinic',
       parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } },
     phone: '+444999',
     reported_date: new Date().getTime()
@@ -68,7 +68,7 @@ describe('conditional_alerts', () => {
       from: '+444999',
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', 
+        parent: { _id: 'clinic',
           parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       }
     };
@@ -103,7 +103,7 @@ describe('conditional_alerts', () => {
       from: '+444999',
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', 
+        parent: { _id: 'clinic',
           parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       }
     };
@@ -176,7 +176,7 @@ describe('conditional_alerts', () => {
       from: '+444999',
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', 
+        parent: { _id: 'clinic',
           parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       },
       somefield: 120
@@ -225,7 +225,7 @@ describe('conditional_alerts', () => {
       from: '+444999',
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', 
+        parent: { _id: 'clinic',
           parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       },
       temp: 38
@@ -239,7 +239,7 @@ describe('conditional_alerts', () => {
       from: '+444999',
       contact: {
         _id: 'person',
-        parent: { _id: 'clinic', 
+        parent: { _id: 'clinic',
           parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
       },
       temp: 39

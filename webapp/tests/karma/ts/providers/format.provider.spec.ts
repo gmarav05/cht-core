@@ -28,7 +28,7 @@ describe('lineage', () => {
     });
 
     it('returns list items for each given string', () => {
-      const given = [CONTACT_TYPES.CLINIC, 'district'];
+      const given = ['clinic', 'district'];
       const actual = format.lineage(given);
       assert.equal(actual, '<ol class="horizontal lineage"><li>clinic</li><li>district</li></ol>');
     });
