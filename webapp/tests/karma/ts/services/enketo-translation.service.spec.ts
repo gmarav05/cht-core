@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { assert } from 'chai';
 
 import { EnketoTranslationService } from '@mm-services/enketo-translation.service';
-import { CONTACT_TYPES } from '@medic/constants'
+import { CONTACT_TYPES } from '@medic/constants';
 
 const serialize = (element) => {
   if (element.nodeType !== Node.ELEMENT_NODE) {

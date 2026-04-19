@@ -16,7 +16,7 @@ import { ReportingPeriod } from '@mm-modules/analytics/analytics-sidebar-filter.
 import { Qualifier, Target } from '@medic/cht-datasource';
 import { CHTDatasourceService } from '@mm-services/cht-datasource.service';
 import { fakeGenerator } from '../../utils';
-import { CONTACT_TYPES } from '@medic/constants'
+import { CONTACT_TYPES } from '@medic/constants';
 
 const { byContactIds, byContactId, byReportingPeriod } = Qualifier;
 

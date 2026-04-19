@@ -6,7 +6,7 @@ import { ContactsService } from '@mm-services/contacts.service';
 import { DbService } from '@mm-services/db.service';
 import { CacheService } from '@mm-services/cache.service';
 import { ContactTypesService } from '@mm-services/contact-types.service';
-import { CONTACT_TYPES } from '@medic/constants'
+import { CONTACT_TYPES } from '@medic/constants';
 
 describe('Contacts Service', () => {
   let service: ContactsService;

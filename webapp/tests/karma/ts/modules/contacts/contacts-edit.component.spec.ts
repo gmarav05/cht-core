@@ -480,7 +480,8 @@ describe('ContactsEdit component', () => {
         expect(formService.render.args[0][0]).to.deep.include({
           selector: '#contact-form',
           formDoc: { _id: 'district_create_form_id', the: 'form' },
-          instanceData: { district_hospital: { type: 'contact', contact_type: CONTACT_TYPES.DISTRICT_HOSPITAL, parent: '' } },
+          instanceData: { district_hospital: { type: 'contact', 
+            contact_type: CONTACT_TYPES.DISTRICT_HOSPITAL, parent: '' } },
           titleKey: 'district_create_key',
         });
         expect(component.contentError).to.equal(false);
