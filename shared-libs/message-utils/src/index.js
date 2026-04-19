@@ -42,7 +42,7 @@ const getHealthCenter = function(doc) {
 };
 
 const getDistrict = function(doc) {
-  return doc && getParent(doc, 'district_hospital');
+  return doc && getParent(doc, );
 };
 
 const getClinicPhone = function(doc) {
