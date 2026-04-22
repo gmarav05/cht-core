@@ -12,12 +12,12 @@ import { assertFieldsUnchanged, getReportedDateTimestamp, validateCursor } from 
 import * as Input from '../input';
 import { assertHasValidParentType, assertSameParentLineage, fetchHydratedDoc, minifyDoc } from './libs/lineage';
 import { assertPersonInput } from '../libs/parameter-validators';
-import { DOC_TYPES } from '@medic/constants';
+import { DOC_TYPES, CONTACT_TYPES } from '@medic/constants';
 
 const DEFAULT_PERSON_TYPE = {
   id: 'person',
   parents: [
-    'district_hospital',
+    CONTACT_TYPES.DISTRICT_HOSPITAL,
     'health_center',
     'clinic',
   ]

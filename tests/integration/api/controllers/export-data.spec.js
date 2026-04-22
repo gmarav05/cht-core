@@ -1,6 +1,6 @@
 const utils = require('@utils');
 const uuid = require('uuid').v4;
-const { DOC_TYPES } = require('@medic/constants');
+const { DOC_TYPES, CONTACT_TYPES } = require('@medic/constants');
 
 const getRows = (result) => {
   const rows = result.split('\n');
@@ -280,10 +280,11 @@ describe('Export Data V2.0', () => {
     const contacts = [
       { _id: 'john_id', name: 'john', patient_id: '12345', type: 'person', field: 'value' },
       { _id: 'mary_id', name: 'mary', type: 'person', other_field: 'b' },
-      { _id: 'jen_id', name: 'jen', 
+      { _id: 'jen_id', name: 'jen',
         type: DOC_TYPES.CONTACT, contact_type: 'chw', patient_id: '123', other_field: 'value' },
-      { _id: 'leslie_id', name: 'leslie', type: 'district_hospital', reported_date: 100 },
-      { _id: 'my_district_id', name: 'my_district', type: 'district_hospital', place_id: '4568', phone: '0054852' },
+      { _id: 'leslie_id', name: 'leslie', type: CONTACT_TYPES.DISTRICT_HOSPITAL, reported_date: 100 },
+      { _id: 'my_district_id', name: 'my_district',
+        type: CONTACT_TYPES.DISTRICT_HOSPITAL, place_id: '4568', phone: '0054852' },
       { _id: 'ny_id', name: 'new york', 
         type: DOC_TYPES.CONTACT, contact_type: 'city', place_id: '231', phone: '0054852' },
       {

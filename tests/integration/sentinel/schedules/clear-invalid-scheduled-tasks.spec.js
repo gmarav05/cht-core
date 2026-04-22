@@ -14,7 +14,7 @@ const contacts = [
     _id: 'district_hospital',
     name: 'District',
     type: DOC_TYPES.CONTACT,
-    contact_type: 'district_hospital',
+    contact_type: CONTACT_TYPES.DISTRICT_HOSPITAL,
     reported_date: reportedDate,
   },
   {
