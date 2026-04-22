@@ -7,7 +7,7 @@ const {
   engineSettings,
   defaultConfigSettingsDoc
 } = require('./mocks');
-const { PREFIXES } = require('@medic/constants');
+const { PREFIXES, DOC_TYPES } = require('@medic/constants');
 
 const memdownMedic = require('@medic/memdown');
 const moment = require('moment');
@@ -15,7 +15,6 @@ const PouchDB = require('pouchdb-core');
 PouchDB.plugin(require('pouchdb-adapter-memory'));
 const sinon = require('sinon');
 const rewire = require('rewire');
-const { DOC_TYPES } = require('@medic/constants');
 
 const pouchdbProvider = require('../src/pouchdb-provider');
 const rulesEmitter = require('../src/rules-emitter');
