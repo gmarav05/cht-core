@@ -112,11 +112,9 @@ describe('ContactViewModelGenerator service', () => {
     get.withArgs(childContactPerson._id).resolves(childContactPerson);
     contactTypesService = {
       getAll: sinon.stub().resolves(types),
-      getTypeId: sinon.stub().callsFake(
-        contact => (contact.type === DOC_TYPES.CONTACT 
-          ? contact.contact_type 
-          : contact.type)
-      ),
+      getTypeId: sinon.stub().callsFake(contact => {
+        return contact.type === DOC_TYPES.CONTACT ? contact.contact_type : contact.type;
+      }),
       getTypeById: sinon.stub().callsFake((types, id) => types.find(type => type.id === id)),
     };
 
