@@ -124,7 +124,6 @@ describe('MessagesContentComponent', () => {
   describe('Messages without contact', () => {
     it('should pull the contact phone number from the first message and show empty user name', async () => {
       const id = '12';
-      const type = DOC_TYPES.CONTACT;
       const phone = '+12';
       const res = {
         doc: {
@@ -134,12 +133,12 @@ describe('MessagesContentComponent', () => {
           ]
         }
       };
-      activatedRouteParams.next(`${type}:${id}`);
+      activatedRouteParams.next(`${DOC_TYPES.CONTACT}:${id}`);
       lineageModelGeneratorService.contact.rejects({ code: 404 });
       messageContactService.getConversation.resolves([res]);
       const updateSelectedConversationSpy = sinon.spy(MessagesActions.prototype, 'updateSelectedConversation');
 
-      await component.selectContact(id, type);
+      await component.selectContact(id, DOC_TYPES.CONTACT);
 
       expect(lineageModelGeneratorService.contact.callCount).to.equal(1);
       expect(lineageModelGeneratorService.contact.getCall(0).args[0]).to.equal(id);
@@ -158,14 +157,13 @@ describe('MessagesContentComponent', () => {
 
     it('should not fail when no contact and no conversation', () => {
       const id = '12';
-      const type = DOC_TYPES.CONTACT;
-      activatedRouteParams.next(`${type}:${id}`);
+      activatedRouteParams.next(`${DOC_TYPES.CONTACT}:${id}`);
       lineageModelGeneratorService.contact.rejects({ code: 404 });
       messageContactService.getConversation.resolves([]);
       const updateSelectedConversationSpy = sinon.spy(MessagesActions.prototype, 'updateSelectedConversation');
 
       return component
-        .selectContact(id, type)!
+        .selectContact(id, DOC_TYPES.CONTACT)!
         .then(() => {
           expect(lineageModelGeneratorService.contact.callCount).to.equal(1);
           expect(lineageModelGeneratorService.contact.getCall(0).args[0]).to.equal(id);
