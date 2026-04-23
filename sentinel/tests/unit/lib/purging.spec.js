@@ -438,7 +438,7 @@ describe('ServerSidePurge', () => {
       sinon.stub(db, 'queryMedic');
       db.queryMedic.onCall(0).resolves({ rows: [
         { id: 'first', key: 'district', doc: { _id: 'first' } },
-        { id: 'f1', id: 'health_center', doc: { _id: 'f1' } },
+        { id: 'f1', key: 'health_center', doc: { _id: 'f1' } },
         { id: 'f2', key: 'person', doc: { _id: 'f2', patient_id: 's2' } },
         { id: 'f3', key: 'person', doc: { _id: 'f3', patient_id: 's3' } },
       ]});
