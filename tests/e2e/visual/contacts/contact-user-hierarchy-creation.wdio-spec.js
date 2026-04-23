@@ -5,7 +5,6 @@ const genericForm = require('@page-objects/default/enketo/generic-form.wdio.page
 const commonEnketoPage = require('@page-objects/default/enketo/common-enketo.wdio.page');
 const searchPage = require('@page-objects/default/search/search.wdio.page');
 const usersAdminPage = require('@page-objects/default/users/user.wdio.page');
-const { CONTACT_TYPES } = require('@medic/constants');
 
 const utils = require('@utils');
 const { generateScreenshot } = require('@utils/screenshots');
