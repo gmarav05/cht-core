@@ -141,7 +141,7 @@ describe('Muting transition', () => {
       chai.expect(transition.filter({ doc: { muted: false, type: 'clinic' }, info: { initial_replication_date: 2 }}))
         .to.equal(true);
       chai.expect(transition.filter({
-        doc: { muted: false, type: 'district_hospital' },
+        doc: { muted: false, type: CONTACT_TYPES.DISTRICT_HOSPITAL },
         info: {initial_replication_date: 3 }
       })).to.equal(true);
       chai.expect(transition.filter({
@@ -157,7 +157,7 @@ describe('Muting transition', () => {
       chai.expect(mutingUtils.isMutedInLineage.args).to.deep.equal([
         [{ muted: false, type: CONTACT_TYPES.PERSON }, 1],
         [{ muted: false, type: 'clinic' }, 2],
-        [{ muted: false, type: 'district_hospital' }, 3],
+        [{ muted: false, type: CONTACT_TYPES.DISTRICT_HOSPITAL }, 3],
         [{ muted: false, type: CONTACT_TYPES.HEALTH_CENTER }, 4],
         [{ muted: false, type: 'clinic', contact_type: 'm' }, 7]
       ]);

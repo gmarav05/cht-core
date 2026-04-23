@@ -18,6 +18,7 @@ const DOC_IDS = {
 const CONTACT_TYPES = {
   HEALTH_CENTER: 'health_center',
   PERSON: 'person',
+  DISTRICT_HOSPITAL: 'district_hospital',
 };
 
 // Document Types

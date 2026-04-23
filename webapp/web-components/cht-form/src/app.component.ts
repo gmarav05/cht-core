@@ -25,8 +25,8 @@ export class AppComponent {
   private readonly DEFAULT_USER = { contact_id: 'default_user', language: 'en' } as const;
 
   private readonly HARDCODED_TYPES = [
-    'district_hospital',
-    'health_center',
+    CONTACT_TYPES.DISTRICT_HOSPITAL,
+    CONTACT_TYPES.HEALTH_CENTER,
     'clinic',
     PERSON
   ];

@@ -281,8 +281,10 @@ describe('Export Data V2.0', () => {
       { _id: 'john_id', name: 'john', patient_id: '12345', type: CONTACT_TYPES.PERSON, field: 'value' },
       { _id: 'mary_id', name: 'mary', type: CONTACT_TYPES.PERSON, other_field: 'b' },
       { _id: 'jen_id', name: 'jen', type: 'contact', contact_type: 'chw', patient_id: '123', other_field: 'value' },
-      { _id: 'leslie_id', name: 'leslie', type: 'district_hospital', reported_date: 100 },
-      { _id: 'my_district_id', name: 'my_district', type: 'district_hospital', place_id: '4568', phone: '0054852' },
+      { _id: 'leslie_id',
+        name: 'leslie', type: CONTACT_TYPES.DISTRICT_HOSPITAL, reported_date: 100 },
+      { _id: 'my_district_id',
+        name: 'my_district', type: CONTACT_TYPES.DISTRICT_HOSPITAL, place_id: '4568', phone: '0054852' },
       { _id: 'ny_id', name: 'new york', type: 'contact', contact_type: 'city', place_id: '231', phone: '0054852' },
       {
         _id: 'michael_id',

@@ -344,7 +344,7 @@ describe('local place', () => {
       const parent = {
         ...minifiedParent,
         _rev: '1',
-        type: 'district_hospital',
+        type: CONTACT_TYPES.DISTRICT_HOSPITAL,
         name: 'parent'
       } as const;
       const minifiedContact = {
@@ -538,7 +538,7 @@ describe('local place', () => {
       it('creates a place without parent for top-level type', async () => {
         const input = {
           name: 'place-1',
-          type: 'district_hospital',
+          type: CONTACT_TYPES.DISTRICT_HOSPITAL,
         };
         getDocsByIdsInner.resolves([null, null]);
 
@@ -624,7 +624,7 @@ describe('local place', () => {
       it('throws error when parent provided for top level place type', async () => {
         const input = {
           name: 'place-1',
-          type: 'district_hospital',
+          type: CONTACT_TYPES.DISTRICT_HOSPITAL,
           parent: parent._id,
         };
         getDocsByIdsInner.resolves([parent, null]);
@@ -711,7 +711,7 @@ describe('local place', () => {
       const parent = {
         ...parentMinified,
         name: 'Parent 1',
-        type: 'district_hospital',
+        type: CONTACT_TYPES.DISTRICT_HOSPITAL,
       } as const;
 
       const contactMinified = {

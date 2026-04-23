@@ -349,7 +349,7 @@ describe('libs parameter-validators', () => {
   describe('assertPlaceInput', () => {
     const placeInput = {
       name: 'h1',
-      type: 'district_hospital'
+      type: CONTACT_TYPES.DISTRICT_HOSPITAL
     } as const;
 
     [
