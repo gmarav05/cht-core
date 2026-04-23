@@ -24,7 +24,6 @@ import { TelemetryService } from '@mm-services/telemetry.service';
 import { Contact, Qualifier } from '@medic/cht-datasource';
 import { CONTACT_TYPES } from '@medic/constants';
 import events from 'enketo-core/src/js/event';
-import { CONTACT_TYPES } from '@medic/constants';
 
 const { PERSON } = CONTACT_TYPES;
 
