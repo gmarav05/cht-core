@@ -18,7 +18,7 @@ describe('Contact details page.', () => {
     const DOCS_DISPLAY_LIMIT = 50;
     const ROLE = 'notchw';
 
-    const parent = placeFactory.place().build({_id: 'dist1', type: 'district_hospital'});
+    const parent = placeFactory.place().build({_id: 'dist1', type: CONTACT_TYPES.DISTRICT_HOSPITAL});
     const user = userFactory.build({username: 'offlineuser', roles: [ROLE]});
     const patient = personFactory.build({parent: {_id: user.place._id, parent: {_id: parent._id}}});
 

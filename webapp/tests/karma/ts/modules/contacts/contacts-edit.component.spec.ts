@@ -456,7 +456,7 @@ describe('ContactsEdit component', () => {
       });
 
       it('should render form without parent', async () => {
-        routeSnapshot.params = { type: 'district_hospital' };
+        routeSnapshot.params = { type: CONTACT_TYPES.DISTRICT_HOSPITAL };
         contactTypesService.getChildren.resolves([{ id: 'district_hospital' }]);
         contactTypesService.get.resolves({
           create_form: 'district_create_form_id',
@@ -473,7 +473,7 @@ describe('ContactsEdit component', () => {
         expect(dbGet.callCount).to.equal(1);
         expect(dbGet.args[0]).to.deep.equal(['district_create_form_id']);
         expect(component.enketoContact).to.deep.equal({
-          type: 'district_hospital',
+          type: CONTACT_TYPES.DISTRICT_HOSPITAL,
           formInstance: undefined,
           docId: null,
         });
@@ -481,7 +481,8 @@ describe('ContactsEdit component', () => {
         expect(formService.render.args[0][0]).to.deep.include({
           selector: '#contact-form',
           formDoc: { _id: 'district_create_form_id', the: 'form' },
-          instanceData: { district_hospital: { type: 'contact', contact_type: 'district_hospital', parent: '' } },
+          instanceData: { district_hospital: { type: 'contact', 
+            contact_type: CONTACT_TYPES.DISTRICT_HOSPITAL, parent: '' } },
           titleKey: 'district_create_key',
         });
         expect(component.contentError).to.equal(false);

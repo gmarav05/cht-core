@@ -330,7 +330,7 @@ describe('XmlForms service', () => {
       UserContact.resolves();
       const service = getService();
       getContactType.resolves({ person: false });
-      return service.list({ doc: { type: 'district_hospital' } }).then(actual => {
+      return service.list({ doc: { type: CONTACT_TYPES.DISTRICT_HOSPITAL } }).then(actual => {
         assert.deepEqual(_.map(actual, 'internalId'), [
           'zero',
           'one',

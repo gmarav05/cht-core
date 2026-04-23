@@ -437,7 +437,7 @@ describe('GenerateSearchRequests service', () => {
         },
         {
           key: 'some',
-          type: 'district_hospital'
+          type: CONTACT_TYPES.DISTRICT_HOSPITAL
         }
       ]);
       chai.expect(result[1].view).to.equal('contacts_by_type_freetext');
@@ -449,7 +449,7 @@ describe('GenerateSearchRequests service', () => {
         },
         {
           key: 'thing',
-          type: 'district_hospital'
+          type: CONTACT_TYPES.DISTRICT_HOSPITAL
         }
       ]);
     });

@@ -912,7 +912,7 @@ describe('ServerSidePurge', () => {
         chai.expect(purgeFn.callCount).to.equal(8);
         chai.expect(purgeFn.args[0]).to.shallowDeepEqual([
           { roles: roles.a },
-          { _id: 'first', type: 'district_hospital' },
+          { _id: 'first', type: CONTACT_TYPES.DISTRICT_HOSPITAL },
           [],
           [],
         ]);
@@ -921,7 +921,7 @@ describe('ServerSidePurge', () => {
 
         chai.expect(purgeFn.args[1]).to.shallowDeepEqual([
           { roles: roles.b },
-          { _id: 'first', type: 'district_hospital' },
+          { _id: 'first', type: CONTACT_TYPES.DISTRICT_HOSPITAL },
           [],
           []
         ]);
@@ -1054,7 +1054,7 @@ describe('ServerSidePurge', () => {
         chai.expect(purgeFn.callCount).to.equal(10);
         chai.expect(purgeFn.args[0]).to.shallowDeepEqual([
           { roles: roles.a },
-          { _id: 'first', type: 'district_hospital' },
+          { _id: 'first', type: CONTACT_TYPES.DISTRICT_HOSPITAL },
           [],
           []
         ]);
@@ -1165,7 +1165,7 @@ describe('ServerSidePurge', () => {
         chai.expect(purgeFn.callCount).to.equal(8);
         chai.expect(purgeFn.args[0]).to.shallowDeepEqual([
           { roles: roles.a },
-          { _id: 'first', type: 'district_hospital' },
+          { _id: 'first', type: CONTACT_TYPES.DISTRICT_HOSPITAL },
           [],
           []
         ]);
@@ -1246,6 +1246,7 @@ describe('ServerSidePurge', () => {
       sinon.stub(db, 'get')
         .onCall(0).returns(dbA)
         .onCall(1).returns(dbB);
+
 
       purgeFn.withArgs({ roles: roles.a }, { _id: 'first', type: 'district_hospital' }).returns([]);
       purgeFn.withArgs({ roles: roles.b }, { _id: 'first', type: 'district_hospital' }).returns([]);
@@ -1348,7 +1349,7 @@ describe('ServerSidePurge', () => {
         chai.expect(purgeFn.callCount).to.equal(6);
         chai.expect(purgeFn.args[0]).to.shallowDeepEqual([
           { roles: roles.a },
-          { _id: 'first', type: 'district_hospital' },
+          { _id: 'first', type: CONTACT_TYPES.DISTRICT_HOSPITAL },
           [],
           []
         ]);

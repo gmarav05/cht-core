@@ -17,7 +17,7 @@ import { CONTACT_TYPES } from '@medic/constants';
 const DEFAULT_PERSON_TYPE = {
   id: 'person',
   parents: [
-    'district_hospital',
+    CONTACT_TYPES.DISTRICT_HOSPITAL,
     'health_center',
     CONTACT_TYPES.CLINIC,
   ]

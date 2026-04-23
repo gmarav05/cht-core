@@ -749,7 +749,7 @@ describe('Muting Transition', () => {
               parent: {
                 _id: 'grandparent',
                 contact: { _id: 'chw' },
-                type: 'district_hospital'
+                type: CONTACT_TYPES.DISTRICT_HOSPITAL
               },
             },
           },

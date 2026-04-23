@@ -485,7 +485,7 @@ describe('local lineage lib', () => {
 
     it('does not throw when parent type is valid', () => {
       const childType = { id: 'health_center' };
-      const parent = { _id: 'parent-1', _rev: 'rev-1', type: 'district_hospital' };
+      const parent = { _id: 'parent-1', _rev: 'rev-1', type: CONTACT_TYPES.DISTRICT_HOSPITAL };
       getTypeId.returns('district_hospital');
       isParentOf.returns(true);
 

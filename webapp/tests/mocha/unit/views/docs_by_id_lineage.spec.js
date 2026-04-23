@@ -121,7 +121,7 @@ describe('docs_by_id_lineage view', () => {
       expect(resultHealthCenter[0]).to.deep.equal({ key: [ 'healthCenter', 0 ], value: { _id: 'healthCenter' }});
 
       map.reset();
-      const districtHospital = { _id: 'districtHospital', type: 'district_hospital' };
+      const districtHospital = { _id: 'districtHospital', type: CONTACT_TYPES.DISTRICT_HOSPITAL };
       const resultdistrictHospital = map(districtHospital, true);
       expect(resultdistrictHospital.length).to.equal(1);
       expect(resultdistrictHospital[0])

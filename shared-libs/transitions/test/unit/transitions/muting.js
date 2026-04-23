@@ -140,7 +140,7 @@ describe('Muting transition', () => {
         type: CONTACT_TYPES.CLINIC }, info: { initial_replication_date: 2 }}))
         .to.equal(true);
       chai.expect(transition.filter({
-        doc: { muted: false, type: 'district_hospital' },
+        doc: { muted: false, type: CONTACT_TYPES.DISTRICT_HOSPITAL },
         info: {initial_replication_date: 3 }
       })).to.equal(true);
       chai.expect(transition.filter({
@@ -155,8 +155,8 @@ describe('Muting transition', () => {
       chai.expect(mutingUtils.isMutedInLineage.callCount).to.equal(5);
       chai.expect(mutingUtils.isMutedInLineage.args).to.deep.equal([
         [{ muted: false, type: 'person' }, 1],
-        [{ muted: false, type: CONTACT_TYPES.CLINIC }, 2],
-        [{ muted: false, type: 'district_hospital' }, 3],
+        [{ muted: false, type: CONTACT_TYPES.CLINIC  }, 2],
+        [{ muted: false, type: CONTACT_TYPES.DISTRICT_HOSPITAL }, 3],
         [{ muted: false, type: CONTACT_TYPES.HEALTH_CENTER }, 4],
         [{ muted: false, type: CONTACT_TYPES.CLINIC, contact_type: 'm' }, 7]
       ]);
