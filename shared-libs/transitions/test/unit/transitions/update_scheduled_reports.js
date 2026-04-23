@@ -14,7 +14,7 @@ describe('update_scheduled_reports', () => {
       get: sinon.stub().returns([
         { id: 'person', parents: [CONTACT_TYPES.CLINIC], person: true },
         { id: 'clinic', parents: [CONTACT_TYPES.HEALTH_CENTER] },
-        { id: CONTACT_TYPES.HEALTH_CENTER }
+        { id: 'health_center' }
       ]),
     });
     transition = require('../../../src/transitions/update_scheduled_reports');

@@ -46,7 +46,7 @@ describe('Creating and editing contacts and users', () => {
     await browser.pause(150); // Waiting for animation to avoid blurry screenshots
     await generateScreenshot('new-chw-area', 'new-chw-area');
     await commonPage.closeFastActionList();
-    await commonPage.clickFastActionFAB({ actionId: CONTACT_TYPES.HEALTH_CENTER });
+    await commonPage.clickFastActionFAB({ actionid: 'health_center' });
     await commonEnketoPage.selectRadioButton('Set the Primary Contact', 'Create a new person');
     await commonEnketoPage.setInputValue('Full Name', 'Jane Doe');
     await commonEnketoPage.selectRadioButton('Set the Primary Contact', 'Create a new person');

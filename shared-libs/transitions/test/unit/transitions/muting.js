@@ -129,7 +129,7 @@ describe('Muting transition', () => {
         contact_types: [
           { id: 'person' },
           { id: 'clinic' },
-          { id: CONTACT_TYPES.HEALTH_CENTER },
+          { id: 'health_center' },
           { id: 'district_hospital' }
         ]
       });
@@ -167,7 +167,7 @@ describe('Muting transition', () => {
         contact_types: [
           { id: 'person' },
           { id: 'clinic' },
-          { id: CONTACT_TYPES.HEALTH_CENTER },
+          { id: 'health_center' },
           { id: 'district_hospital' }
         ]
       });

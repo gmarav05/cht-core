@@ -13,7 +13,7 @@ const contacts = [
     reported_date: new Date().getTime()
   },
   {
-    _id: CONTACT_TYPES.HEALTH_CENTER,
+    _id: 'health_center',
     name: 'Health Center',
     type: CONTACT_TYPES.HEALTH_CENTER,
     parent: { _id: 'district_hospital' },
@@ -23,10 +23,10 @@ const contacts = [
     _id: 'clinic',
     name: 'Clinic',
     type: CONTACT_TYPES.CLINIC,
-    parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } },
+    parent: { _id: 'health_center', parent: { _id: 'district_hospital' } },
     contact: {
       _id: 'chw1',
-      parent: { _id: 'clinic1', parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } }
+      parent: { _id: 'clinic1', parent: { _id: 'health_center', parent: { _id: 'district_hospital' } } }
     },
     reported_date: new Date().getTime()
   },
@@ -34,7 +34,7 @@ const contacts = [
     _id: 'chw',
     type: 'person',
     parent: { _id: 'clinic', 
-      parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } },
+      parent: { _id: 'health_center', parent: { _id: 'district_hospital' } } },
     phone: 'phone1',
     name: 'chw1',
     reported_date: new Date().getTime()
@@ -45,7 +45,7 @@ const contacts = [
     type: 'person',
     patient_id: 'patient',
     parent: { _id: 'clinic', 
-      parent: { _id: CONTACT_TYPES.HEALTH_CENTER, parent: { _id: 'district_hospital' } } },
+      parent: { _id: 'health_center', parent: { _id: 'district_hospital' } } },
     reported_date: new Date().getTime()
   }
 ];
