@@ -2270,12 +2270,12 @@ describe('Authorization service', () => {
           { key: ['clinic_id', 0], value: { shortcode: 'clinic', primary_contact: 'juli' } },
         ];
         service.updateContext(true, feed, viewResults).should.equal(true);
-        feed.subjectIds.should.have.deep.members([ 'clinic_id', CONTACT_TYPES.CLINIC ]);
+        feed.subjectIds.should.have.deep.members([ 'clinic_id', 'clinic' ]);
         service.updateContext(true, feed, viewResults).should.equal(false);
 
         feed.replicatePrimaryContacts = true;
         service.updateContext(true, feed, viewResults).should.equal(true);
-        feed.subjectIds.should.have.deep.members([ 'clinic_id', CONTACT_TYPES.CLINIC, 'juli' ]);
+        feed.subjectIds.should.have.deep.members([ 'clinic_id', 'clinic', 'juli' ]);
       });
     });
 

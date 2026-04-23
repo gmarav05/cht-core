@@ -2337,12 +2337,11 @@ describe('db-doc handler', () => {
           const updates = [
             { _id: 'n_put_1', 
               type: CONTACT_TYPES.CLINIC, parent: { _id: 'fixture:offline' }, name: 'n1' }, // new allowed
-            { _id: 'n_put_2', 
-              type: CONTACT_TYPES.CLINIC, parent: { _id: 'fixture:online' }, name: 'n2' }, // new denied
-            _.defaults({ name: 'a1 updated' }, docs[0]), // stored allowed, new allowed
-            _.defaults({ name: 'a2 updated', parent: { _id: 'fixture:online' } }, docs[1]), // stored ok, new denied
-            _.defaults({ name: 'd1 updated' }, docs[2]), // stored denied, new denied
-            _.defaults({ name: 'd2 updated', parent: { _id: 'fixture:offline' } }, docs[3]), // stored denied, new ok
+            { _id: 'n_put_2', type: CONTACT_TYPES.CLINIC, parent: { _id: 'fixture:online' }, name: 'n2' }, // new denied
+            { ...docs[0], name: 'a1 updated' }, // stored allowed, new allowed
+            { ...docs[1], name: 'a2 updated', parent: { _id: 'fixture:online' } }, // stored ok, new denied
+            { ...docs[2], name: 'd1 updated' }, // stored denied, new denied
+            { ...docs[3], name: 'd2 updated', parent: { _id: 'fixture:offline' } }, // stored denied, new ok
           ];
 
           return Promise.all(
