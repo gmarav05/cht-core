@@ -866,7 +866,7 @@ describe('registration', () => {
         }]
       };
       const contactTypes = [
-        { id: 'health_center' },
+        { id: CONTACT_TYPES.HEALTH_CENTER },
         { id: 'clinic', parents: [CONTACT_TYPES.HEALTH_CENTER] },
         { id: 'patient', parents: [CONTACT_TYPES.CLINIC], person: true },
       ];
@@ -962,7 +962,7 @@ describe('registration', () => {
         }]
       };
       const contactTypes = [
-        { id: 'health_center' },
+        { id: CONTACT_TYPES.HEALTH_CENTER },
         { id: 'area_type_1', parents: [CONTACT_TYPES.HEALTH_CENTER] },
         { id: 'area_type_2', parents: [CONTACT_TYPES.HEALTH_CENTER] },
         { id: 'patient', parents: ['area_type_1'], person: true },
@@ -1052,7 +1052,7 @@ describe('registration', () => {
         }]
       };
       const contactTypes = [
-        { id: 'health_center' },
+        { id: CONTACT_TYPES.HEALTH_CENTER },
         { id: 'area_type_1', parents: [CONTACT_TYPES.HEALTH_CENTER] },
         { id: 'area_type_2', parents: [CONTACT_TYPES.HEALTH_CENTER] },
         { id: 'patient', parents: ['area_type_1'], person: true },
@@ -1135,7 +1135,7 @@ describe('registration', () => {
         }]
       };
       const contactTypes = [
-        { id: 'health_center' },
+        { id: CONTACT_TYPES.HEALTH_CENTER },
         { id: 'area_type_1', parents: [CONTACT_TYPES.HEALTH_CENTER] },
         { id: 'area_type_2', parents: [CONTACT_TYPES.HEALTH_CENTER] },
         { id: 'patient', parents: ['area_type_1'], person: true },
@@ -1227,7 +1227,7 @@ describe('registration', () => {
         }]
       };
       const contactTypes = [
-        { id: 'health_center' },
+        { id: CONTACT_TYPES.HEALTH_CENTER },
         { id: 'area_type_1', parents: [CONTACT_TYPES.HEALTH_CENTER] },
         { id: 'area_type_2', parents: [CONTACT_TYPES.HEALTH_CENTER] },
         { id: 'patient', parents: ['area_type_2'], person: true },
@@ -1323,7 +1323,7 @@ describe('registration', () => {
         }]
       };
       const contactTypes = [
-        { id: 'health_center' },
+        { id: CONTACT_TYPES.HEALTH_CENTER },
         { id: 'clinic', parents: [CONTACT_TYPES.HEALTH_CENTER] },
         { id: 'patient', parents: [CONTACT_TYPES.CLINIC], person: true },
       ];
@@ -1599,7 +1599,7 @@ describe('registration', () => {
         }]
       };
       const contactTypes = [
-        { id: 'health_center' },
+        { id: CONTACT_TYPES.HEALTH_CENTER },
         { id: 'clinic_1', parents: [CONTACT_TYPES.HEALTH_CENTER] },
         { id: 'patient', parents: ['clinic_1'], person: true },
       ];
@@ -1697,7 +1697,7 @@ describe('registration', () => {
         }]
       };
       const contactTypes = [
-        { id: 'health_center' },
+        { id: CONTACT_TYPES.HEALTH_CENTER },
         { id: 'clinic', parents: [CONTACT_TYPES.HEALTH_CENTER] },
         { id: 'patient', parents: [CONTACT_TYPES.CLINIC], person: true },
       ];
@@ -1955,7 +1955,7 @@ describe('registration', () => {
       };
       const contactTypes = [
         { id: 'district' },
-        { id: 'health_center', parents: ['district'] },
+        { id: CONTACT_TYPES.HEALTH_CENTER, parents: ['district'] },
         { id: 'local_thing', parents: ['district'] },
         { id: 'clinic', parents: [CONTACT_TYPES.HEALTH_CENTER] },
         { id: 'area', parents: ['local_thing'] },

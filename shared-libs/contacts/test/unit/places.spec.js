@@ -26,7 +26,7 @@ const contactTypes = [
     edit_form: 'form:contact:district_hospital:edit'
   },
   {
-    id: 'health_center',
+    id: CONTACT_TYPES.HEALTH_CENTER,
     name_key: 'contact.type.health_center',
     group_key: 'contact.type.health_center.plural',
     create_key: 'contact.type.health_center.new',

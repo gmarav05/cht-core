@@ -67,7 +67,7 @@ describe('ContactChangeFilter service', () => {
       const change1 = { doc: { type: 'person', parent: { _id: '123'} } };
       const change2 = { doc: { type: 'health_center', parent: { _id: '123'} } };
       const change3 = { doc: { type: CONTACT_TYPES.CLINIC, parent: { _id: '123'} } };
-      const change4 = { doc: { type: 'district_hospital', parent: { _id: '123'} } };
+      const change4 = { doc: { type: CONTACT_TYPES.DISTRICT_HOSPITAL, parent: { _id: '123'} } };
       const contact = { doc: { _id: '123' } };
 
       expect(service.isRelevantContact(change1, contact)).to.equal(true);
@@ -78,7 +78,7 @@ describe('ContactChangeFilter service', () => {
 
     it('returns true for previous children', () => {
       const change1 = { doc: { _id: 'p1', type: 'person' } };
-      const change2 = { doc: { _id: 'o1', type: 'district_hospital' } };
+      const change2 = { doc: { _id: 'o1', type: CONTACT_TYPES.DISTRICT_HOSPITAL } };
       const change3 = { doc: { _id: 'p2', type: CONTACT_TYPES.CLINIC } };
       const contact = {
         doc: { },
@@ -104,7 +104,7 @@ describe('ContactChangeFilter service', () => {
 
     it('returns true for ancestor', () => {
       const change1 = { doc: { _id: '123', type: CONTACT_TYPES.CLINIC} };
-      const change2 = { doc: { _id: '456', type: 'district_hospital'} };
+      const change2 = { doc: { _id: '456', type: CONTACT_TYPES.DISTRICT_HOSPITAL} };
       const change3 = { doc: { _id: '789', type: 'health_center'} };
       const contact = {
         doc: { _id: 'id' },

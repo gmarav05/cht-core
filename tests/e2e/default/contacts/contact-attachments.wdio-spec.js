@@ -16,7 +16,7 @@ describe('Contact form attachments', () => {
   const layersPngPath = path.join(__dirname, '../../../../webapp/src/img/layers.png');
 
   const places = placeFactory.generateHierarchy();
-  const healthCenter = places.get('health_center');
+  const healthCenter = places.get(CONTACT_TYPES.HEALTH_CENTER);
 
   const onlineUser = userFactory.build({
     place: healthCenter._id,
@@ -30,7 +30,7 @@ describe('Contact form attachments', () => {
     create_key: 'contact.type.person_with_attachments.new',
     edit_key: 'contact.type.person_with_attachments.edit',
     primary_contact_key: '',
-    parents: ['health_center', CONTACT_TYPES.CLINIC, 'district_hospital'],
+    parents: [CONTACT_TYPES.HEALTH_CENTER, CONTACT_TYPES.CLINIC, 'district_hospital'],
     icon: 'medic-person',
     create_form: 'form:contact:person_with_attachments:create',
     edit_form: 'form:contact:person_with_attachments:edit',
