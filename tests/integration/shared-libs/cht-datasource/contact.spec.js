@@ -253,7 +253,11 @@ describe('cht-datasource Contact', () => {
       it('returns a page of place type contact ids' +
         ' when limit and cursor is passed and cursor can be reused', async () => {
         const firstPage = await getUuidsPage(Qualifier.byContactType(CONTACT_TYPES.CLINIC), cursor, twoLimit);
-        const secondPage = await getUuidsPage(Qualifier.byContactType(CONTACT_TYPES.CLINIC), firstPage.cursor, twoLimit);
+        const secondPage = await getUuidsPage(
+          Qualifier.byContactType(CONTACT_TYPES.CLINIC),
+          firstPage.cursor, 
+          twoLimit,
+        );
 
         const allData = [ ...firstPage.data, ...secondPage.data ];
 
