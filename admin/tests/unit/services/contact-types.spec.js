@@ -8,8 +8,8 @@ describe('ContactTypes service', () => {
   const HARDCODED_TYPES = [
     CONTACT_TYPES.DISTRICT_HOSPITAL,
     CONTACT_TYPES.HEALTH_CENTER,
-    CONTACT_TYPES.PERSON,
     CONTACT_TYPES.CLINIC,
+    CONTACT_TYPES.PERSON,
   ];
 
   beforeEach(() => {

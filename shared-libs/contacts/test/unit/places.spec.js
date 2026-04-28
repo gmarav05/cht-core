@@ -477,7 +477,7 @@ describe('places controller', () => {
       const place = {
         name: 'HC',
         type: CONTACT_TYPES.DISTRICT_HOSPITAL,
-        contact: CONTACT_TYPES.PERSON
+        contact: 'person'
       };
       getWithLineage.resolves(null);
       const post = db.medic.post;
@@ -485,7 +485,7 @@ describe('places controller', () => {
 
       chai.expect(post.callCount).to.equal(0);
       chai.expect(dataContext.bind.calledOnce).to.be.true;
-      chai.expect(getWithLineage.calledOnceWithExactly(Qualifier.byUuid(CONTACT_TYPES.PERSON))).to.be.true;
+      chai.expect(getWithLineage.calledOnceWithExactly(Qualifier.byUuid('person'))).to.be.true;
     });
 
     it('rejects contacts with wrong type', () => {

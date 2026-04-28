@@ -202,7 +202,7 @@ describe('Person API', () => {
       await expect(utils.request(opts)).to.be.rejectedWith('403 - {"code":403,"error":"Insufficient privileges"}');
     });
 
-    it('throws 400 error when CONTACT_TYPES.PERSON is invalid', async () => {
+    it('throws 400 error when personType is invalid', async () => {
       const queryParams = {
         type: invalidContactType
       };

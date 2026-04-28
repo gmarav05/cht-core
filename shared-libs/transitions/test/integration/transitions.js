@@ -484,13 +484,8 @@ describe('functional transitions', () => {
         _id: 'contact1',
         phone: 'phone1',
         name: 'Merkel',
-<<<<<<< HEAD
         type: CONTACT_TYPES.PERSON,
-        parent: { _id: 'clinic', type: 'clinic', name: 'Clinic' },
-=======
-        type: 'person',
         parent: { _id: 'clinic', type: CONTACT_TYPES.CLINIC, name: 'Clinic' },
->>>>>>> upstream/master
         reported_date: new Date().valueOf()
       };
       const contact3 = {

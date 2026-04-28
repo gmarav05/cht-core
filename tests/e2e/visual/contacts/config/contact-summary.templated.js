@@ -39,7 +39,6 @@ const thisContact = contact;
 const thisLineage = lineage;
 // eslint-disable-next-line no-undef
 const allReports = reports;
-const { CONTACT_TYPES } = require('@medic/constants');
 
 const context = {
   alive: isAlive(thisContact),

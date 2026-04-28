@@ -2491,9 +2491,11 @@ describe('Muting Transition', () => {
         lineageModelGenerator.docs.resolves(hydratedDocs);
         contactMutedService.getMuted.returns(true);
         placeHierarchyService.getDescendants.resolves([
-          { id: 'old_place', doc: { _id: 'old_place', type: CONTACT_TYPES.CLINIC, muted: 100, parent: { _id: 'district' } } },
+          { id: 'old_place', doc: { _id: 'old_place', 
+            type: CONTACT_TYPES.CLINIC, muted: 100, parent: { _id: 'district' } } },
           { id: 'contact1', doc: { _id: 'contact1', type: PERSON, muted: 100, parent: { _id: 'district' } } },
-          { id: 'old_place2', doc: { _id: 'old_place2', type: CONTACT_TYPES.CLINIC, muted: 100, parent: { _id: 'district' } } },
+          { id: 'old_place2', doc: { _id: 'old_place2', 
+            type: CONTACT_TYPES.CLINIC, muted: 100, parent: { _id: 'district' } } },
         ]);
         getContact.withArgs(Qualifier.byUuid('district')).resolves({
           _id: 'district',

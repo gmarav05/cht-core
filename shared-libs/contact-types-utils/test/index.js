@@ -447,7 +447,7 @@ describe('ContactType Utils', () => {
 
       const result = utils.getContactTypeIds(config);
 
-      chai.expect(result).to.deep.equal([CONTACT_TYPES.PERSON, 'place', 'xyz']);
+      chai.expect(result).to.deep.equal(['person', 'place', 'xyz']);
     });
 
     it('should return hardcoded types when config is null', () => {
@@ -493,7 +493,7 @@ describe('ContactType Utils', () => {
 
       const result = utils.getContactTypeIds(config);
 
-      chai.expect(result).to.deep.equal([undefined, CONTACT_TYPES.PERSON, undefined]);
+      chai.expect(result).to.deep.equal([undefined, 'person', undefined]);
     });
   });
 

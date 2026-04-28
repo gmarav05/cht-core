@@ -11,7 +11,6 @@ import { CHTDatasourceService } from '@mm-services/cht-datasource.service';
 import { CHTDatasourceService as CHTDatasourceServiceStub } from './stubs/cht-datasource.service';
 import { CONTACT_TYPES } from '@medic/constants';
 
-const { PERSON } = CONTACT_TYPES;
 
 const DEFAULT_FORM_ID = 'cht-form-id';
 
@@ -27,8 +26,8 @@ export class AppComponent {
   private readonly HARDCODED_TYPES = [
     CONTACT_TYPES.DISTRICT_HOSPITAL,
     CONTACT_TYPES.HEALTH_CENTER,
-    'clinic',
-    PERSON
+    CONTACT_TYPES.CLINIC,
+    CONTACT_TYPES.PERSON,
   ];
 
   private readonly chtDataSourceService: CHTDatasourceServiceStub;
