@@ -298,12 +298,7 @@ describe('ContactType Utils', () => {
     });
 
     it('should return falsy for non-existing contact type', () => {
-<<<<<<< HEAD
       chai.expect(utils.getContactType(settings, { type: DOC_TYPES.CONTACT })).to.equal(undefined);
-=======
-      chai.expect(utils.getContactType(settings, 
-        { type: DOC_TYPES.CONTACT })).to.equal(undefined);
->>>>>>> b43f95a17 (fix: add missing imports and fix line length issues)
       chai.expect(utils.getContactType(settings, 
         { type: DOC_TYPES.CONTACT, contact_type: 'something' })).to.equal(undefined);
     });
@@ -312,12 +307,7 @@ describe('ContactType Utils', () => {
       chai.expect(utils.getContactType(settings, { type: 'person' })).to.equal(personType);
       chai.expect(utils.getContactType(settings, 
         { type: DOC_TYPES.CONTACT, contact_type: 'person' })).to.equal(personType);
-<<<<<<< HEAD
       chai.expect(utils.getContactType(settings, { type: DOC_TYPES.CONTACT, contact_type: 'my_health_center' }))
-=======
-      chai.expect(utils.getContactType(settings, 
-        { type: DOC_TYPES.CONTACT, contact_type: 'my_health_center' }))
->>>>>>> b43f95a17 (fix: add missing imports and fix line length issues)
         .to.equal(healthCenterType);
       chai.expect(utils.getContactType(settings, { type: 'my_health_center' })).to.equal(healthCenterType);
     });
@@ -343,12 +333,7 @@ describe('ContactType Utils', () => {
       chai.expect(utils.isPerson(settings, { type: clinicType.id })).to.equal(false);
       chai.expect(utils.isPerson(settings, 
         { type: DOC_TYPES.CONTACT, contact_type: districtHospitalType.id })).to.equal(false);
-<<<<<<< HEAD
       chai.expect(utils.isPerson(settings, { type: DOC_TYPES.CONTACT, contact_type: clinicType.id })).to.equal(false);
-=======
-      chai.expect(utils.isPerson(settings, 
-        { type: DOC_TYPES.CONTACT, contact_type: clinicType.id })).to.equal(false);
->>>>>>> b43f95a17 (fix: add missing imports and fix line length issues)
     });
 
     it('should return true for person types', () => {

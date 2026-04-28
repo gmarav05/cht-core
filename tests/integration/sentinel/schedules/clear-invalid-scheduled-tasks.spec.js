@@ -29,13 +29,8 @@ const contacts = [
   {
     _id: 'clinic1',
     name: 'clinic1',
-<<<<<<< HEAD
-    type: 'contact',
-    contact_type: CONTACT_TYPES.CLINIC,
-=======
     type: DOC_TYPES.CONTACT,
-    contact_type: 'clinic',
->>>>>>> 1184eab96 (fix: replace 'contact' magic string with DOC_TYPES.CONTACT constant)
+    contact_type: CONTACT_TYPES.CLINIC,
     place_id: 'the_clinic',
     parent: { _id: 'health_center', parent: { _id: 'district_hospital' } },
     contact: {
