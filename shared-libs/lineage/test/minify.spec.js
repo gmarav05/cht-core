@@ -23,7 +23,7 @@ describe('Minify', function() {
     it('removes everything except id', function() {
       const parent = {
         _id: 'abc',
-        type: 'clinic',
+        type: CONTACT_TYPES.CLINIC,
         parent: {
           _id: 'def',
           type: CONTACT_TYPES.PERSON
@@ -185,7 +185,7 @@ describe('Minify', function() {
     it('errors out on potential infinite recursion', function() {
       const doc = {
         _id: 'same_id',
-        type: 'clinic'
+        type: CONTACT_TYPES.CLINIC
       };
       doc.parent = doc;
 

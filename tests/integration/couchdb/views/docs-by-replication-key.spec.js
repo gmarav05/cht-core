@@ -43,7 +43,7 @@ describe('docs_by_replication_key', () => {
     {
       _id: 'testuserplace',
       reported_date: 1,
-      type: 'clinic',
+      type: CONTACT_TYPES.CLINIC,
     },
     {
       _id: 'test_kujua_message',

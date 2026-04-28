@@ -333,7 +333,7 @@ describe('local person', () => {
       const parent = {
         ...minifiedParent,
         _rev: '1',
-        type: 'clinic'
+        type: CONTACT_TYPES.CLINIC
       } as const;
       const personDoc = { hello: 'world' };
 

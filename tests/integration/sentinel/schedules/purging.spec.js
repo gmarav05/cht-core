@@ -8,7 +8,7 @@ const password = 'SuperS3creT';
 const docs = [
   {
     _id: 'clinic1',
-    type: 'clinic',
+    type: CONTACT_TYPES.CLINIC,
     name: 'Clinic 1',
     parent: {},
     reported_date: 100,

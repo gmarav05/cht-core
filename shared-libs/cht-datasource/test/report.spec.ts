@@ -85,7 +85,7 @@ describe('report', () => {
           type: PERSON,
           parent: {
             _id: 'parent_id',
-            type: 'clinic'
+            type: CONTACT_TYPES.CLINIC
           }
         }
       } as Report.v1.ReportWithLineage;

@@ -41,7 +41,7 @@ describe('cht-datasource Contact', () => {
     notes: commonWord
   });
   const place0 = utils.deepFreeze({
-    ...placeMap.get('clinic'),
+    ...placeMap.get(CONTACT_TYPES.CLINIC),
     notes: commonWord,
     contact: {_id: contact0._id},
     parent: {
@@ -59,20 +59,19 @@ describe('cht-datasource Contact', () => {
       },
     }, phone: '1234567890', role: 'patient', short_name: 'Mary'
   }));
-  const placeType = 'clinic';
   const clinic1 = utils.deepFreeze(placeFactory.place().build({
     parent: {
       _id: place1._id, parent: {
         _id: place2._id
       }
-    }, type: placeType, contact: {}, name: 'clinic1'
+    }, type: CONTACT_TYPES.CLINIC, contact: {}, name: 'clinic1'
   }));
   const clinic2 = utils.deepFreeze(placeFactory.place().build({
     parent: {
       _id: place1._id, parent: {
         _id: place2._id
       }
-    }, type: placeType, contact: {}, name: 'clinic2'
+    }, type: CONTACT_TYPES.CLINIC, contact: {}, name: 'clinic2'
   }));
 
   const userNoPerms = utils.deepFreeze(userFactory.build({
@@ -193,7 +192,7 @@ describe('cht-datasource Contact', () => {
       });
 
       it('returns a page of place type contact for no limit and cursor passed', async () => {
-        const responsePage = await getUuidsPage(Qualifier.byContactType(placeType));
+        const responsePage = await getUuidsPage(Qualifier.byContactType(CONTACT_TYPES.CLINIC));
         const responsePlaces = responsePage.data;
         const responseCursor = responsePage.cursor;
 
@@ -224,9 +223,9 @@ describe('cht-datasource Contact', () => {
       });
 
       it('returns a page of place type contact with freetext for no limit and cursor passed', async () => {
-        const freetext = 'clinic';
+        const freetext = CONTACT_TYPES.CLINIC;
         const responsePage = await getUuidsPage({
-          ...Qualifier.byContactType(placeType), ...Qualifier.byFreetext(freetext)
+          ...Qualifier.byContactType(CONTACT_TYPES.CLINIC), ...Qualifier.byFreetext(freetext)
         });
         const responsePlaces = responsePage.data;
         const responseCursor = responsePage.cursor;
@@ -256,8 +255,12 @@ describe('cht-datasource Contact', () => {
 
       it('returns a page of place type contact ids' +
         ' when limit and cursor is passed and cursor can be reused', async () => {
-        const firstPage = await getUuidsPage(Qualifier.byContactType(placeType), cursor, twoLimit);
-        const secondPage = await getUuidsPage(Qualifier.byContactType(placeType), firstPage.cursor, twoLimit);
+        const firstPage = await getUuidsPage(Qualifier.byContactType(CONTACT_TYPES.CLINIC), cursor, twoLimit);
+        const secondPage = await getUuidsPage(
+          Qualifier.byContactType(CONTACT_TYPES.CLINIC),
+          firstPage.cursor, 
+          twoLimit,
+        );
 
         const allData = [ ...firstPage.data, ...secondPage.data ];
 
@@ -307,10 +310,10 @@ describe('cht-datasource Contact', () => {
       it('returns a page of place type contact ids' +
         ' when limit and cursor is passed and cursor can be reused', async () => {
         const firstPage = await getUuidsPage({
-          ...Qualifier.byContactType(placeType), ...Qualifier.byFreetext(placeFreetext),
+          ...Qualifier.byContactType(CONTACT_TYPES.CLINIC), ...Qualifier.byFreetext(placeFreetext),
         }, cursor, twoLimit);
         const secondPage = await getUuidsPage({
-          ...Qualifier.byContactType(placeType), ...Qualifier.byFreetext(placeFreetext),
+          ...Qualifier.byContactType(CONTACT_TYPES.CLINIC), ...Qualifier.byFreetext(placeFreetext),
         }, firstPage.cursor, twoLimit);
         const expectedContactIds = [ place0._id, clinic1._id, clinic2._id ];
 
@@ -363,7 +366,7 @@ describe('cht-datasource Contact', () => {
       it('throws error when limit is invalid', async () => {
         await expect(
           getUuidsPage({
-            ...Qualifier.byContactType(placeType),
+            ...Qualifier.byContactType(CONTACT_TYPES.CLINIC),
             ...Qualifier.byFreetext(placeFreetext)
           }, cursor, invalidLimit)
         ).to.be.rejectedWith(
@@ -374,7 +377,7 @@ describe('cht-datasource Contact', () => {
       it('throws error when cursor is invalid', async () => {
         await expect(
           getUuidsPage({
-            ...Qualifier.byContactType(placeType),
+            ...Qualifier.byContactType(CONTACT_TYPES.CLINIC),
             ...Qualifier.byFreetext(placeFreetext),
           }, invalidCursor, twoLimit)
         ).to.be.rejectedWith(

@@ -30,7 +30,7 @@ describe('Bulk Docs utils', () => {
     it('updates clinic deleted person is contact for', () => {
       const clinic = {
         _id: 'b',
-        type: 'clinic',
+        type: CONTACT_TYPES.CLINIC,
         contact: {
           _id: 'a',
           name: 'sally'
@@ -57,7 +57,7 @@ describe('Bulk Docs utils', () => {
     it('does not update clinic when id does not match', () => {
       const clinic = {
         _id: 'b',
-        type: 'clinic',
+        type: CONTACT_TYPES.CLINIC,
         contact: {
           _id: 'c',
           name: 'sally'
@@ -82,7 +82,7 @@ describe('Bulk Docs utils', () => {
     it('returns a map from parents back to their child docs', () => {
       const clinic = {
         _id: 'b',
-        type: 'clinic',
+        type: CONTACT_TYPES.CLINIC,
         contact: {
           _id: 'a',
           name: 'sally'
@@ -120,7 +120,7 @@ describe('Bulk Docs utils', () => {
     it('handles the parents contact being undefined - #2416', () => {
       const clinic = {
         _id: 'b',
-        type: 'clinic'
+        type: CONTACT_TYPES.CLINIC
       };
       const person = {
         _id: 'a',
@@ -143,7 +143,7 @@ describe('Bulk Docs utils', () => {
     it('generates errors on duplicate docs', () => {
       const clinic = {
         _id: 'b',
-        type: 'clinic',
+        type: CONTACT_TYPES.CLINIC,
         contact: {
           name: 'sally',
           phone: '+555'

@@ -276,7 +276,7 @@ describe('due tasks', () => {
         type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           contact: {
             _id: 'c',
             type: CONTACT_TYPES.PERSON,
@@ -374,7 +374,7 @@ describe('due tasks', () => {
         type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           contact: {
             _id: 'c',
             type: CONTACT_TYPES.PERSON,
@@ -467,7 +467,7 @@ describe('due tasks', () => {
         type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           contact: {
             _id: 'c',
             type: CONTACT_TYPES.PERSON,
@@ -546,7 +546,7 @@ describe('due tasks', () => {
         type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           contact: {
             _id: 'c',
             type: CONTACT_TYPES.PERSON,
@@ -657,7 +657,7 @@ describe('due tasks', () => {
         type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           contact: {
             _id: 'c',
             type: CONTACT_TYPES.PERSON,
@@ -775,7 +775,7 @@ describe('due tasks', () => {
         type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           contact: {
             _id: 'c',
             type: CONTACT_TYPES.PERSON,
@@ -882,7 +882,7 @@ describe('due tasks', () => {
         type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           contact: {
             _id: 'c',
             type: CONTACT_TYPES.PERSON,
@@ -996,7 +996,7 @@ describe('due tasks', () => {
         type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           contact: {
             _id: 'c',
             type: CONTACT_TYPES.PERSON,
@@ -1215,7 +1215,7 @@ describe('due tasks', () => {
         type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           contact: {
             _id: 'c',
             type: CONTACT_TYPES.PERSON,
@@ -1455,7 +1455,7 @@ describe('due tasks', () => {
         type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           contact: {
             _id: 'c',
             type: CONTACT_TYPES.PERSON,
@@ -1582,7 +1582,7 @@ describe('due tasks', () => {
         type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           contact: {
             _id: 'c',
             type: CONTACT_TYPES.PERSON,
@@ -1716,7 +1716,7 @@ describe('due tasks', () => {
         type: CONTACT_TYPES.PERSON,
         parent: {
           _id: 'b',
-          type: 'clinic',
+          type: CONTACT_TYPES.CLINIC,
           contact: {
             _id: 'c',
             type: CONTACT_TYPES.PERSON,

@@ -637,7 +637,7 @@ describe('functional schedules', () => {
       }]
     });
 
-    const place = { muted: true, parent: { contact: { phone: '+5551596' } }, type: 'clinic' };
+    const place = { muted: true, parent: { contact: { phone: '+5551596' } }, type: CONTACT_TYPES.CLINIC };
     const doc = {
       reported_date: moment().toISOString(),
       form: 'PATR',
@@ -695,7 +695,7 @@ describe('functional schedules', () => {
       }]
     });
 
-    const place = { muted: false, parent: { contact: { phone: '+5551596' } }, type: 'clinic' };
+    const place = { muted: false, parent: { contact: { phone: '+5551596' } }, type: CONTACT_TYPES.CLINIC };
     const doc = {
       reported_date: moment().toISOString(),
       form: 'PATR',

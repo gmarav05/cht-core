@@ -6,7 +6,7 @@ const { CONTACT_TYPES } = require('@medic/constants');
 
 const CLINIC = utils.deepFreeze({
   _id: 'clinic',
-  type: 'clinic',
+  type: CONTACT_TYPES.CLINIC,
 });
 
 const ORIGINAL_PERSON = utils.deepFreeze({
