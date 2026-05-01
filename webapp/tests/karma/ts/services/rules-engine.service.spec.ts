@@ -400,7 +400,8 @@ describe('RulesEngineService', () => {
       expect(result).to.be.true;
       const changeFeed = changesService.subscribe.args[0][0];
       expect(changeFeed.filter({ id: 'id' })).to.be.false;
-      expect(changeFeed.filter({ id: 'id', doc: { _id: 'task', type: DOC_TYPES.TASK, requester: 'requester' } })).to.be.false;
+      expect(changeFeed.filter({ id: 'id', doc: { _id: 'task', 
+        type: DOC_TYPES.TASK, requester: 'requester' } })).to.be.false;
       expect(changeFeed.filter(changeFeedFormat({ _id: 'doc' }))).to.be.false;
       expect(changeFeed.filter(changeFeedFormat({ _id: 'a', 
         type: DOC_TYPES.DATA_RECORD, form: undefined }))).to.be.false;

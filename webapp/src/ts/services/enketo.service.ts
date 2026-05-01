@@ -640,7 +640,7 @@ interface XmlFormContext {
   userContactSummary?: ContactSummary;
 }
 
-export type FormType = 'contact' | 'report' |  | 'training-card';
+export type FormType = 'contact' | 'report' | 'task' | 'training-card';
 
 export interface EnketoFormContext {
   readonly selector: string;
