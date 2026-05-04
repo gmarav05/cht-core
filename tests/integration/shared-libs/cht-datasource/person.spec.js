@@ -57,7 +57,7 @@ describe('cht-datasource Person', () => {
     roles: ['chw']
   }));
   const allDocItems = [contact0, contact1, contact2, place0, place1, place2, patient];
-  const dataContext = getRemoteDataContext(utils.getOrigin());
+  const dataContext = getRemoteDataContext({ getAll: () => ({}) }, utils.getOrigin());
   const e2eTestUser = {
     '_id': 'e2e_contact_test_id',
     'type': CONTACT_TYPES.PERSON,
